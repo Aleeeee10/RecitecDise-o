@@ -1,114 +1,146 @@
-<!-- Sección de tarjetas informativas -->
-<section class="bg-white py-16 px-6">
-  <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-12">
-  <h2 class="titulo-central">Aprende sobre los residuos electrónicos</h2>
-  <p class="subtexto-central">Explora los conceptos clave para comprender su correcta gestión.</p>
-</div>
-<section class="carousel-section">
-  <div class="carousel-container">
-    <div class="carousel-slide fade">
-      <img src="assets/img/img1.jpeg" alt="Imagen 1">
+<!-- ================ HERO SECTION CON CAROUSEL ================ -->
+<section class="hero-section" #heroSection>
+  <div class="hero-carousel">
+    <div class="carousel-container">
+      <div class="carousel-slide" 
+           *ngFor="let image of carouselImages; let i = index"
+           [class.active]="i === currentSlide"
+           [@fadeInScale]>
+        <div class="slide-content">
+          <img [src]="image.src" [alt]="image.title" 
+               class="slide-image"
+               (error)="onImageError($event)"
+               loading="lazy">
+          <div class="slide-overlay">
+            <div class="slide-text">
+              <h1 class="slide-title">{{ image.title }}</h1>
+              <p class="slide-subtitle">{{ image.subtitle }}</p>
+              <button class="btn hero-btn">
+                Descubre más 🚀
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="carousel-slide fade">
-      <img src="assets/img/img2.jpeg" alt="Imagen 2">
+    
+    <!-- Controles del carousel -->
+    <div class="carousel-controls">
+      <button class="carousel-btn prev" (click)="prevSlide()">❮</button>
+      <button class="carousel-btn next" (click)="nextSlide()">❯</button>
     </div>
-    <div class="carousel-slide fade">
-      <img src="assets/img/img1.jpeg" alt="Imagen 3">
+    
+    <!-- Indicadores -->
+    <div class="carousel-indicators">
+      <button *ngFor="let image of carouselImages; let i = index"
+              class="indicator"
+              [class.active]="i === currentSlide"
+              (click)="goToSlide(i)">
+      </button>
     </div>
+  </div>
+  
+  <!-- Elementos decorativos flotantes -->
+  <div class="floating-elements">
+    <div class="floating-icon" style="--delay: 0s">⚡</div>
+    <div class="floating-icon" style="--delay: 1s">♻️</div>
+    <div class="floating-icon" style="--delay: 2s">🌱</div>
+    <div class="floating-icon" style="--delay: 3s">💡</div>
+    <div class="floating-icon" style="--delay: 4s">🔋</div>
   </div>
 </section>
 
-    <div class="tarjetas-horizontal">
-      <!-- Tarjeta AEE -->
-      <div class="card group">
-        <div class="card-inner">
-          <div class="card-front formato-tarjeta">
-            <img src="assets/img/aparatos_electronicos.png" alt="AEE" class="icon-img-ajustada" />
-            <h3 class="card-title">AEE</h3>
-          </div>
-          <div class="card-back formato-tarjeta-back">
-            <p>
-              Aparatos eléctricos y electrónicos que funcionan con corriente eléctrica o campos electromagnéticos.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tarjeta COP -->
-      <div class="card group">
-        <div class="card-inner">
-          <div class="card-front formato-tarjeta">
-            <img src="assets/img/cops.png" alt="COP" class="icon-img-ajustada" />
-            <h3 class="card-title">COP</h3>
-          </div>
-          <div class="card-back formato-tarjeta-back">
-            <p>
-              Contaminantes Orgánicos Persistentes, sustancias tóxicas que se acumulan en el ambiente y seres vivos.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tarjeta RAEE -->
-      <div class="card group">
-        <div class="card-inner">
-          <div class="card-front formato-tarjeta">
-            <img src="assets/img/RAEE.jpg" alt="RAEE" class="icon-img-ajustada" />
-            <h3 class="card-title">RAEE</h3>
-          </div>
-          <div class="card-back formato-tarjeta-back">
-            <p>
-              Residuos de AEE que han dejado de funcionar o han sido descartados por obsolescencia.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- Sección de Responsabilidad Extendida del Productor -->
-<section class="bg-gray-50 py-16 px-6">
-  <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold text-blue-900 relative inline-block heading-underline">
-        Responsabilidad Extendida del Productor (REP)
+<!-- ================ SECCION DE INTRODUCCION ================ -->
+<section class="intro-section" [@fadeInScale]>
+  <div class="container">
+    <div class="intro-content">
+      <h2 class="section-title">
+        🌍 Transformemos el mundo digital en sostenible
       </h2>
-      <p class="mt-4 text-gray-600 text-lg">
-        Descubre el papel de cada uno en la cadena de gestión de RAEE.
+      <p class="section-description">
+        Descubre cómo los residuos electrónicos pueden convertirse en recursos valiosos. 
+        Aprende sobre la gestión responsable de tecnología y únete al cambio hacia un futuro más verde.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================ TARJETAS INFORMATIVAS ================ -->
+<section class="cards-section" id="cards">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">
+        📚 Conceptos clave sobre residuos electrónicos
+      </h2>
+      <p class="section-subtitle">
+        Explora los términos fundamentales para entender la gestión responsable de tecnología
       </p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-      <div class="bg-white rounded-lg shadow p-6 text-center hover:shadow-xl transition">
-        <img src="assets/img/100.png" alt="Productor" class="mx-auto mb-4 w-40 object-contain" />
-        <h3 class="text-lg font-semibold mb-2 text-blue-900">Productor</h3>
-        <p class="text-sm leading-relaxed text-gray-700">
-          Diseñan, fabrican o importan dispositivos al mercado. Son el punto inicial de la cadena.
-        </p>
-      </div>
+    <div class="cards-grid" [@slideInStagger]="tarjetas.length">
+      <div class="card-3d" 
+           *ngFor="let tarjeta of tarjetas; let i = index"
+           [style.animation-delay]="i * 0.15 + 's'">
+        <div class="card-inner" 
+             [class.flipped]="tarjeta.flipped"
+             (click)="toggleFlip(tarjeta)"
+             [@cardFlip]="tarjeta.flipped ? 'back' : 'front'">
+          
+          <!-- Frente de la tarjeta -->
+          <div class="card-front" [style.border-color]="tarjeta.color">
+            <div class="card-header" [style.background]="tarjeta.color">
+              <div class="card-icon">{{ tarjeta.icon }}</div>
+              <div class="card-number">{{ String(tarjeta.id).padStart(2, '0') }}</div>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">{{ tarjeta.titulo }}</h3>
+              <p class="card-subtitle">{{ tarjeta.subtitulo }}</p>
+              <div class="card-image">
+                <img [src]="tarjeta.imagen" [alt]="tarjeta.titulo" 
+                     (error)="onImageError($event)"
+                     loading="lazy">
+              </div>
+              <div class="card-footer">
+                <span class="learn-more">Toca para aprender más</span>
+                <div class="flip-indicator">🔄</div>
+              </div>
+            </div>
+          </div>
 
-      <div class="bg-white rounded-lg shadow p-6 text-center hover:shadow-xl transition">
-        <img src="assets/img/200.png" alt="Distribuidor" class="mx-auto mb-4 w-40 object-contain" />
-        <h3 class="text-lg font-semibold mb-2 text-blue-900">Distribuidor</h3>
-        <p class="text-sm leading-relaxed text-gray-700">
-          Comercializan los productos a través de tiendas o plataformas hacia los usuarios finales.
-        </p>
-      </div>
-
-      <div class="bg-white rounded-lg shadow p-6 text-center hover:shadow-xl transition">
-        <img src="assets/img/300.png" alt="Consumidor" class="mx-auto mb-4 w-40 object-contain" />
-        <h3 class="text-lg font-semibold mb-2 text-blue-900">Consumidor</h3>
-        <p class="text-sm leading-relaxed text-gray-700">
-          Es quien utiliza el dispositivo y decide su destino cuando ya no funciona o no lo necesita.
-        </p>
+          <!-- Reverso de la tarjeta -->
+          <div class="card-back" [style.background]="tarjeta.color">
+            <div class="back-content">
+              <div class="back-icon">{{ tarjeta.icon }}</div>
+              <h3 class="back-title">{{ tarjeta.titulo }}</h3>
+              <p class="back-description">{{ tarjeta.descripcion }}</p>
+              <div class="back-footer">
+                <span class="back-action">Toca para volver</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
-<section class="section-white-bg max-w-7xl mx-auto py-16 px-6">
-  <!-- contenido de esa sección -->
+
+<!-- ================ CALL TO ACTION ================ -->
+<section class="cta-section" [@fadeInScale]>
+  <div class="container">
+    <div class="cta-content">
+      <h2 class="cta-title">¿Listo para hacer la diferencia?</h2>
+      <p class="cta-description">
+        Únete a nuestra misión de crear un mundo más sostenible a través de la gestión responsable de residuos electrónicos.
+      </p>
+      <div class="cta-buttons">
+        <button class="btn btn-primary" routerLink="/servicios">
+          🔧 Nuestros Servicios
+        </button>
+        <button class="btn btn-secondary" routerLink="/informacion">
+          📖 Más Información
+        </button>
+      </div>
+    </div>
+  </div>
 </section>
 

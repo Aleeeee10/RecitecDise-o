@@ -1,23 +1,29 @@
-<nav class="navbar">
+<nav class="navbar" [@fadeInOut]>
   <div class="navbar-container">
     <div class="navbar-left">
-      <span class="project-title">RAEE Proyecto</span>
+      <span class="project-title">🔄 RAEE Proyecto</span>
     </div>
 
-    <div class="navbar-center">
-      <a routerLink="/inicio" routerLinkActive="active">Inicio</a>
-      <a routerLink="/servicios" routerLinkActive="active">Servicios</a>
-      <a routerLink="/sobre-nosotros" routerLinkActive="active">Sobre Nosotros</a>
-      <a routerLink="/informacion" routerLinkActive="active">Información</a>
+    <div class="navbar-center" [class.menu-open]="menuOpen">
+      <a routerLink="/inicio" routerLinkActive="active" (click)="closeMenu()">🏠 Inicio</a>
+      <a routerLink="/servicios" routerLinkActive="active" (click)="closeMenu()">⚙️ Servicios</a>
+      <a routerLink="/sobre-nosotros" routerLinkActive="active" (click)="closeMenu()">👥 Sobre Nosotros</a>
+      <a routerLink="/informacion" routerLinkActive="active" (click)="closeMenu()">ℹ️ Información</a>
     </div>
 
     <div class="navbar-right">
-      <img src="assets/img/img1" alt="Logo RAEE" class="navbar-logo" />
+      <button class="menu-toggle" (click)="toggleMenu()" [class.active]="menuOpen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <img src="assets/img/img1.jpeg" alt="Logo RAEE" class="navbar-logo" />
     </div>
   </div>
 </nav>
 
-<!-- ESTO ES CLAVE PARA MOSTRAR LAS PANTALLAS DE ANGULAR -->
-<router-outlet></router-outlet>
+<main [@routeAnimations]="getRouteAnimationData()">
+  <router-outlet></router-outlet>
+</main>
 
-<app-footer></app-footer>
+<app-footer [@slideUp]></app-footer>
