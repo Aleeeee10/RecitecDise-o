@@ -31,9 +31,8 @@ html {
 
 body {
   font-family: 'Poppins', 'Inter', sans-serif;
-  background: var(--gradient-primary);
-  background-attachment: fixed;
-  background-size: cover;
+  background: #ffffff; /* fondo blanco sólido sin degradado */
+  /* Eliminado background-attachment y background-size ya no son necesarios */
   color: var(--text-dark);
   line-height: 1.6;
   overflow-x: hidden;
@@ -41,7 +40,7 @@ body {
   position: relative;
 }
 
-/* ================ EFECTOS DE FONDO DINAMICO ================ */
+/* ================ EFECTOS DE FONDO DINAMICO (Opcional, puedes comentar si no quieres) ================ */
 body::before {
   content: '';
   position: fixed;

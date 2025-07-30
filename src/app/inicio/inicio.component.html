@@ -1,146 +1,63 @@
-<!-- ================ HERO SECTION CON CAROUSEL ================ -->
-<section class="hero-section" #heroSection>
-  <div class="hero-carousel">
-    <div class="carousel-container">
-      <div class="carousel-slide" 
-           *ngFor="let image of carouselImages; let i = index"
-           [class.active]="i === currentSlide"
-           [@fadeInScale]>
-        <div class="slide-content">
-          <img [src]="image.src" [alt]="image.title" 
-               class="slide-image"
-               (error)="onImageError($event)"
-               loading="lazy">
-          <div class="slide-overlay">
-            <div class="slide-text">
-              <h1 class="slide-title">{{ image.title }}</h1>
-              <p class="slide-subtitle">{{ image.subtitle }}</p>
-              <button class="btn hero-btn">
-                Descubre más 🚀
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Controles del carousel -->
-    <div class="carousel-controls">
-      <button class="carousel-btn prev" (click)="prevSlide()">❮</button>
-      <button class="carousel-btn next" (click)="nextSlide()">❯</button>
-    </div>
-    
-    <!-- Indicadores -->
-    <div class="carousel-indicators">
-      <button *ngFor="let image of carouselImages; let i = index"
-              class="indicator"
-              [class.active]="i === currentSlide"
-              (click)="goToSlide(i)">
-      </button>
-    </div>
-  </div>
-  
-  <!-- Elementos decorativos flotantes -->
-  <div class="floating-elements">
-    <div class="floating-icon" style="--delay: 0s">⚡</div>
-    <div class="floating-icon" style="--delay: 1s">♻️</div>
-    <div class="floating-icon" style="--delay: 2s">🌱</div>
-    <div class="floating-icon" style="--delay: 3s">💡</div>
-    <div class="floating-icon" style="--delay: 4s">🔋</div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Bienvenido a RAEE</h1>
+    <p>Tu plataforma para el reciclaje responsable de residuos electrónicos.</p>
+    <button routerLink="/sobre-nosotros">Conoce más sobre RAEE</button>
   </div>
 </section>
 
-<!-- ================ SECCION DE INTRODUCCION ================ -->
-<section class="intro-section" [@fadeInScale]>
-  <div class="container">
-    <div class="intro-content">
-      <h2 class="section-title">
-        🌍 Transformemos el mundo digital en sostenible
-      </h2>
-      <p class="section-description">
-        Descubre cómo los residuos electrónicos pueden convertirse en recursos valiosos. 
-        Aprende sobre la gestión responsable de tecnología y únete al cambio hacia un futuro más verde.
-      </p>
+<!-- SECCIÓN DE BENEFICIOS -->
+<section class="beneficios">
+  <h2>¿Por qué reciclar RAEE?</h2>
+  <div class="beneficios-grid">
+    <div class="beneficio-card">
+      <i class="fas fa-recycle"></i>
+      <h3>Impacto Ambiental</h3>
+      <p>Reducimos la contaminación y protegemos los recursos naturales.</p>
+    </div>
+    <div class="beneficio-card">
+      <i class="fas fa-laptop-house"></i>
+      <h3>Economía Circular</h3>
+      <p>Reutilizamos componentes para prolongar su ciclo de vida.</p>
+    </div>
+    <div class="beneficio-card">
+      <i class="fas fa-users"></i>
+      <h3>Conciencia Ciudadana</h3>
+      <p>Promovemos educación ambiental y responsabilidad social.</p>
     </div>
   </div>
 </section>
 
-<!-- ================ TARJETAS INFORMATIVAS ================ -->
-<section class="cards-section" id="cards">
-  <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">
-        📚 Conceptos clave sobre residuos electrónicos
-      </h2>
-      <p class="section-subtitle">
-        Explora los términos fundamentales para entender la gestión responsable de tecnología
-      </p>
+<!-- SECCIÓN DE FUNCIONALIDADES -->
+<section class="funcionalidades">
+  <h2>¿Qué puedes hacer con RAEE?</h2>
+  <div class="funcionalidades-grid">
+    <div class="func-card">
+      <i class="fas fa-map-marker-alt"></i>
+      <h3>Ubica puntos de reciclaje</h3>
+      <p>Encuentra los lugares más cercanos para entregar tus dispositivos.</p>
     </div>
-
-    <div class="cards-grid" [@slideInStagger]="tarjetas.length">
-      <div class="card-3d" 
-           *ngFor="let tarjeta of tarjetas; let i = index"
-           [style.animation-delay]="i * 0.15 + 's'">
-        <div class="card-inner" 
-             [class.flipped]="tarjeta.flipped"
-             (click)="toggleFlip(tarjeta)"
-             [@cardFlip]="tarjeta.flipped ? 'back' : 'front'">
-          
-          <!-- Frente de la tarjeta -->
-          <div class="card-front" [style.border-color]="tarjeta.color">
-            <div class="card-header" [style.background]="tarjeta.color">
-              <div class="card-icon">{{ tarjeta.icon }}</div>
-              <div class="card-number">{{ String(tarjeta.id).padStart(2, '0') }}</div>
-            </div>
-            <div class="card-content">
-              <h3 class="card-title">{{ tarjeta.titulo }}</h3>
-              <p class="card-subtitle">{{ tarjeta.subtitulo }}</p>
-              <div class="card-image">
-                <img [src]="tarjeta.imagen" [alt]="tarjeta.titulo" 
-                     (error)="onImageError($event)"
-                     loading="lazy">
-              </div>
-              <div class="card-footer">
-                <span class="learn-more">Toca para aprender más</span>
-                <div class="flip-indicator">🔄</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Reverso de la tarjeta -->
-          <div class="card-back" [style.background]="tarjeta.color">
-            <div class="back-content">
-              <div class="back-icon">{{ tarjeta.icon }}</div>
-              <h3 class="back-title">{{ tarjeta.titulo }}</h3>
-              <p class="back-description">{{ tarjeta.descripcion }}</p>
-              <div class="back-footer">
-                <span class="back-action">Toca para volver</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="func-card">
+      <i class="fas fa-calendar-check"></i>
+      <h3>Agenda recolecciones</h3>
+      <p>Coordina la recogida de residuos electrónicos desde tu hogar.</p>
+    </div>
+    <div class="func-card">
+      <i class="fas fa-chart-line"></i>
+      <h3>Monitorea tu impacto</h3>
+      <p>Mira cómo tus acciones contribuyen a un futuro sostenible.</p>
     </div>
   </div>
 </section>
 
-<!-- ================ CALL TO ACTION ================ -->
-<section class="cta-section" [@fadeInScale]>
-  <div class="container">
-    <div class="cta-content">
-      <h2 class="cta-title">¿Listo para hacer la diferencia?</h2>
-      <p class="cta-description">
-        Únete a nuestra misión de crear un mundo más sostenible a través de la gestión responsable de residuos electrónicos.
-      </p>
-      <div class="cta-buttons">
-        <button class="btn btn-primary" routerLink="/servicios">
-          🔧 Nuestros Servicios
-        </button>
-        <button class="btn btn-secondary" routerLink="/informacion">
-          📖 Más Información
-        </button>
-      </div>
-    </div>
-  </div>
+<!-- CTA FINAL -->
+<!-- Sección Final (sin botón de registro) -->
+<section class="cta-final">
+  <h2>¡Gracias por ser parte del cambio ambiental!</h2>
+  <p>
+    Explora nuestras funcionalidades, conoce más sobre la gestión responsable de RAEE 
+    y contribuye a un planeta más limpio.
+  </p>
 </section>
 

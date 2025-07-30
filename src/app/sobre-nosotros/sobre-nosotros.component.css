@@ -1,87 +1,81 @@
-/* Sobre Nosotros - Contenedor general */
-.sobre-nosotros {
-  background: linear-gradient(135deg, #f06a0a 0%, #2563eb 100%);
-  padding: 50px 20px;
-  font-family: 'Poppins', sans-serif;
-  color: #fff;
+.sobre-nosotros-section {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px;
   text-align: center;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Título con línea decorativa */
-.sobre-nosotros .heading-underline {
-  font-weight: 700;
+.section-title {
   font-size: 2.8rem;
-  margin-bottom: 40px;
+  margin-bottom: 15px;
+  color: #004080;
+  font-weight: 700;
   position: relative;
   display: inline-block;
+  padding-bottom: 10px;
 }
-.sobre-nosotros .heading-underline::after {
-  content: '';
-  display: block;
-  width: 80px;
+
+.section-title::after {
+  content: "";
+  width: 60px;
   height: 4px;
-  background-color: #fff;
+  background-color: #ff6600;
+  display: block;
   margin: 10px auto 0;
   border-radius: 2px;
 }
 
-/* Contenedor de tarjetas */
-.sobre-nosotros .tarjetas-horizontal {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
+.section-intro {
+  font-size: 1.15rem;
+  margin-bottom: 40px;
+  color: #555;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Tarjetas (recuadros) */
-.sobre-nosotros .card {
-  background-color: rgba(255, 255, 255, 0.15);
-  border-radius: 15px;
-  width: 280px;
-  padding: 25px 20px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: white;
-  transition: background-color 0.3s ease;
+.features-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 35px;
 }
 
-.sobre-nosotros .card:hover {
-  background-color: rgba(255, 255, 255, 0.25);
+.feature-item {
+  background: #fafafa;
+  border-radius: 10px;
+  padding: 30px 25px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: default;
 }
 
-/* Iconos estilo emoji o FontAwesome grandes arriba */
-.sobre-nosotros .card i {
-  font-size: 4.5rem;
-  margin-bottom: 20px;
-  color: #fff;
-  filter: drop-shadow(0 0 4px rgba(0,0,0,0.5));
+.feature-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgb(0 0 0 / 0.15);
 }
 
-/* Título de la tarjeta */
-.sobre-nosotros .card .card-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 15px;
+.feature-icon {
+  font-size: 48px;
+  color: #ff6600;
+  margin-bottom: 18px;
+  transition: color 0.3s ease;
 }
 
-/* Texto descriptivo */
-.sobre-nosotros .card .card-text {
+.feature-item:hover .feature-icon {
+  color: #004080;
+}
+
+.feature-title {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #004080;
+}
+
+.feature-desc {
   font-size: 1rem;
-  line-height: 1.5;
-  color: #f0f0f0;
-}
-
-/* Responsive: apilar tarjetas en móviles */
-@media (max-width: 768px) {
-  .sobre-nosotros .tarjetas-horizontal {
-    flex-direction: column;
-    align-items: center;
-  }
-  .sobre-nosotros .card {
-    width: 90%;
-    max-width: 350px;
-  }
+  color: #666;
+  line-height: 1.4;
 }

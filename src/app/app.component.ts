@@ -1,30 +1,22 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule, RouterOutlet } from '@angular/router';
-import { FooterComponent } from "./footer/footer.component";
-import { slideInAnimation, fadeInOut, slideUp } from './animations';
+import { RouterModule } from '@angular/router';
+import { FooterComponent } from './footer/footer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterModule, RouterOutlet, FooterComponent],
+  imports: [RouterModule, FooterComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  animations: [slideInAnimation, fadeInOut, slideUp]
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'RAEE Proyecto';
-  menuOpen = false;
+  isMenuOpen = false;
 
   toggleMenu() {
-    this.menuOpen = !this.menuOpen;
+    this.isMenuOpen = !this.isMenuOpen;
   }
 
   closeMenu() {
-    this.menuOpen = false;
-  }
-
-  getRouteAnimationData() {
-    return this.menuOpen;
+    this.isMenuOpen = false;
   }
 }
