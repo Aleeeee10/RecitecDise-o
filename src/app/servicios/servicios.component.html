@@ -1,32 +1,463 @@
-<section class="servicios-header">
-  <h2>Te mostramos nuestros servicios ambientales</h2>
-  <p>
-    Explora cómo puedes contribuir a un planeta más limpio con nuestros servicios especializados en RAEE.
-  </p>
-</section>
+<div class="contenedorDetalles" style="background-color: #f5ebe0">
+    <div class="container mt-5">
+        <h5 class="fw-bold mb-4 mt-5 text-center titulo">
+            
+            Te mostramos nuestros servicios ambientales
+            
+    </h5>
 
-<section class="servicios-grid">
-  <div class="servicio-card" *ngFor="let servicio of servicios">
-    <div class="servicio-icono">
-      <i [class]="servicio.icono"></i>
-    </div>
-    <h3>{{ servicio.titulo }}</h3>
-    <button (click)="servicio.expandido = !servicio.expandido" class="toggle-btn">
-      {{ servicio.expandido ? 'Ocultar detalles' : 'Ver detalles' }}
-    </button>
-    <div class="servicio-detalle" *ngIf="servicio.expandido">
-      <p>{{ servicio.descripcion }}</p>
-    </div>
-  </div>
-</section>
+    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-3 g-4">
+        <!-- Recuadro 1 -->
+        <div class="col">
+            <div class="card custom-card border-green mb-3">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Retiro en hogares</h5>
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <button class="btn btn-primary align-self-start" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseService1" aria-expanded="false" aria-controls="collapseService1">
+                        Detalles
+                    </button>
+                    <div class="collapse" id="collapseService1">
+                        <div class="card card-body mt-3 text-muted">
+                            Con tan solo un mensaje, enviaremos a nuestro equipo de retiros, personal capacitado en el
+                            manejo de RAEE,
+                            con formatos de registros formales e incluso de ser requerido el manifiesto oficial.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<section class="servicios-footer">
-  <h3>¿Por qué es importante gestionar los RAEE?</h3>
-  <ul>
-    <li>✅ Reducimos el impacto ambiental</li>
-    <li>✅ Aprovechamos materiales reciclables</li>
-    <li>✅ Cumplimos con normas legales</li>
-    <li>✅ Protegemos la salud humana</li>
-  </ul>
-</section>
+        <!-- Recuadro 2 -->
+        <div class="col">
+            <div class="card custom-card border-green mb-3">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Contenedores de RAEE</h5>
+                    <i class="fa-solid fa-recycle"></i>
+                    <button class="btn btn-primary align-self-start" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseService2" aria-expanded="false" aria-controls="collapseService2">
+                        Detalles
+                    </button>
+                    <div class="collapse" id="collapseService2">
+                        <div class="card card-body mt-3 text-muted">
+                            Existe a tu disposición la más amplia red de
+                            contenedores para que te dirijas a depositar tus residuos electrónicos.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recuadro 3 -->
+        <div class="col">
+            <div class="card custom-card border-green mb-3">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Destrucción de información</h5>
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    <button class="btn btn-primary align-self-start" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseService3" aria-expanded="false" aria-controls="collapseService3">
+                        Detalles
+                    </button>
+                    <div class="collapse" id="collapseService3">
+                        <div class="card card-body mt-3 text-muted">
+                            Cuidamos tus intereses, por lo que destruimos los discos duros en nuestros hornos de ataque
+                            térmico,
+                            todo con acta de equipos ingresados y, si lo prefieres, con un delegado de la empresa para
+                            que revise el proceso. Posteriormente,
+                            se entregará la acta y el manifiesto.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recuadro 4 -->
+        <div class="col">
+            <div class="card custom-card border-green mb-3">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Gestión industrial del REAEE</h5>
+                    <i class="fa-solid fa-microchip"></i>
+                    <button class="btn btn-primary align-self-start" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseService4" aria-expanded="false" aria-controls="collapseService4">
+                        Detalles
+                    </button>
+                    <div class="collapse" id="collapseService4">
+                        <div class="card card-body mt-3 text-muted">
+                            Conoce la primera planta industrial totalmente automatizada, que procesa las fases más
+                            complejas
+                            de residuos electrónicos y recupera sus materias primas principales.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recuadro 5 -->
+        <div class="col">
+            <div class="card custom-card border-green mb-3">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Campañas de recolección de RAEE</h5>
+                    <i class="fa-solid fa-bullhorn"></i>
+                    <button class="btn btn-primary align-self-start" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseService5" aria-expanded="false" aria-controls="collapseService5">
+                        Detalles
+                    </button>
+                    <div class="collapse" id="collapseService5">
+                        <div class="card card-body mt-3 text-muted">
+                            Actividades de responsabilidad social y entidades públicas, nos encargamos de organizar,
+                            convocar y activar con un gran impacto tus campañas de recolección.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recuadro 6 -->
+        <div class="col">
+            <div class="card custom-card border-green mb-3">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Asesorías</h5>
+                    <i class="fa-solid fa-headset"></i>
+                    <button class="btn btn-primary align-self-start" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseService6" aria-expanded="false" aria-controls="collapseService6">
+                        Detalles
+                    </button>
+                    <div class="collapse" id="collapseService6">
+                        <div class="card card-body mt-3 text-muted">
+                            Programas de recolección, disposición de contenedores,
+                            sistemas de retiros nacionales o locales y norma REP.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recuadro 7 -->
+        <div class="col">
+            <div class="card custom-card border-green mb-3">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Análisis metalúrgico</h5>
+                    <i class="fa-solid fa-flask-vial"></i>
+                    <button class="btn btn-primary align-self-start" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseService7" aria-expanded="false" aria-controls="collapseService7">
+                        Detalles
+                    </button>
+                    <div class="collapse" id="collapseService7">
+                        <div class="card card-body mt-3 text-muted">
+                            Si deseas caracterizar los metales de tus residuos electrónicos,
+                            contamos con un laboratorio completo que te puede ofrecer toda la información que requieres
+                            de tus residuos electrónicos;
+                            contamos con espectrofotometría y ensayo al fuego.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recuadro 8 -->
+<div class="col">
+    <div class="card custom-card border-green mb-3">
+        <div class="card-body d-flex flex-column ">
+            <!-- Título en la parte superior, sin flex-grow -->
+            <h5 class="card-title">Procesamiento de radiografías</h5>
+            <i class="fa-solid fa-laptop-medical"></i>
+            <button class="btn btn-primary align-self-start mt-2" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseService8" aria-expanded="false" aria-controls="collapseService8">
+                Detalles
+            </button>
+            <div class="collapse" id="collapseService8">
+                <div class="card card-body mt-3 text-muted">
+                    Contamos con la tecnología para procesar estos residuos.
+                    Entréganos tus placas de rayos X y evita que un residuo potencialmente contamine o haga
+                    daño, para que en su lugar pase a ser materia prima.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <!-- Recuadro 9 -->
+        <div class="col">
+            <div class="card custom-card border-green mb-3">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Capacitación en RAEE</h5>
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    <button class="btn btn-primary align-self-start" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseService9" aria-expanded="false" aria-controls="collapseService9">
+                        Detalles
+                    </button>
+                    <div class="collapse" id="collapseService9">
+                        <div class="card card-body mt-3 text-muted">
+                            Capacitamos porque nos encanta informar sobre lo que es el RAEE y sobre todo lo que podemos
+                            hacer para
+                            gestionarlo de manera correcta en colegios, universidades, organizaciones y cursos.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="containerJ mt-5">
+    <h5 class="fw-bold mb-4 mt-5 text-center titulo">
+        Consecuencias del Mal Manejo de Residuos Electrónicos
+    </h5>
+    <div id="carouselExampleDark" class="carousel carousel-dark slide">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+                <img src="CONTAMINACION1.jpg" class="d-block w-100" alt="Contaminación Ambiental">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5 class="card-title">
+                        Contaminación Ambiental
+                    </h5>
+                    <p>Los residuos electronicos mal gestionados afectan el aire, el agua y el suelo.</p>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+                <img src="CONTAMINACION2.jpg" class="d-block w-100" alt="Emisión de Gases de Efecto Invernadero">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5 class="card-title">
+                        Emisión de Gases de Efecto Invernadero
+                    </h5>
+                    <p>Los procesos inadecuados liberan gases que aceleran el cambio climático.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="CONTAMINACION3.jpg" class="d-block w-100" alt="Riesgos para la Salud Humana">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5 class="card-title">
+                        Riesgos para la Salud Humana
+                    </h5>
+                    <p>La exposición a residuos electronicos pueden causar graves enfermedades.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <h5 class="fw-bold mb-4 mt-5 text-center titulo">
+        Pasos para un buen manejo de residuos electronicos:
+    </h5>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card card-1 custom-card no-hover border-green mb-3">
+                <img src="REDUCE.jpg" class="card-img-top" alt="Reduce">
+                <div class="card-body text-white">
+                    <h5 class="card-title">Reduce</h5>
+                    <p class="card-text">Disminuye lo que consumes para generar menos residuos.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card card-1 custom-card no-hover border-green mb-3">
+                <img src="REUTILIZA.jpg" class="card-img-top" alt="Reutiliza">
+                <div class="card-body text-white">
+                    <h5 class="card-title">Reutiliza</h5>
+                    <p class="card-text">Aprovecha al máximo los objetos antes de desecharlos.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card card-1 custom-card no-hover border-green mb-3">
+                <img src="CLASIFICA.jpg" class="card-img-top" alt="Separa">
+                <div class="card-body text-white">
+                    <h5 class="card-title">Separa</h5>
+                    <p class="card-text">Clasifica los residuos según su tipo: orgánicos, plásticos, vidrio, papel y
+                        metales.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card card-1 custom-card no-hover border-green mb-3">
+                <img src="LIMPIA.jpg" class="card-img-top" alt="Limpia">
+                <div class="card-body text-white">
+                    <h5 class="card-title">Limpia</h5>
+                    <p class="card-text">Asegúrate de que los residuos estén libres de restos antes de reciclarlos.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card card-1 custom-card no-hover border-green mb-3">
+                <img src="ENTREGA.jpg" class="card-img-top" alt="Entrega">
+                <div class="card-body text-white">
+                    <h5 class="card-title">Entrega</h5>
+                    <p class="card-text">Lleva los residuos reciclables al centro correspondiente.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card card-1 custom-card no-hover border-green mb-3">
+                <img src="EDUCA.jpg" class="card-img-top" alt="Educa">
+                <div class="card-body text-white">
+                    <h5 class="card-title">Educa</h5>
+                    <p class="card-text">Fomenta hábitos responsables compartiendo estas prácticas con otros.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Inicio Joel-->
+<div class="bg-white p-4 rounded shadow mx-auto section-container" style="max-width: 1300px; margin-bottom: 20px; margin-top: 170px;">
+    <div class="bg-white p-4 rounded" style="max-width: 800px; margin: 0 auto;">
+        <h4 class="text-center text-success mb-4">
+            ¿Qué es la gestión ambientalmente adecuada de RAEE?
+        </h4>
+        <div class="d-flex align-items-center justify-content-between flex-column flex-md-row text-center text-md-start" style="min-height: 200px;">
+            <div class="flex-grow-1 me-3">
+                <blockquote class="blockquote p-3 rounded" style="background-color: #FF8C00; color: white;">
+                    <p class="mb-2">¿Alguna vez te has preguntado <strong>qué sucede con todos esos dispositivos
+                            tecnológicos cuando ya no los necesitamos?</strong></p>
+                    <p class="mb-0">¿Y cómo afectan al ambiente? A continuación, te lo cuento.</p>
+                </blockquote>
+            </div>
+            <div class="order-first order-md-last mb-3 mb-md-0" style="position: relative; width: 160px; height: 160px;">
+                <!-- Círculo gris -->
+                <div style="
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: #d3d3d380;
+                    border-radius: 50%;
+                    z-index: 0;">
+                </div>
+                <!-- Imagen del personaje -->
+                <img src="telefono_sin_fondo.png" alt="Dispositivo sonriente" class="img-fluid" style="max-width: 160px; position: relative; z-index: 1;">
+            </div>
+        </div>
+    
+        <div class="text-start">
+            <p>
+                En la era digital, estamos rodeados de tecnología: teléfonos celulares, ordenadores, tablets y una multitud
+                de dispositivos que facilitan nuestro día a día.
+                Pero, <strong>¿qué ocurre cuando estos aparatos ya no son útiles o dejan de funcionar?</strong> Aquí es
+                donde entra en juego la gestión de RAEE, la misma que es fundamental para proteger nuestro ambiente y
+                asegurar un futuro sostenible.
+            </p>
+        </div>
+    </div>
+    
+    
+
+    <div class="bg-white p-4 rounded" style="max-width: 900px; margin: auto;">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-md-5 d-flex flex-column justify-content-center">
+                <h4 class="text-success mb-3 text-center">
+                    <strong>Gestión Ambiental de RAEE: cuidando el planeta, paso a paso</strong>
+                </h4>
+                <div class=" text-center">
+                    <p class="mb-1 text-dark"><strong>¿Qué es la gestión de RAEE?</strong></p>
+                    <p class="text-dark text-start">Planificar, recolectar, transportar, almacenar y aprovechar los RAEE.<br>
+                        Es esencial para proteger nuestro planeta y aprovechar recursos.</p>
+                </div>
+            </div>
+            
+
+            <div class="col-md-6">
+                <div class="position-relative mb-4 rounded"
+                    style="background-image: url('residuos.jpg'); background-size: cover; background-position: center; min-height: 150px;">
+                    <div class="p-3 rounded text-white"
+                        style="background: linear-gradient(90deg, rgba(0,123,255,0.7), rgba(0,123,255,0.4));">
+                        <h5 class="card-title text-white">Residuo</h5>
+                        <p class="card-text text-white mb-0">Es cualquier material, sustancia, objeto o elemento que decides
+                            o necesitas descartar pero puede tener otro uso.</p>
+                    </div>
+                </div>
+
+                <div class="position-relative mb-4 rounded"
+                    style="background-image: url('desechos.jpg'); background-size: cover; background-position: center; min-height: 150px;">
+                    <div class="p-3 rounded text-white"
+                        style="background: linear-gradient(90deg, rgba(220,53,69,0.7), rgba(220,53,69,0.4));">
+                        <h5 class="card-title text-white">Desecho</h5>
+                        <p class="card-text text-white mb-0">Se refiere a cualquier sustancia, material o compuesto que ha
+                            perdido su utilidad o valor, clasificándose como descartable. Requiere una gestión adecuada para
+                            su disposición final.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+        <h4 class="text-center text-success mb-4">¿Por qué es crucial gestionar los RAEE?</h4>
+
+        <div class="d-flex flex-wrap justify-content-between">
+            <div class="raee-card col-md-5">
+                <div class="green-circle">
+                    <img src="icono_cuidar.png" alt="Cuidar">
+                </div>
+                <h5 class="card-title">Protegemos nuestro planeta</h5>
+                <p class="card-text">Los residuos electrónicos contienen sustancias peligrosas que pueden contaminar el
+                    agua, el suelo y el aire. Un manejo adecuado es clave para preservar el medio ambiente y nuestra salud.
+                </p>
+            </div>
+
+            <div class="raee-card col-md-5">
+                <div class="green-circle">
+                    <img src="icono_recursos.png" alt="Recursos">
+                </div>
+                <h5 class="card-title">Aprovechamos materiales</h5>
+                <p class="card-text">Los RAEE contienen elementos valiosos y reciclables. Recuperarlos permite fabricar
+                    nuevos dispositivos, disminuyendo la necesidad de extraer recursos naturales.</p>
+            </div>
+
+            <div class="raee-card col-md-5">
+                <div class="green-circle">
+                    <img src="icono_normativa.png" alt="Normativa">
+                </div>
+                <h5 class="card-title">Cumplimos con las leyes</h5>
+                <p class="card-text">La correcta gestión de residuos electrónicos está regulada por normativas ambientales.
+                    Cumplirlas es esencial para evitar sanciones y proteger el entorno.</p>
+            </div>
+
+            <div class="raee-card col-md-5">
+                <div class="green-circle">
+                    <img src="icono_rep.png" alt="REP">
+                </div>
+                <h5 class="card-title">Responsabilidad del productor</h5>
+                <p class="card-text">Las empresas que producen equipos electrónicos tienen un rol esencial en la
+                    recolección, transporte y tratamiento de estos desechos, fomentando una economía sostenible.</p>
+            </div>
+        </div>
+    
+
+        <div class="bg-white p-4 rounded shadow mx-auto section-container position-relative"
+        style="max-width: 800px; background-image: url('reciclaje1.png'); background-size: cover; background-position: center;">
+        <div class="p-4 rounded" style="background: rgba(158, 238, 157, 0.596); color: rgb(175, 27, 27);">
+            <h4 class="text-center text-success mb-4">Entendiendo la gestión de RAEE</h4>
+            <div class="d-flex flex-column flex-md-row align-items-center mb-4">
+                <div class="me-3 order-last order-md-first mb-3 mb-md-0">
+                    <img src="telefono_sin_fondo.png" alt="Dispositivo sonriente" class="img-fluid personaje-img" style="max-width: 150px;">
+                </div>
+                <div>
+                    <p><strong> Los dispositivos electrónicos tienen un ciclo de vida, y es esencial saber qué hacer con
+                            ellos cuando ya no se utilizan. No solo es una cuestión de proteger el medio ambiente, sino también de usar los recursos de manera eficiente y responsable.</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--Final Joel-->
+</div>
+</div>
+
   
