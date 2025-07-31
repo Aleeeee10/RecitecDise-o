@@ -1,0 +1,263 @@
+<section class="contacto-section">
+  <div class="contacto-header">
+    <h1 class="contacto-title">Contáctate con nosotros</h1>
+    <p class="contacto-subtitle">
+      Estamos aquí para ayudarte con todas tus consultas sobre gestión de RAEE. 
+      No dudes en escribirnos o visitarnos.
+    </p>
+  </div>
+
+  <div class="contacto-container">
+    <!-- Sección de Ubicación -->
+    <div class="ubicacion-section">
+      <h2 class="section-title">
+        <i class="fas fa-map-marker-alt"></i>
+        Ubicación
+      </h2>
+      
+      <div class="mapa-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31917.68588419276!2d-78.556596!3d-0.420763!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d5a5669d11eb95%3A0x6fec441a43c5cac1!2sRecitec!5e0!3m2!1ses-419!2sec!4v1753925368798!5m2!1ses-419!2sec" 
+          width="100%" 
+          height="400" 
+          style="border:0; border-radius: 15px;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        
+        <div class="ubicacion-info">
+          <div class="direccion-card">
+            <i class="fas fa-building"></i>
+            <div class="direccion-content">
+              <h3>Recitec</h3>
+              <p>Nuestras instalaciones especializadas en gestión de RAEE</p>
+              <a href="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31917.68588419276!2d-78.556596!3d-0.420763!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d5a5669d11eb95%3A0x6fec441a43c5cac1!2sRecitec!5e0!3m2!1ses-419!2sec!4v1753925368798!5m2!1ses-419!2sec" target="_blank" class="ampliar-mapa">
+                <i class="fas fa-external-link-alt"></i>
+                Ampliar el mapa
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección de Información de Contacto -->
+    <div class="contacto-info-section">
+      <div class="contacto-cards">
+        <!-- Tarjeta de Email -->
+        <div class="contacto-card email-card">
+          <div class="card-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="card-content">
+            <h3>Escríbenos en</h3>
+            <p class="contacto-dato">info&#64;recitec.com.ec</p>
+            <a href="mailto:info@recitec.com.ec" class="contacto-btn">
+              <i class="fas fa-paper-plane"></i>
+              Enviar mensaje
+            </a>
+          </div>
+        </div>
+
+        <!-- Tarjeta de Teléfono -->
+        <div class="contacto-card telefono-card">
+          <div class="card-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="card-content">
+            <h3>Teléfono</h3>
+            <p class="contacto-dato">+593 99 762 7036</p>
+            <p class="contacto-dato secondary">+593 99 973 4036</p>
+            <a href="tel:+593997627036" class="contacto-btn">
+              <i class="fas fa-phone-alt"></i>
+              Llamar ahora
+            </a>
+          </div>
+        </div>
+
+        <!-- Tarjeta de Horarios -->
+        <div class="contacto-card horarios-card">
+          <div class="card-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="card-content">
+            <h3>Horarios de Atención</h3>
+            <div class="horarios-lista">
+              <div class="horario-item">
+                <span class="dia">Lunes - Viernes</span>
+                <span class="hora">8:00 AM - 5:00 PM</span>
+              </div>
+              <div class="horario-item">
+                <span class="dia">Sábados</span>
+                <span class="hora">9:00 AM - 1:00 PM</span>
+              </div>
+              <div class="horario-item">
+                <span class="dia">Domingos</span>
+                <span class="hora">Cerrado</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta de Servicios -->
+        <div class="contacto-card servicios-card">
+          <div class="card-icon">
+            <i class="fas fa-tools"></i>
+          </div>
+          <div class="card-content">
+            <h3>Nuestros Servicios</h3>
+            <ul class="servicios-lista">
+              <li><i class="fas fa-check"></i> Recolección de RAEE</li>
+              <li><i class="fas fa-check"></i> Destrucción segura de datos</li>
+              <li><i class="fas fa-check"></i> Reciclaje responsable</li>
+              <li><i class="fas fa-check"></i> Capacitaciones empresariales</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección de Formulario de Contacto -->
+    <div class="formulario-section">
+      <div class="formulario-header">
+        <h2>¿Tienes alguna consulta?</h2>
+        <p>Completa el formulario y nos pondremos en contacto contigo a la brevedad</p>
+      </div>
+
+      <form class="contacto-form" (ngSubmit)="onSubmit()" #contactoForm="ngForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombre">
+              <i class="fas fa-user"></i>
+              Nombre completo
+            </label>
+            <input 
+              type="text" 
+              id="nombre" 
+              name="nombre" 
+              [(ngModel)]="contactForm.nombre"
+              placeholder="Ingresa tu nombre completo" 
+              required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">
+              <i class="fas fa-envelope"></i>
+              Correo electrónico
+            </label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              [(ngModel)]="contactForm.email"
+              placeholder="tu-email@ejemplo.com" 
+              required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="telefono">
+              <i class="fas fa-phone"></i>
+              Teléfono
+            </label>
+            <input 
+              type="tel" 
+              id="telefono" 
+              name="telefono" 
+              [(ngModel)]="contactForm.telefono"
+              placeholder="+593 99 123 4567">
+          </div>
+          
+          <div class="form-group">
+            <label for="empresa">
+              <i class="fas fa-building"></i>
+              Empresa (opcional)
+            </label>
+            <input 
+              type="text" 
+              id="empresa" 
+              name="empresa" 
+              [(ngModel)]="contactForm.empresa"
+              placeholder="Nombre de tu empresa">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="asunto">
+            <i class="fas fa-tag"></i>
+            Asunto
+          </label>
+          <select 
+            id="asunto" 
+            name="asunto" 
+            [(ngModel)]="contactForm.asunto"
+            required>
+            <option value="">Selecciona un asunto</option>
+            <option value="recoleccion">Servicio de recolección</option>
+            <option value="destruccion">Destrucción de datos</option>
+            <option value="capacitacion">Capacitaciones</option>
+            <option value="cotizacion">Solicitar cotización</option>
+            <option value="informacion">Información general</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="mensaje">
+            <i class="fas fa-comment"></i>
+            Mensaje
+          </label>
+          <textarea 
+            id="mensaje" 
+            name="mensaje" 
+            rows="5" 
+            [(ngModel)]="contactForm.mensaje"
+            placeholder="Cuéntanos en qué podemos ayudarte..." 
+            required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn" [disabled]="!contactoForm.valid">
+          <i class="fas fa-paper-plane"></i>
+          Enviar mensaje
+        </button>
+      </form>
+    </div>
+
+    <!-- Sección de Información Adicional -->
+    <div class="info-adicional">
+      <div class="info-cards">
+        <div class="info-card">
+          <i class="fas fa-leaf"></i>
+          <h3>Compromiso Ambiental</h3>
+          <p>Trabajamos por un planeta más limpio mediante la gestión responsable de residuos electrónicos.</p>
+        </div>
+        
+        <div class="info-card">
+          <i class="fas fa-certificate"></i>
+          <h3>Certificaciones</h3>
+          <p>Contamos con todas las certificaciones necesarias para el manejo seguro de RAEE.</p>
+        </div>
+        
+        <div class="info-card">
+          <i class="fas fa-users"></i>
+          <h3>Equipo Especializado</h3>
+          <p>Nuestro personal está capacitado en las mejores prácticas de gestión ambiental.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Persona con laptop (como en la imagen) -->
+  <div class="contact-image">
+    <div class="image-container">
+      <div class="person-illustration">
+        <i class="fas fa-user-tie"></i>
+      </div>
+      <div class="laptop-illustration">
+        <i class="fas fa-laptop"></i>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,5 +1,5 @@
 .sobre-nosotros-section {
-  max-width: 1100px;
+  max-width: 1400px;
   margin: 60px auto;
   padding: 0 20px;
   text-align: center;
@@ -8,74 +8,403 @@
 }
 
 .section-title {
-  font-size: 2.8rem;
-  margin-bottom: 15px;
-  color: #004080;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #1e293b;
   font-weight: 700;
   position: relative;
   display: inline-block;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 }
 
 .section-title::after {
   content: "";
-  width: 60px;
-  height: 4px;
-  background-color: #ff6600;
+  width: 80px;
+  height: 5px;
+  background: linear-gradient(90deg, #f0660a, #2563eb);
   display: block;
-  margin: 10px auto 0;
-  border-radius: 2px;
+  margin: 15px auto 0;
+  border-radius: 3px;
 }
 
 .section-intro {
-  font-size: 1.15rem;
-  margin-bottom: 40px;
-  color: #555;
-  max-width: 700px;
+  font-size: 1.2rem;
+  margin-bottom: 50px;
+  color: #64748b;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  line-height: 1.6;
 }
 
-.features-container {
+/* Sección Objetivos */
+.objetivos-section {
+  margin: 80px 0;
+  padding: 50px 30px;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: 25px;
+}
+
+.objetivos-title {
+  font-size: 2.5rem;
+  color: #1e293b;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.objetivos-container {
+  display: grid;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.objetivo-principal {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 40px;
+  align-items: center;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.objetivo-image {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(145deg, #f0660a, #d95500);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(240, 102, 10, 0.3);
+}
+
+.objetivo-image i {
+  font-size: 3rem;
+  color: white;
+}
+
+.objetivo-content {
+  text-align: left;
+}
+
+.objetivo-content h4 {
+  font-size: 1.8rem;
+  color: #1e293b;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.objetivo-content p {
+  color: #64748b;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.objetivo-secundario {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.objetivo-secundario:hover {
+  transform: translateY(-5px);
+}
+
+.objetivo-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(145deg, #2563eb, #1d4ed8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+}
+
+.objetivo-icon i {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.objetivo-text {
+  text-align: left;
+}
+
+.objetivo-text h4 {
+  font-size: 1.3rem;
+  color: #1e293b;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.objetivo-text p {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Sección Guía RAEE */
+.guia-raee-section {
+  margin: 80px 0;
+  padding: 50px 30px;
+  background: linear-gradient(135deg, #fef9e7 0%, #fef3c7 100%);
+  border-radius: 25px;
+}
+
+.guia-title {
+  font-size: 2.5rem;
+  color: #92400e;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.guia-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 35px;
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.guia-card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(146, 64, 14, 0.1);
+  transition: all 0.3s ease;
+  border-top: 4px solid #f59e0b;
+}
+
+.guia-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(146, 64, 14, 0.15);
+}
+
+.guia-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(145deg, #f59e0b, #d97706);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+}
+
+.guia-icon i {
+  font-size: 1.8rem;
+  color: white;
+}
+
+.guia-card h4 {
+  font-size: 1.3rem;
+  color: #1e293b;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.guia-card p {
+  color: #64748b;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+/* Sección Actores Principales */
+.actores-principales-section {
+  margin: 80px 0;
+  padding: 50px 30px;
+  background: linear-gradient(135deg, #f0f9ff 0%, #dbeafe 100%);
+  border-radius: 25px;
+}
+
+.actores-title {
+  font-size: 2.5rem;
+  color: #1e40af;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.timeline-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #3b82f6, #1d4ed8);
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.timeline-item {
+  display: flex;
+  margin: 40px 0;
+  align-items: center;
+  position: relative;
+}
+
+.timeline-item:nth-child(odd) {
+  flex-direction: row;
+}
+
+.timeline-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.timeline-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(145deg, #3b82f6, #2563eb);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 30px;
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-icon i {
+  font-size: 2rem;
+  color: white;
+}
+
+.timeline-content {
+  flex: 1;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+}
+
+.timeline-content h4 {
+  font-size: 1.4rem;
+  color: #1e293b;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.timeline-content p {
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Features Container Mejorado */
+.features-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 80px;
 }
 
 .feature-item {
-  background: #fafafa;
-  border-radius: 10px;
-  padding: 30px 25px;
-  box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: default;
+  background: white;
+  border-radius: 20px;
+  padding: 35px 30px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border-top: 4px solid #f0660a;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f0660a, #2563eb);
 }
 
 .feature-item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 20px rgb(0 0 0 / 0.15);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
 .feature-icon {
-  font-size: 48px;
-  color: #ff6600;
-  margin-bottom: 18px;
-  transition: color 0.3s ease;
+  font-size: 3rem;
+  color: #f0660a;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
 }
 
 .feature-item:hover .feature-icon {
-  color: #004080;
+  color: #2563eb;
+  transform: scale(1.1);
 }
 
 .feature-title {
-  font-size: 1.3rem;
-  margin-bottom: 10px;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
   font-weight: 600;
-  color: #004080;
+  color: #1e293b;
 }
 
 .feature-desc {
   font-size: 1rem;
-  color: #666;
-  line-height: 1.4;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.2rem;
+  }
+  
+  .objetivo-principal {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 20px;
+  }
+  
+  .objetivo-content {
+    text-align: center;
+  }
+  
+  .timeline-container::before {
+    left: 30px;
+  }
+  
+  .timeline-item {
+    flex-direction: row !important;
+    margin-left: 60px;
+  }
+  
+  .timeline-icon {
+    margin: 0 20px 0 0;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .timeline-content {
+    max-width: none;
+  }
+  
+  .objetivos-title, .guia-title, .actores-title {
+    font-size: 2rem;
+  }
 }

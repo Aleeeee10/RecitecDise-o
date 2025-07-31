@@ -9,61 +9,286 @@
   }
 }
 
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
 .servicios {
   padding: 4rem 2rem;
-  background-color: #ffffff;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   text-align: center;
 }
 
 .titulo {
-  font-size: 2.5rem;
-  color: #f0660a;
-  margin-bottom: 0.3rem;
+  font-size: 2.8rem;
+  color: #1e293b;
+  margin-bottom: 1rem;
   font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
 .descripcion {
-  max-width: 800px;
-  margin: 0 auto 3rem;
-  color: #444;
-  font-size: 1.1rem;
+  max-width: 900px;
+  margin: 0 auto 4rem;
+  color: #64748b;
+  font-size: 1.2rem;
+  line-height: 1.6;
 }
 
 .tarjetas-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
   padding: 0 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .tarjeta {
-  background: #fff;
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
   animation: fadeUp 0.6s ease both;
+  position: relative;
+  overflow: hidden;
+}
+
+.tarjeta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #f0660a, #2563eb);
+}
+
+.servicio-premium {
+  border: 2px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(145deg, #f0660a, #2563eb) border-box;
 }
 
 .tarjeta:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .icono {
-  font-size: 2.5rem;
+  font-size: 3rem;
+  color: #f0660a;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.tarjeta:hover .icono {
+  animation: pulse 1s infinite;
   color: #2563eb;
-  margin-bottom: 1rem;
 }
 
 .tarjeta h3 {
-  font-size: 1.3rem;
-  color: #f0660a;
-  margin-bottom: 0.6rem;
+  font-size: 1.4rem;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  font-weight: 600;
 }
 
 .tarjeta p {
   font-size: 1rem;
-  color: #555;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.servicio-detalles {
+  margin-top: 1rem;
+}
+
+.servicio-detalles ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.servicio-detalles li {
+  position: relative;
+  padding: 0.5rem 0 0.5rem 2rem;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.servicio-detalles li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #10b981;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Sección Consecuencias del Mal Manejo */
+.consecuencias-mal-manejo {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  text-align: center;
+}
+
+.consecuencias-mal-manejo h2 {
+  font-size: 2.5rem;
+  color: #dc2626;
+  margin-bottom: 3rem;
+  font-weight: bold;
+}
+
+.consecuencias-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.consecuencia-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(220, 38, 38, 0.1);
+  transition: all 0.3s ease;
+  border-left: 5px solid #dc2626;
+}
+
+.consecuencia-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(220, 38, 38, 0.15);
+}
+
+.card-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(145deg, #dc2626, #b91c1c);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3);
+}
+
+.card-icon i {
+  font-size: 2rem;
+  color: white;
+}
+
+.consecuencia-card h3 {
+  color: #1e293b;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.consecuencia-card p {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* Sección Pasos para Buen Manejo */
+.pasos-buen-manejo {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, #f0f9ff 0%, #dbeafe 100%);
+  text-align: center;
+}
+
+.pasos-buen-manejo h2 {
+  font-size: 2.5rem;
+  color: #1e40af;
+  margin-bottom: 3rem;
+  font-weight: bold;
+}
+
+.pasos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.paso-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  border-top: 4px solid #3b82f6;
+}
+
+.paso-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.15);
+}
+
+.paso-number {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(145deg, #3b82f6, #2563eb);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+}
+
+.paso-card i {
+  font-size: 2.5rem;
+  color: #3b82f6;
+  margin: 1.5rem 0 1rem;
+}
+
+.paso-card h3 {
+  color: #1e293b;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.paso-card p {
+  color: #64748b;
   line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .titulo {
+    font-size: 2.2rem;
+  }
+  
+  .tarjetas-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .consecuencias-grid, .pasos-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .tarjeta, .consecuencia-card, .paso-card {
+    padding: 2rem;
+  }
+  
+  .consecuencias-mal-manejo h2, .pasos-buen-manejo h2 {
+    font-size: 2rem;
+  }
 }

@@ -101,12 +101,475 @@ button:hover {
 
 /* CTA Final */
 .cta-final {
-  background-color: #fef6f3;
+  background: linear-gradient(135deg, #fef6f3 0%, #fed7cc 100%);
   padding: 80px 20px;
+  text-align: center;
 }
+
 .cta-final h2 {
-  color: #f0660a;
+  color: #dc2626;
+  font-size: 2.3rem;
+  margin-bottom: 20px;
+  font-weight: 700;
 }
+
+.cta-final p {
+  color: #7c2d12;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+.final-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  margin: 40px auto;
+  max-width: 800px;
+}
+
+.stat-item {
+  background: white;
+  padding: 30px 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+}
+
+.stat-item i {
+  font-size: 2.5rem;
+  color: #f0660a;
+  margin-bottom: 15px;
+}
+
+.stat-item h3 {
+  color: #dc2626;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.stat-item p {
+  color: #7c2d12;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.final-message {
+  color: #92400e;
+  font-size: 1rem;
+  font-style: italic;
+  margin-top: 30px !important;
+  margin-bottom: 0 !important;
+}
+
 .cta-final button {
   margin-top: 20px;
+}
+
+/* Términos RAEE */
+.terminos-raee {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  padding: 80px 20px;
+}
+
+.titulo-container {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.titulo-container h2 {
+  color: #1e293b;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.titulo-container p {
+  color: #64748b;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.terminos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.termino-card {
+  height: 200px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.termino-card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.card-front {
+  background: linear-gradient(145deg, #ffffff, #f1f5f9);
+  border: 2px solid #e2e8f0;
+}
+
+.card-back {
+  background: linear-gradient(145deg, #2563eb, #1d4ed8);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.card-front i {
+  font-size: 3rem;
+  color: #2563eb;
+  margin-bottom: 15px;
+}
+
+.card-front h3 {
+  color: #1e293b;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.card-back h3 {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.card-back p {
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Actores RAEE */
+.actores-raee {
+  background: linear-gradient(135deg, #fef9e7 0%, #fef3c7 100%);
+  padding: 80px 20px;
+}
+
+.actores-raee h2 {
+  color: #1e293b;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.section-subtitle {
+  color: #64748b;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 50px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.actores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.actor-card {
+  background: white;
+  padding: 30px 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.actor-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f0660a, #2563eb);
+}
+
+.actor-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.actor-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  background: linear-gradient(145deg, #f0660a, #d95500);
+  box-shadow: 0 5px 15px rgba(240, 102, 10, 0.3);
+}
+
+.actor-icon i {
+  font-size: 1.8rem;
+  color: white;
+}
+
+.actor-card h3 {
+  color: #1e293b;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.actor-card p {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Variaciones de color para diferentes actores */
+.actor-card.productor .actor-icon {
+  background: linear-gradient(145deg, #8b5cf6, #7c3aed);
+  box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+}
+
+.actor-card.distribuidor .actor-icon {
+  background: linear-gradient(145deg, #06b6d4, #0891b2);
+  box-shadow: 0 5px 15px rgba(6, 182, 212, 0.3);
+}
+
+.actor-card.consumidor .actor-icon {
+  background: linear-gradient(145deg, #10b981, #059669);
+  box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+}
+
+.actor-card.gestor .actor-icon {
+  background: linear-gradient(145deg, #f59e0b, #d97706);
+  box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+}
+
+.actor-card.administracion .actor-icon {
+  background: linear-gradient(145deg, #ef4444, #dc2626);
+  box-shadow: 0 5px 15px rgba(239, 68, 68, 0.3);
+}
+
+.actor-card.gobierno .actor-icon {
+  background: linear-gradient(145deg, #6366f1, #4f46e5);
+  box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+}
+
+/* Proceso de Gestión */
+.proceso-gestion {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  padding: 80px 20px;
+}
+
+.container-info {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.proceso-gestion h2 {
+  color: #1e293b;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.proceso-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin: 50px 0;
+}
+
+.step-card {
+  background: white;
+  padding: 30px 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.step-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #2563eb, #06b6d4);
+}
+
+.step-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.step-number {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(145deg, #2563eb, #1d4ed8);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 auto 20px;
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+}
+
+.step-content h3 {
+  color: #1e293b;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.step-content p {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.info-highlight {
+  background: linear-gradient(145deg, #fef3c7, #fde68a);
+  border-radius: 20px;
+  padding: 30px;
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.2);
+}
+
+.highlight-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(145deg, #f59e0b, #d97706);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+}
+
+.highlight-icon i {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.highlight-text {
+  text-align: left;
+}
+
+.highlight-text h3 {
+  color: #92400e;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.highlight-text p {
+  color: #78350f;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .terminos-grid, .actores-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .titulo-container h2, .actores-raee h2 {
+    font-size: 2rem;
+  }
+  
+  .termino-card {
+    height: 180px;
+  }
+  
+  .actor-card {
+    padding: 25px 20px;
+  }
+
+  .proceso-steps {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .proceso-gestion h2 {
+    font-size: 2rem;
+  }
+
+  .info-highlight {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .highlight-text {
+    text-align: center;
+  }
+
+  .final-stats {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .cta-final h2 {
+    font-size: 1.8rem;
+  }
+
+  .cta-final p {
+    font-size: 1rem;
+  }
 }
