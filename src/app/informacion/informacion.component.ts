@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './informacion.component.html',
   styleUrls: ['./informacion.component.css']  // corregí styleUrl a styleUrls
 })
-export class InformacionComponent {
+export class InformacionComponent implements OnInit {
   residuos = [
     { 
       nombre: 'Computadoras',
@@ -80,6 +80,26 @@ export class InformacionComponent {
   
   
   residuosSeleccionada: any = this.residuos[0]; // Establecer la primera empresa como seleccionada
+  
+  ngOnInit(): void {
+    this.initAOS();
+  }
+
+  async initAOS(): Promise<void> {
+    try {
+      const AOS = await import('aos');
+      AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100,
+        easing: 'ease-in-out',
+        delay: 0,
+        anchorPlacement: 'top-bottom'
+      });
+    } catch (error) {
+      console.error('Error loading AOS:', error);
+    }
+  }
   
   seleccionarResiduo(residuo: any): void {
     this.residuosSeleccionada = residuo;

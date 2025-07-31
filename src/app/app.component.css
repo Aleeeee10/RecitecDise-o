@@ -1,11 +1,255 @@
-/* Reset básico */
+/* ================ NAVBAR MODERNO ================ */
+.navbar {
+  width: 100%;
+  background: linear-gradient(135deg, #f0660a 0%, #2563eb 100%);
+  backdrop-filter: blur(10px);
+  padding: 15px 25px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* ================ NAVBAR LEFT ================ */
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.navbar-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid white;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-logo:hover {
+  transform: rotate(10deg) scale(1.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.project-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.project-title:hover {
+  transform: scale(1.05);
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* ================ NAVEGACION CENTRAL ================ */
+.navbar-center {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.navbar-center a {
+  position: relative;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 25px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.navbar-center a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.navbar-center a:hover::before {
+  left: 100%;
+}
+
+.navbar-center a:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-center a.active {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+/* ================ NAVBAR RIGHT ================ */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* ================ MENU HAMBURGER ================ */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  margin: 3px 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 2px;
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ================ MAIN CONTENT ================ */
+main {
+  min-height: calc(100vh - 120px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ================ RESPONSIVE DESIGN ================ */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 12px 20px;
+  }
+  
+  .project-title {
+    font-size: 1.6rem;
+  }
+  
+  .navbar-logo {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .navbar-center {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #f0660a 0%, #2563eb 100%);
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  }
+  
+  .navbar-center.menu-open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .navbar-center a {
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-title {
+    font-size: 1.4rem;
+  }
+  
+  .navbar-container {
+    padding: 0 10px;
+  }
+  
+  .logo-container {
+    gap: 10px;
+  }
+}
+
+/* ================ ANIMATIONS & EFFECTS ================ */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 5px rgba(245, 101, 10, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(245, 101, 10, 0.8), 0 0 30px rgba(37, 99, 235, 0.3); }
+  100% { box-shadow: 0 0 5px rgba(245, 101, 10, 0.5); }
+}
+
+.navbar-center a:hover {
+  animation: glow 2s infinite;
+}
+
+.project-title:hover {
+  animation: pulse 1s infinite;
+}
+
+/* ================ RESET Y ESTILOS GENERALES ================ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Tipografía y cuerpo */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f9f9f9;
@@ -13,122 +257,11 @@ body {
   line-height: 1.6;
 }
 
-/* Layout general */
 :host {
   display: block;
 }
 
-/* NAVBAR */
-.navbar {
-  background-color: white;
-  color: #253b6e;
-  padding: 0.8rem 1.5rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.navbar-content {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* Logo */
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo {
-  height: 45px;
-  width: 45px;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-}
-
-.logo:hover {
-  transform: scale(1.05);
-}
-
-.logo-text {
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: #ef3f2c; /* tomate */
-}
-
-/* Enlaces */
-.nav-links {
-  display: flex;
-  gap: 1.2rem;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #253b6e;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover,
-.nav-links .active {
-  color: #ef3f2c; /* tomate */
-}
-
-/* Botón menú (responsive) */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.6rem;
-  cursor: pointer;
-  color: #253b6e;
-}
-
-/* Responsive */
-@media screen and (max-width: 768px) {
-  .nav-links {
-    position: absolute;
-    top: 64px;
-    right: 0;
-    background: white;
-    flex-direction: column;
-    width: 200px;
-    padding: 1rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    display: none;
-  }
-
-  .nav-links.open {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-}
-
-/* Contenedor principal */
-main {
-  max-width: 1200px;
-  margin: auto;
-  padding: 1.5rem;
-}
-
-/* Footer */
-footer {
-  background-color: #253b6e;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
-}
-
-/* Botones generales */
+/* ================ BOTONES GENERALES ================ */
 button {
   background-color: #ef3f2c;
   color: white;
@@ -144,13 +277,13 @@ button:hover {
   background-color: #c73220;
 }
 
-/* Títulos */
+/* ================ TÍTULOS ================ */
 h1, h2, h3 {
   color: #253b6e;
   margin-bottom: 0.5rem;
 }
 
-/* Enlaces generales */
+/* ================ ENLACES GENERALES ================ */
 a {
   color: #2563eb;
   text-decoration: none;

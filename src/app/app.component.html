@@ -1,19 +1,32 @@
-<header class="navbar">
-  <div class="navbar-content">
-    <div class="logo-container">
-      <img src="assets/logo.jpg" alt="RECITEC Logo" class="logo" />
-      <span class="logo-text">RECITEC</span>
+<nav class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-left">
+      <div class="logo-container">
+        <img src="assets/logo.jpg" alt="RECITEC Logo" class="navbar-logo" />
+        <span class="project-title">RECITEC</span>
+      </div>
     </div>
-    <nav class="nav-links" [class.open]="isMenuOpen">
-      <a routerLink="/" routerLinkActive="active" (click)="closeMenu()">Inicio</a>
-      <a routerLink="/servicios" routerLinkActive="active" (click)="closeMenu()">Servicios</a>
-      <a routerLink="/sobre-nosotros" routerLinkActive="active" (click)="closeMenu()">Nosotros</a>
-      <a routerLink="/informacion" routerLinkActive="active" (click)="closeMenu()">Información</a>
-      <a routerLink="/contacto" routerLinkActive="active" (click)="closeMenu()">Contacto</a>
-    </nav>
-    <button class="menu-toggle" (click)="toggleMenu()">☰</button>
-  </div>
-</header>
 
-<router-outlet></router-outlet>
+    <div class="navbar-center" [class.menu-open]="isMenuOpen">
+      <a routerLink="/" routerLinkActive="active" (click)="closeMenu()">🏠 Inicio</a>
+      <a routerLink="/servicios" routerLinkActive="active" (click)="closeMenu()">⚙️ Servicios</a>
+      <a routerLink="/sobre-nosotros" routerLinkActive="active" (click)="closeMenu()">👥 Nosotros</a>
+      <a routerLink="/informacion" routerLinkActive="active" (click)="closeMenu()">ℹ️ Información</a>
+      <a routerLink="/contacto" routerLinkActive="active" (click)="closeMenu()">📞 Contacto</a>
+    </div>
+
+    <div class="navbar-right">
+      <button class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
 <app-footer></app-footer>

@@ -1,93 +1,61 @@
-<div class="contenedor py-5">
-    <div class="titulo-container d-flex align-items-center">
-        <!-- Contenedor circular para el ícono -->
-  
-        <!-- Texto del título -->
-        <h5 class="titulo">
-          Conoce los Residuos que procesamos 
-        </h5>
-        <div class="icono-titulo me-3 ms-5">
-          <i class="fas fa-clipboard-list"></i> <!-- Ícono de anotaciones -->
-        </div>
+
+
+<!-- HERO SECCIÓN INFORMATIVA -->
+<section class="hero info-hero">
+  <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
+    <h1 data-aos="fade-down" data-aos-delay="200">¿Sabías que estos dispositivos pueden tener una segunda vida después de su uso?</h1>
+    <p data-aos="fade-up" data-aos-delay="400">Explora el mundo de los AEE y RAEE, y descubre cómo gestionarlos de manera responsable.</p>
+    <div class="info-cards-grid">
+      <div class="info-card" data-aos="fade-right" data-aos-delay="500">
+        <span class="highlight-text">Aparatos Eléctricos y Electrónicos (AEE)</span> mejoran nuestra vida cotidiana, permitiéndonos comunicarnos, trabajar y disfrutar de entretenimiento.
       </div>
+      <div class="info-card" data-aos="fade-left" data-aos-delay="600">
+        Cuando termina su ciclo de vida, debemos gestionar sus residuos: <span class="highlight-text">Residuos de Aparatos Eléctricos y Electrónicos (RAEE)</span>, que presentan oportunidades de reutilización y riesgos ambientales.
+      </div>
+      <div class="info-card call-to-action" data-aos="zoom-in" data-aos-delay="700">
+        ¡Prepárate para descubrir cómo nuestro país enfrenta este desafío global!
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Contenedor principal que agrupa los nombres y detalles -->
-    <div class="contenedor-centrado mx-auto">
-        <div class="nombres-contenedor shadow mx-auto mt-5" *ngIf="residuosSeleccionada">
-            <div class="nombres-visible row">
-                <div 
-                    *ngFor="let residuo of residuos" 
-                    class="empresa-nombre text-center mx-2 my-2" 
-                    (click)="seleccionarResiduo(residuo)" 
-                    [class.seleccionada]="residuo === residuosSeleccionada"
-                >
-                    <span class="nombre-texto">{{ residuo.nombre }}</span>
-                </div>
-            </div>
-            <div class="contenedor-detalles text-center">
-                <div class="detalles-residuo">
-                    <!-- Imagen a la izquierda -->
-                    <div class="imagen-residuo">
-                        <img [src]="residuosSeleccionada.imagen" alt="{{ residuosSeleccionada.nombre }}" class="imagen-residuo-img">
-                    </div>
-                    <!-- Detalles a la derecha -->
-                    <div class="texto-detalle">
-                        <h3 class="text-primary">{{ residuosSeleccionada.nombre }}</h3>
+<!-- SELECCIÓN DE RESIDUOS (tipo cards) -->
+<section class="residuos-section">
+  <div class="titulo-container" data-aos="fade-down" data-aos-duration="1000">
+    <h2>Conoce los Residuos que procesamos</h2>
+    <div class="icono-titulo">
+      <i class="fas fa-clipboard-list"></i>
+    </div>
+  </div>
+  <div class="residuos-grid">
+    <div 
+      *ngFor="let residuo of residuos; let i = index" 
+      class="residuo-card" 
+      (click)="seleccionarResiduo(residuo)" 
+      [class.seleccionada]="residuo === residuosSeleccionada"
+      [attr.data-aos]="'fade-up'"
+      [attr.data-aos-delay]="100 + (i * 50)"
+    >
+      <img [src]="residuo.imagen" [alt]="residuo.nombre" class="residuo-img" />
+      <div class="residuo-info">
+        <h3>{{ residuo.nombre }}</h3>
+        <p>{{ residuo.descripcion }}</p>
+      </div>
+    </div>
 
-                        <p class="descripcion-residuo">
-                            {{ residuosSeleccionada.descripcion }}
-                        </p>
-                        <!-- Listado de puntos -->
-                        <ul class="list-unstyled">
-                            <li *ngFor="let caracteristica of residuosSeleccionada.caracteristicas">{{ caracteristica }}</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="hero-section">
-    <img src="assets/img/RAEE.jpg" alt="Facility workers" class="hero-image">
-    <div class="gradient-overlay"></div>
-    
-    <div class="container-info">
-        <div class="row">
-            <div class="col-12 content-wrapper">
-                <h1 class="main-title">
-                    ¿Sabías que estos dispositivos pueden tener una segunda vida después de su uso?
-                </h1>
-                <p class="subtitle">
-                    Explora el mundo de los AEE y RAEE, y descubre cómo gestionarlos de manera responsable.
-                </p>
-                <div class="col-md-6">
-                    <div class="info-text">
-                        Hoy en día, nuestra dependencia de los <span class="highlight-text">Aparatos Eléctricos y Electrónicos (AEE)</span> es indiscutible. Estos dispositivos mejoran nuestra vida cotidiana, permitiéndonos comunicarnos, trabajar y disfrutar de entretenimiento.
-                    </div>
-                    <div class="info-text">
-                        Sin embargo, al igual que todo en la naturaleza, tienen un ciclo de vida, y cuando este ciclo concluye, debemos enfrentar la crucial tarea de gestionar sus residuos. Estos residuos, conocidos como <span class="highlight-text">Residuos de Aparatos Eléctricos y Electrónicos (RAEE)</span>, presentan tanto oportunidades de reutilización como riesgos.
-                    </div>
-                    <div class="call-to-action">
-                        ¡Prepárate para descubrir cómo nuestro país enfrenta este desafío global!
-                    </div>
-                </div>
-                <br>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="card-container">
-    <!-- Generación Global -->
-    <div class="custom-card" >
-        <div class="icon-circlep green-theme">
-            <i class="fa-solid fa-globe iconod"></i>
-        </div>
-        <h3 class="card-title">Generación Global</h3>
-        <p class="card-text" style="font-family: 'PT Sans Narrow', sans-serif;">En 2019, se generaron <strong>53,6 millones de toneladas métricas</strong> de residuos electrónicos, un aumento del <strong>21%</strong> en solo cinco años.</p>
-    </div>
+  </div>
+  <div *ngIf="residuosSeleccionada" class="residuo-detalle-card" data-aos="fade-up" data-aos-delay="400">
+    <h3 class="text-primary">{{ residuosSeleccionada.nombre }}</h3>
+    <ul class="residuo-detalle-list">
+      <li *ngFor="let caracteristica of residuosSeleccionada.caracteristicas; let i = index" 
+          [attr.data-aos]="'fade-up'"
+          [attr.data-aos-delay]="600 + (i * 100)">{{ caracteristica }}</li>
+    </ul>
+  </div>
+</section>
 
     <!-- Datos por Continente -->
-    <div class="custom-card">
+    <div class="custom-card" data-aos="flip-left" data-aos-delay="200">
         <div class="icon-circlep blue-theme">
             <i class="fa-solid fa-earth-americas iconod"></i>
         </div>
@@ -100,17 +68,17 @@
     </div>
 
     <!-- Ecuador -->
-    <div class="custom-card">
+    <div class="custom-card" data-aos="flip-left" data-aos-delay="300">
         <div class="icon-circlep orange-theme">
             <i class="fa-solid fa-flag iconod"></i>
         </div>
         <h3 class="card-title">Ecuador</h3>
         <p class="card-text">Ocupa el <strong>8° lugar</strong> en generación per cápita de RAEE en América Latina.</p>
     </div>
-</div>
+
 
 <div class="service-process">
-    <div class="titulo-containerAspectos d-flex align-items-center">
+    <div class="titulo-containerAspectos d-flex align-items-center" data-aos="fade-down" data-aos-duration="1000">
         <!-- Contenedor circular para el ícono -->
   
         <!-- Texto del título -->
@@ -125,8 +93,8 @@
         <div class="row">
             <!-- Primera columna -->
             <div class="col-md-6">
-                <h2 class="text-center mb-5">Aspectos Positivos</h2>
-                <div class="service-item">
+                <h2 class="text-center mb-5" data-aos="fade-right" data-aos-delay="200">Aspectos Positivos</h2>
+                <div class="service-item" data-aos="fade-up" data-aos-delay="300">
                     <div class="service-icon">
                         <div class="icon-circle">
                             <img src="assets/img/gestion.jpg" alt="Edificios">
@@ -138,7 +106,7 @@
                     </div>
                 </div>
 
-                <div class="service-item">
+                <div class="service-item" data-aos="fade-up" data-aos-delay="400">
                     <div class="service-icon">
                         <div class="icon-circle">
                             <img src="assets/img/61 a 78.png" alt="Reciclaje">

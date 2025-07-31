@@ -1,5 +1,5 @@
 <section class="contacto-section">
-  <div class="contacto-header">
+  <div class="contacto-header" data-aos="fade-down" data-aos-duration="1000">
     <h1 class="contacto-title">Contáctate con nosotros</h1>
     <p class="contacto-subtitle">
       Estamos aquí para ayudarte con todas tus consultas sobre gestión de RAEE. 
@@ -9,13 +9,13 @@
 
   <div class="contacto-container">
     <!-- Sección de Ubicación -->
-    <div class="ubicacion-section">
+    <div class="ubicacion-section" data-aos="fade-up" data-aos-duration="1200">
       <h2 class="section-title">
         <i class="fas fa-map-marker-alt"></i>
         Ubicación
       </h2>
       
-      <div class="mapa-container">
+      <div class="mapa-container" data-aos="zoom-in" data-aos-delay="200">
         <iframe 
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7598845334547!2d-78.55659560000001!3d-0.4207629999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d5a5669d11eb95%3A0x6fec441a43c5cac1!2sRecitec!5e0!3m2!1ses!2sec!4v1703000000000!5m2!1ses!2sec" 
           width="100%" 
@@ -26,7 +26,7 @@
           referrerpolicy="no-referrer-when-downgrade">
         </iframe>
         
-        <div class="ubicacion-info">
+        <div class="ubicacion-info" data-aos="fade-up" data-aos-delay="400">
           <div class="direccion-card">
             <i class="fas fa-building"></i>
             <div class="direccion-content">
@@ -43,10 +43,10 @@
     </div>
 
     <!-- Sección de Información de Contacto -->
-    <div class="contacto-info-section">
+    <div class="contacto-info-section" data-aos="fade-up" data-aos-duration="1200">
       <div class="contacto-cards">
         <!-- Tarjeta de Email -->
-        <div class="contacto-card email-card">
+        <div class="contacto-card email-card" data-aos="fade-right" data-aos-delay="200">
           <div class="card-icon">
             <i class="fas fa-envelope"></i>
           </div>
@@ -61,7 +61,7 @@
         </div>
 
         <!-- Tarjeta de Teléfono -->
-        <div class="contacto-card telefono-card">
+        <div class="contacto-card telefono-card" data-aos="fade-left" data-aos-delay="300">
           <div class="card-icon">
             <i class="fas fa-phone"></i>
           </div>
@@ -77,7 +77,7 @@
         </div>
 
         <!-- Tarjeta de Horarios -->
-        <div class="contacto-card horarios-card">
+        <div class="contacto-card horarios-card" data-aos="fade-right" data-aos-delay="400">
           <div class="card-icon">
             <i class="fas fa-clock"></i>
           </div>
@@ -101,17 +101,17 @@
         </div>
 
         <!-- Tarjeta de Servicios -->
-        <div class="contacto-card servicios-card">
+        <div class="contacto-card servicios-card" data-aos="fade-left" data-aos-delay="500">
           <div class="card-icon">
             <i class="fas fa-tools"></i>
           </div>
           <div class="card-content">
             <h3>Nuestros Servicios</h3>
             <ul class="servicios-lista">
-              <li><i class="fas fa-check"></i> Recolección de RAEE</li>
-              <li><i class="fas fa-check"></i> Destrucción segura de datos</li>
-              <li><i class="fas fa-check"></i> Reciclaje responsable</li>
-              <li><i class="fas fa-check"></i> Capacitaciones empresariales</li>
+              <li data-aos="fade-in" data-aos-delay="600"><i class="fas fa-check"></i> Recolección de RAEE</li>
+              <li data-aos="fade-in" data-aos-delay="650"><i class="fas fa-check"></i> Destrucción segura de datos</li>
+              <li data-aos="fade-in" data-aos-delay="700"><i class="fas fa-check"></i> Reciclaje responsable</li>
+              <li data-aos="fade-in" data-aos-delay="750"><i class="fas fa-check"></i> Capacitaciones empresariales</li>
             </ul>
           </div>
         </div>
@@ -119,14 +119,14 @@
     </div>
 
     <!-- Sección de Formulario de Contacto -->
-    <div class="formulario-section">
-      <div class="formulario-header">
+    <div class="formulario-section" data-aos="fade-up" data-aos-duration="1200">
+      <div class="formulario-header" data-aos="zoom-in" data-aos-delay="200">
         <h2>¿Tienes alguna consulta?</h2>
         <p>Completa el formulario y nos pondremos en contacto contigo a la brevedad</p>
       </div>
 
       <form class="contacto-form" (ngSubmit)="onSubmit()" #contactoForm="ngForm">
-        <div class="form-row">
+        <div class="form-row" data-aos="fade-up" data-aos-delay="300">
           <div class="form-group">
             <label for="nombre">
               <i class="fas fa-user"></i>
@@ -156,7 +156,7 @@
           </div>
         </div>
 
-        <div class="form-row">
+        <div class="form-row" data-aos="fade-up" data-aos-delay="400">
           <div class="form-group">
             <label for="telefono">
               <i class="fas fa-phone"></i>
@@ -184,7 +184,7 @@
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" data-aos="fade-up" data-aos-delay="500">
           <label for="asunto">
             <i class="fas fa-tag"></i>
             Asunto
@@ -204,7 +204,7 @@
           </select>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" data-aos="fade-up" data-aos-delay="600">
           <label for="mensaje">
             <i class="fas fa-comment"></i>
             Mensaje
@@ -218,7 +218,7 @@
             required></textarea>
         </div>
 
-        <button type="submit" class="submit-btn" [disabled]="!contactoForm.valid">
+        <button type="submit" class="submit-btn" [disabled]="!contactoForm.valid" data-aos="zoom-in-up" data-aos-delay="700">
           <i class="fas fa-paper-plane"></i>
           Enviar mensaje
         </button>
@@ -226,21 +226,21 @@
     </div>
 
     <!-- Sección de Información Adicional -->
-    <div class="info-adicional">
+    <div class="info-adicional" data-aos="fade-up" data-aos-duration="1200">
       <div class="info-cards">
-        <div class="info-card">
+        <div class="info-card" data-aos="fade-up" data-aos-delay="100">
           <i class="fas fa-leaf"></i>
           <h3>Compromiso Ambiental</h3>
           <p>Trabajamos por un planeta más limpio mediante la gestión responsable de residuos electrónicos.</p>
         </div>
         
-        <div class="info-card">
+        <div class="info-card" data-aos="fade-up" data-aos-delay="200">
           <i class="fas fa-certificate"></i>
           <h3>Certificaciones</h3>
           <p>Contamos con todas las certificaciones necesarias para el manejo seguro de RAEE.</p>
         </div>
         
-        <div class="info-card">
+        <div class="info-card" data-aos="fade-up" data-aos-delay="300">
           <i class="fas fa-users"></i>
           <h3>Equipo Especializado</h3>
           <p>Nuestro personal está capacitado en las mejores prácticas de gestión ambiental.</p>
@@ -250,12 +250,12 @@
   </div>
 
   <!-- Persona con laptop (como en la imagen) -->
-  <div class="contact-image">
+  <div class="contact-image" data-aos="fade-up" data-aos-delay="200">
     <div class="image-container">
-      <div class="person-illustration">
+      <div class="person-illustration" data-aos="bounce-in" data-aos-delay="400">
         <i class="fas fa-user-tie"></i>
       </div>
-      <div class="laptop-illustration">
+      <div class="laptop-illustration" data-aos="slide-up" data-aos-delay="600">
         <i class="fas fa-laptop"></i>
       </div>
     </div>

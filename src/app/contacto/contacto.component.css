@@ -6,6 +6,37 @@
   overflow: hidden;
 }
 
+/* ================ ESTILOS PARA ANIMACIONES AOS ================ */
+[data-aos] {
+  pointer-events: none;
+}
+
+[data-aos].aos-animate {
+  pointer-events: auto;
+}
+
+/* Mejoras visuales para animaciones */
+.contacto-card {
+  transition: all 0.3s ease;
+}
+
+.contacto-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.form-group {
+  transition: all 0.3s ease;
+}
+
+.info-card {
+  transition: all 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-3px);
+}
+
 /* Header de contacto */
 .contacto-header {
   text-align: center;

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './contacto.component.html',
   styleUrl: './contacto.component.css'
 })
-export class ContactoComponent {
+export class ContactoComponent implements OnInit {
   
   // Modelo para el formulario de contacto
   contactForm = {
@@ -22,6 +22,25 @@ export class ContactoComponent {
   };
 
   constructor() { }
+
+  ngOnInit() {
+    // Cargar AOS dinámicamente
+    this.loadAOS();
+  }
+
+  private async loadAOS() {
+    try {
+      const AOS = await import('aos');
+      AOS.init({
+        duration: 1000, // Duración por defecto de las animaciones
+        once: true,     // Solo animar una vez
+        offset: 100,    // Desplazamiento para activar la animación
+        easing: 'ease-in-out' // Tipo de easing
+      });
+    } catch (error) {
+      console.log('Error loading AOS:', error);
+    }
+  }
 
   // Método para enviar el formulario
   onSubmit() {
