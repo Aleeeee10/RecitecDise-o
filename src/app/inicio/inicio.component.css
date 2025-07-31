@@ -33,7 +33,10 @@ button:hover {
 
 /* HERO */
 .hero {
-  background: linear-gradient(to right, rgba(240, 102, 10, 0.829), rgba(37, 99, 235, 0.6));
+  background: linear-gradient(to right, rgba(240, 102, 10, 0.829), rgba(37, 99, 235, 0.6)), url('/assets/img/residuos-electronicos.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color: white;
   padding: 100px 20px;
 }
