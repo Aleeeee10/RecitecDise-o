@@ -1,18 +1,17 @@
-/* ================ NAVBAR MODERNO ================ */
+/* ================ NAVBAR LIMPIO Y MODERNO ================ */
 .navbar {
   width: 100%;
-  background: linear-gradient(135deg, #f0660a 0%, #2563eb 100%);
-  backdrop-filter: blur(10px);
+  background-color: white;
   padding: 15px 25px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 0;
   z-index: 1000;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease-in-out;
 }
 
 .navbar:hover {
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-container {
@@ -41,35 +40,31 @@
   height: 50px;
   border-radius: 12px;
   object-fit: cover;
-  border: 2px solid white;
+  border: 2px solid #2563eb;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-logo:hover {
-  transform: rotate(10deg) scale(1.1);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transform: rotate(5deg) scale(1.05);
 }
 
 .project-title {
   font-size: 2rem;
   font-weight: 800;
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  color: #f0660a;
   letter-spacing: 1px;
   transition: all 0.3s ease;
-  cursor: pointer;
 }
 
 .project-title:hover {
   transform: scale(1.05);
-  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
 }
 
-/* ================ NAVEGACION CENTRAL ================ */
+/* ================ NAVBAR CENTER ================ */
 .navbar-center {
   display: flex;
-  gap: 30px;
+  gap: 25px;
   align-items: center;
 }
 
@@ -77,46 +72,28 @@
   position: relative;
   text-decoration: none;
   font-weight: 600;
-  font-size: 1.1rem;
-  color: white;
-  padding: 12px 20px;
-  border-radius: 25px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
-}
-
-.navbar-center a::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
-}
-
-.navbar-center a:hover::before {
-  left: 100%;
+  font-size: 1rem;
+  color: #253b6e;
+  padding: 10px 18px;
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
 }
 
 .navbar-center a:hover {
-  background: rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  background-color: rgba(245, 101, 10, 0.1);
+  color: #f0660a;
 }
 
 .navbar-center a.active {
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transform: scale(1.05);
+  background-color: #f0660a;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* ================ NAVBAR RIGHT ================ */
 .navbar-right {
   display: flex;
   align-items: center;
-  gap: 15px;
 }
 
 /* ================ MENU HAMBURGER ================ */
@@ -127,168 +104,71 @@
   border: none;
   cursor: pointer;
   padding: 10px;
-  transition: all 0.3s ease;
 }
 
 .menu-toggle span {
   width: 25px;
   height: 3px;
-  background: white;
-  margin: 3px 0;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #253b6e;
+  margin: 4px 0;
+  transition: all 0.3s ease;
   border-radius: 2px;
 }
 
 .menu-toggle.active span:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
+  transform: rotate(45deg) translate(5px, 5px);
 }
-
 .menu-toggle.active span:nth-child(2) {
   opacity: 0;
 }
-
 .menu-toggle.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* ================ MAIN CONTENT ================ */
-main {
-  min-height: calc(100vh - 120px);
-  position: relative;
-  overflow: hidden;
-}
-
-/* ================ RESPONSIVE DESIGN ================ */
+/* ================ RESPONSIVE ================ */
 @media (max-width: 768px) {
-  .navbar {
-    padding: 12px 20px;
-  }
-  
-  .project-title {
-    font-size: 1.6rem;
-  }
-  
-  .navbar-logo {
-    width: 40px;
-    height: 40px;
-  }
-  
   .navbar-center {
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
-    background: linear-gradient(135deg, #f0660a 0%, #2563eb 100%);
     flex-direction: column;
+    background-color: white;
     padding: 20px;
-    gap: 15px;
-    transform: translateY(-100%);
+    gap: 10px;
     opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: all 0.3s ease;
   }
-  
+
   .navbar-center.menu-open {
-    transform: translateY(0);
     opacity: 1;
-    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   }
-  
+
   .navbar-center a {
     width: 100%;
     text-align: center;
-    padding: 15px;
-    border-radius: 15px;
-    background: rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.03);
   }
-  
+
   .menu-toggle {
     display: flex;
   }
 }
 
-@media (max-width: 480px) {
-  .project-title {
-    font-size: 1.4rem;
-  }
-  
-  .navbar-container {
-    padding: 0 10px;
-  }
-  
-  .logo-container {
-    gap: 10px;
-  }
-}
-
-/* ================ ANIMATIONS & EFFECTS ================ */
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-@keyframes glow {
-  0% { box-shadow: 0 0 5px rgba(245, 101, 10, 0.5); }
-  50% { box-shadow: 0 0 20px rgba(245, 101, 10, 0.8), 0 0 30px rgba(37, 99, 235, 0.3); }
-  100% { box-shadow: 0 0 5px rgba(245, 101, 10, 0.5); }
-}
-
-.navbar-center a:hover {
-  animation: glow 2s infinite;
-}
-
-.project-title:hover {
-  animation: pulse 1s infinite;
-}
-
-/* ================ RESET Y ESTILOS GENERALES ================ */
+/* ================ RESET ================ */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f9f9f9;
+  background: #f9f9f9;
   color: #253b6e;
-  line-height: 1.6;
-}
-
-:host {
-  display: block;
-}
-
-/* ================ BOTONES GENERALES ================ */
-button {
-  background-color: #ef3f2c;
-  color: white;
-  border: none;
-  padding: 0.5rem 1.2rem;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-button:hover {
-  background-color: #c73220;
-}
-
-/* ================ TÍTULOS ================ */
-h1, h2, h3 {
-  color: #253b6e;
-  margin-bottom: 0.5rem;
-}
-
-/* ================ ENLACES GENERALES ================ */
-a {
-  color: #2563eb;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
 }
