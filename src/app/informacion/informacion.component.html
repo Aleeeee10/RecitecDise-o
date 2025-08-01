@@ -1,9 +1,263 @@
-<section class="informacion-container">
-  <div *ngFor="let item of informacion; let i = index" class="informacion-card" [attr.data-aos]="i % 2 === 0 ? 'fade-right' : 'fade-left'">
-    <img class="informacion-imagen" [src]="item.imagen" [alt]="item.titulo">
-    <div class="informacion-contenido">
-      <h3 class="informacion-titulo">{{ item.titulo }}</h3>
-      <p class="informacion-descripcion">{{ item.descripcion }}</p>
+<div class="informacion-container">
+  <!-- HERO SECCIÓN INFORMATIVA MEJORADO -->
+  <section class="hero info-hero">
+    <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
+      <h1 data-aos="fade-down" data-aos-delay="200">¿Sabías que estos dispositivos pueden tener una segunda vida?</h1>
+      <p data-aos="fade-up" data-aos-delay="400">
+        Explora el fascinante mundo de los AEE y RAEE, y descubre cómo gestionarlos de manera responsable 
+        para construir un futuro más sostenible.
+      </p>
+      <div class="info-cards-grid">
+        <div class="info-card" data-aos="fade-right" data-aos-delay="500">
+          <span class="highlight-text">Aparatos Eléctricos y Electrónicos (AEE)</span> mejoran nuestra vida cotidiana, 
+          permitiéndonos comunicarnos, trabajar y disfrutar de entretenimiento de manera eficiente.
+        </div>
+        <div class="info-card" data-aos="fade-left" data-aos-delay="600">
+          Cuando termina su ciclo de vida, debemos gestionar responsablemente sus residuos: 
+          <span class="highlight-text">Residuos de Aparatos Eléctricos y Electrónicos (RAEE)</span>, 
+          que presentan valiosas oportunidades de reutilización.
+        </div>
+        <div class="info-card call-to-action" data-aos="zoom-in" data-aos-delay="700">
+          <i class="fas fa-rocket" style="font-size: 2rem; margin-bottom: 10px;"></i>
+          ¡Prepárate para descubrir cómo nuestro país enfrenta este desafío global de manera innovadora!
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- SELECCIÓN DE RESIDUOS RENOVADA -->
+  <section class="residuos-section">
+    <div class="titulo-container" data-aos="fade-down" data-aos-duration="1000">
+      <h2>Conoce los Residuos que Procesamos</h2>
+      <div class="icono-titulo">
+        <i class="fas fa-clipboard-list"></i>
+      </div>
+    </div>
+
+    <div class="residuos-grid">
+      <div 
+        *ngFor="let residuo of residuos; let i = index" 
+        class="residuo-card" 
+        (click)="seleccionarResiduo(residuo)" 
+        [class.seleccionada]="residuo === residuosSeleccionada"
+        [attr.data-aos]="'fade-up'"
+        [attr.data-aos-delay]="100 + (i * 80)"
+      >
+        <img [src]="residuo.imagen" [alt]="residuo.nombre" class="residuo-img" />
+        <div class="residuo-info">
+          <h3>{{ residuo.nombre }}</h3>
+          <p>{{ residuo.descripcion }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="residuosSeleccionada" class="residuo-detalle-card" data-aos="fade-up" data-aos-delay="400">
+      <h3>{{ residuosSeleccionada.nombre }}</h3>
+      <ul class="residuo-detalle-list">
+        <li *ngFor="let caracteristica of residuosSeleccionada.caracteristicas; let i = index" 
+            [attr.data-aos]="'fade-right'"
+            [attr.data-aos-delay]="600 + (i * 100)">
+          {{ caracteristica }}
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE DATOS GLOBALES -->
+  <section class="datos-globales-section">
+    <div class="datos-container">
+      <h2 class="datos-title" data-aos="fade-up" data-aos-duration="1000">Datos Globales sobre RAEE</h2>
+      
+      <div class="datos-grid">
+        <div class="dato-card" data-aos="flip-left" data-aos-delay="200">
+          <div class="dato-icon">
+            <i class="fas fa-globe-americas"></i>
+          </div>
+          <h3>Datos por Continente</h3>
+          <p><strong>América:</strong> 13,1 millones de toneladas</p>
+          <p><strong>Europa:</strong> 12 millones de toneladas</p>
+          <p><strong>Asia:</strong> 24,9 millones de toneladas</p>
+        </div>
+
+        <div class="dato-card" data-aos="flip-left" data-aos-delay="300">
+          <div class="dato-icon">
+            <i class="fas fa-flag"></i>
+          </div>
+          <h3>Ecuador en Cifras</h3>
+          <p>Ocupa el <strong>8° lugar</strong> en generación per cápita de RAEE en América Latina, 
+          lo que representa un desafío importante para nuestro país.</p>
+        </div>
+
+        <div class="dato-card" data-aos="flip-left" data-aos-delay="400">
+          <div class="dato-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Crecimiento Anual</h3>
+          <p>La generación de RAEE aumenta un <strong>5%</strong> anualmente a nivel mundial, 
+          siendo uno de los flujos de residuos que más rápido crece.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARRUSEL DE ASPECTOS POSITIVOS Y NEGATIVOS -->
+  <section class="aspectos-carousel-section">
+    <div class="carousel-container">
+      <h2 class="carousel-title" data-aos="fade-down" data-aos-duration="1000">
+        Aspectos de la Gestión de RAEE
+      </h2>
+      
+      <div class="aspectos-carousel" data-aos="zoom-in" data-aos-delay="300">
+        <div class="carousel-track" [style.transform]="'translateX(-' + currentSlideIndex * 100 + '%)'">
+          <!-- Slide 1: Aspectos Positivos -->
+          <div class="carousel-slide">
+            <div class="slide-content">
+              <h3 style="color: #10b981;">✅ Aspectos Positivos</h3>
+              <ul>
+                <li>17,4% de los RAEE documentados se gestionan adecuadamente a nivel mundial</li>
+                <li>El número de países con políticas sobre RAEE ha aumentado de 61 a 78 desde 2014</li>
+                <li>Creciente conciencia ambiental y programas de reciclaje</li>
+                <li>Desarrollo de tecnologías más eficientes para el procesamiento</li>
+                <li>Creación de empleos verdes en el sector del reciclaje</li>
+              </ul>
+            </div>
+            <div class="slide-image">
+              <img src="assets/img/gestion.jpg" alt="Gestión positiva de RAEE" />
+            </div>
+          </div>
+
+          <!-- Slide 2: Aspectos Negativos -->
+          <div class="carousel-slide">
+            <div class="slide-content">
+              <h3 style="color: #dc2626;">❌ Aspectos Negativos</h3>
+              <ul>
+                <li>El destino del 82,6% de RAEE restante es incierto</li>
+                <li>Los impactos ambientales varían según la región</li>
+                <li>Los residuos electrónicos contienen aditivos tóxicos y sustancias peligrosas</li>
+                <li>Falta de infraestructura adecuada en países en desarrollo</li>
+                <li>Exportación ilegal de residuos a países menos desarrollados</li>
+              </ul>
+            </div>
+            <div class="slide-image">
+              <img src="assets/img/incertidumbre.jpg" alt="Problemas en gestión de RAEE" />
+            </div>
+          </div>
+
+          <!-- Slide 3: Soluciones -->
+          <div class="carousel-slide">
+            <div class="slide-content">
+              <h3 style="color: #2563eb;">🔧 Soluciones Implementadas</h3>
+              <ul>
+                <li>Programas de Responsabilidad Extendida del Productor (REP)</li>
+                <li>Centros de acopio especializados y certificados</li>
+                <li>Tecnologías avanzadas de separación y reciclaje</li>
+                <li>Campañas educativas y de sensibilización</li>
+                <li>Legislación específica para el manejo de RAEE</li>
+              </ul>
+            </div>
+            <div class="slide-image">
+              <img src="assets/img/61 a 78.png" alt="Soluciones para RAEE" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Controles del carrusel -->
+        <button class="carousel-controls carousel-prev" (click)="prevSlide()" data-aos="fade-right" data-aos-delay="500">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-controls carousel-next" (click)="nextSlide()" data-aos="fade-left" data-aos-delay="500">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Indicadores -->
+        <div class="carousel-indicators">
+          <div 
+            *ngFor="let slide of carouselSlides; let i = index" 
+            class="indicator" 
+            [class.active]="i === currentSlideIndex"
+            (click)="goToSlide(i)">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARRUSEL DE MATERIALES EN DISPOSITIVOS -->
+  <section class="materiales-section" style="padding: 80px 20px; background: linear-gradient(135deg, #fef7ff 0%, #f3e8ff 100%);">
+    <div class="container" style="max-width: 1200px; margin: 0 auto;">
+      <h2 style="text-align: center; font-size: 2.8rem; font-weight: 800; color: #7c3aed; margin-bottom: 60px;" data-aos="fade-up">
+        Desglose de Materiales en Dispositivos Electrónicos
+      </h2>
+      
+      <div class="materiales-carousel" data-aos="zoom-in" data-aos-delay="300">
+        <div class="materiales-track" [style.transform]="'translateX(-' + currentMaterialIndex * 100 + '%)'">
+          <!-- Teléfono -->
+          <div class="material-slide">
+            <div class="material-device">
+              <h3>📱 Teléfono Móvil</h3>
+              <img src="assets/img/telefono_sin_fondo.png" alt="Teléfono" class="device-image" />
+              <div class="material-composition">
+                <div class="composition-item" style="background: #f59e0b;">Plástico: 40%</div>
+                <div class="composition-item" style="background: #8b5cf6;">Vidrio y Cerámica: 20%</div>
+                <div class="composition-item" style="background: #10b981;">Cobre: 10%</div>
+                <div class="composition-item" style="background: #3b82f6;">Acero: 10%</div>
+                <div class="composition-item" style="background: #ef4444;">Aluminio: 3-20%</div>
+                <div class="composition-item" style="background: #6b7280;">Otros metales: &lt;5%</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Televisor -->
+          <div class="material-slide">
+            <div class="material-device">
+              <h3>📺 Televisor</h3>
+              <img src="assets/img/tv.png" alt="Televisor" class="device-image" />
+              <div class="material-composition">
+                <div class="composition-item" style="background: #f59e0b;">Plástico: 30%</div>
+                <div class="composition-item" style="background: #8b5cf6;">Vidrio: 25%</div>
+                <div class="composition-item" style="background: #10b981;">Cobre: 15%</div>
+                <div class="composition-item" style="background: #3b82f6;">Acero: 10%</div>
+                <div class="composition-item" style="background: #ef4444;">Aluminio: 10%</div>
+                <div class="composition-item" style="background: #6b7280;">Otros metales: 5%</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Computadora -->
+          <div class="material-slide">
+            <div class="material-device">
+              <h3>💻 Computadora</h3>
+              <img src="assets/img/computadora.png" alt="Computadora" class="device-image" />
+              <div class="material-composition">
+                <div class="composition-item" style="background: #f59e0b;">Plástico: 30%</div>
+                <div class="composition-item" style="background: #8b5cf6;">Vidrio: 20%</div>
+                <div class="composition-item" style="background: #10b981;">Cobre: 25%</div>
+                <div class="composition-item" style="background: #3b82f6;">Acero: 15%</div>
+                <div class="composition-item" style="background: #ef4444;">Aluminio: 10%</div>
+                <div class="composition-item" style="background: #6b7280;">Otros metales: 5%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controles -->
+        <button class="carousel-controls materiales-prev" (click)="previousMaterial()" data-aos="fade-right" data-aos-delay="500">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-controls materiales-next" (click)="nextMaterial()" data-aos="fade-left" data-aos-delay="500">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Indicadores -->
+        <div class="carousel-indicators materiales-indicators">
+          <div 
+            *ngFor="let material of materialesSlides; let i = index" 
+            class="indicator" 
+            [class.active]="i === currentMaterialIndex"
+            (click)="goToMaterial(i)">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
