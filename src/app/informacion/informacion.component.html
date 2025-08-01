@@ -1,399 +1,613 @@
-
-
-<!-- HERO SECCIÓN INFORMATIVA -->
-<section class="hero info-hero">
-  <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
-    <h1 data-aos="fade-down" data-aos-delay="200">¿Sabías que estos dispositivos pueden tener una segunda vida después de su uso?</h1>
-    <p data-aos="fade-up" data-aos-delay="400">Explora el mundo de los AEE y RAEE, y descubre cómo gestionarlos de manera responsable.</p>
-    <div class="info-cards-grid">
-      <div class="info-card" data-aos="fade-right" data-aos-delay="500">
-        <span class="highlight-text">Aparatos Eléctricos y Electrónicos (AEE)</span> mejoran nuestra vida cotidiana, permitiéndonos comunicarnos, trabajar y disfrutar de entretenimiento.
-      </div>
-      <div class="info-card" data-aos="fade-left" data-aos-delay="600">
-        Cuando termina su ciclo de vida, debemos gestionar sus residuos: <span class="highlight-text">Residuos de Aparatos Eléctricos y Electrónicos (RAEE)</span>, que presentan oportunidades de reutilización y riesgos ambientales.
-      </div>
-      <div class="info-card call-to-action" data-aos="zoom-in" data-aos-delay="700">
-        ¡Prepárate para descubrir cómo nuestro país enfrenta este desafío global!
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SELECCIÓN DE RESIDUOS (tipo cards) -->
-<section class="residuos-section">
-  <div class="titulo-container" data-aos="fade-down" data-aos-duration="1000">
-    <h2>Conoce los Residuos que procesamos</h2>
-    <div class="icono-titulo">
-      <i class="fas fa-clipboard-list"></i>
-    </div>
-  </div>
-  <div class="residuos-grid">
-    <div 
-      *ngFor="let residuo of residuos; let i = index" 
-      class="residuo-card" 
-      (click)="seleccionarResiduo(residuo)" 
-      [class.seleccionada]="residuo === residuosSeleccionada"
-      [attr.data-aos]="'fade-up'"
-      [attr.data-aos-delay]="100 + (i * 50)"
-    >
-      <img [src]="residuo.imagen" [alt]="residuo.nombre" class="residuo-img" />
-      <div class="residuo-info">
-        <h3>{{ residuo.nombre }}</h3>
-        <p>{{ residuo.descripcion }}</p>
-      </div>
-    </div>
-
-  </div>
-  <div *ngIf="residuosSeleccionada" class="residuo-detalle-card" data-aos="fade-up" data-aos-delay="400">
-    <h3 class="text-primary">{{ residuosSeleccionada.nombre }}</h3>
-    <ul class="residuo-detalle-list">
-      <li *ngFor="let caracteristica of residuosSeleccionada.caracteristicas; let i = index" 
-          [attr.data-aos]="'fade-up'"
-          [attr.data-aos-delay]="600 + (i * 100)">{{ caracteristica }}</li>
-    </ul>
-  </div>
-</section>
-
-    <!-- Datos por Continente -->
-    <div class="custom-card" data-aos="flip-left" data-aos-delay="200">
-        <div class="icon-circlep blue-theme">
-            <i class="fa-solid fa-earth-americas iconod"></i>
+<div class="informacion-container">
+  <!-- HERO SECCIÓN INFORMATIVA MEJORADO -->
+  <section class="hero info-hero">
+    <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
+      <h1 data-aos="fade-down" data-aos-delay="200">¿Sabías que estos dispositivos pueden tener una segunda vida?</h1>
+      <p data-aos="fade-up" data-aos-delay="400">
+        Explora el fascinante mundo de los AEE y RAEE, y descubre cómo gestionarlos de manera responsable 
+        para construir un futuro más sostenible.
+      </p>
+      <div class="info-cards-grid">
+        <div class="info-card" data-aos="fade-right" data-aos-delay="500">
+          <span class="highlight-text">Aparatos Eléctricos y Electrónicos (AEE)</span> mejoran nuestra vida cotidiana, 
+          permitiéndonos comunicarnos, trabajar y disfrutar de entretenimiento de manera eficiente.
         </div>
-        <h3 class="card-title">Datos por Continente</h3>
-        <ul class="custom-list">
-            <li>América: 13,1 millones de toneladas.</li>
-            <li>Europa: 12 millones de toneladas.</li>
-            <li>Asia: 24,9 millones de toneladas.</li>
-        </ul>
-    </div>
-
-    <!-- Ecuador -->
-    <div class="custom-card" data-aos="flip-left" data-aos-delay="300">
-        <div class="icon-circlep orange-theme">
-            <i class="fa-solid fa-flag iconod"></i>
+        <div class="info-card" data-aos="fade-left" data-aos-delay="600">
+          Cuando termina su ciclo de vida, debemos gestionar responsablemente sus residuos: 
+          <span class="highlight-text">Residuos de Aparatos Eléctricos y Electrónicos (RAEE)</span>, 
+          que presentan valiosas oportunidades de reutilización.
         </div>
-        <h3 class="card-title">Ecuador</h3>
-        <p class="card-text">Ocupa el <strong>8° lugar</strong> en generación per cápita de RAEE en América Latina.</p>
-    </div>
-
-
-<div class="service-process">
-    <div class="titulo-containerAspectos d-flex align-items-center" data-aos="fade-down" data-aos-duration="1000">
-        <!-- Contenedor circular para el ícono -->
-  
-        <!-- Texto del título -->
-        <h5 class="tituloAspectos">
-            Aspectos Positivos y Negativos de la Gestión de RAEE
-        </h5>
-        <div class="icono-tituloAspectos me-3 ms-5">
-          <i class="fas fa-clipboard-list"></i> <!-- Ícono de anotaciones -->
+        <div class="info-card call-to-action" data-aos="zoom-in" data-aos-delay="700">
+          <i class="fas fa-rocket" style="font-size: 2rem; margin-bottom: 10px;"></i>
+          ¡Prepárate para descubrir cómo nuestro país enfrenta este desafío global de manera innovadora!
         </div>
       </div>
-    <div class="container Aspectos">
-        <div class="row">
-            <!-- Primera columna -->
-            <div class="col-md-6">
-                <h2 class="text-center mb-5" data-aos="fade-right" data-aos-delay="200">Aspectos Positivos</h2>
-                <div class="service-item" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-icon">
-                        <div class="icon-circle">
-                            <img src="assets/img/gestion.jpg" alt="Edificios">
-                        </div>
-                    </div>
-                    <div class="service-text">
-                        <span class="service-number">1</span>
-                        17,4% de los RAEE documentados se gestionan adecuadamente a nivel mundial.
-                    </div>
-                </div>
+    </div>
+  </section>
 
-                <div class="service-item" data-aos="fade-up" data-aos-delay="400">
-                    <div class="service-icon">
-                        <div class="icon-circle">
-                            <img src="assets/img/61 a 78.png" alt="Reciclaje">
-                        </div>
-                    </div>
-                    <div class="service-text">
-                        <span class="service-number">2</span>
-                        El número de países con políticas sobre RAEE ha aumentado de 61 a 78 desde 2014.
-                    </div>
-                </div>
+  <!-- SELECCIÓN DE RESIDUOS RENOVADA -->
+  <section class="residuos-section">
+    <div class="titulo-container" data-aos="fade-down" data-aos-duration="1000">
+      <h2>Conoce los Residuos que Procesamos</h2>
+      <div class="icono-titulo">
+        <i class="fas fa-clipboard-list"></i>
+      </div>
+    </div>
+
+    <div class="residuos-grid">
+      <div 
+        *ngFor="let residuo of residuos; let i = index" 
+        class="residuo-card" 
+        (click)="seleccionarResiduo(residuo)" 
+        [class.seleccionada]="residuo === residuosSeleccionada"
+        [attr.data-aos]="'fade-up'"
+        [attr.data-aos-delay]="100 + (i * 80)"
+      >
+        <img [src]="residuo.imagen" [alt]="residuo.nombre" class="residuo-img" />
+        <div class="residuo-info">
+          <h3>{{ residuo.nombre }}</h3>
+          <p>{{ residuo.descripcion }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="residuosSeleccionada" class="residuo-detalle-card" data-aos="fade-up" data-aos-delay="400">
+      <h3>{{ residuosSeleccionada.nombre }}</h3>
+      <ul class="residuo-detalle-list">
+        <li *ngFor="let caracteristica of residuosSeleccionada.caracteristicas; let i = index" 
+            [attr.data-aos]="'fade-right'"
+            [attr.data-aos-delay]="600 + (i * 100)">
+          {{ caracteristica }}
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE DATOS GLOBALES -->
+  <section class="datos-globales-section">
+    <div class="datos-container">
+      <h2 class="datos-title" data-aos="fade-up" data-aos-duration="1000">Datos Globales sobre RAEE</h2>
+      
+      <div class="datos-grid">
+        <div class="dato-card" data-aos="flip-left" data-aos-delay="200">
+          <div class="dato-icon">
+            <i class="fas fa-globe-americas"></i>
+          </div>
+          <h3>Datos por Continente</h3>
+          <p><strong>América:</strong> 13,1 millones de toneladas</p>
+          <p><strong>Europa:</strong> 12 millones de toneladas</p>
+          <p><strong>Asia:</strong> 24,9 millones de toneladas</p>
+        </div>
+
+        <div class="dato-card" data-aos="flip-left" data-aos-delay="300">
+          <div class="dato-icon">
+            <i class="fas fa-flag"></i>
+          </div>
+          <h3>Ecuador en Cifras</h3>
+          <p>Ocupa el <strong>8° lugar</strong> en generación per cápita de RAEE en América Latina, 
+          lo que representa un desafío importante para nuestro país.</p>
+        </div>
+
+        <div class="dato-card" data-aos="flip-left" data-aos-delay="400">
+          <div class="dato-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Crecimiento Anual</h3>
+          <p>La generación de RAEE aumenta un <strong>5%</strong> anualmente a nivel mundial, 
+          siendo uno de los flujos de residuos que más rápido crece.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARRUSEL DE ASPECTOS POSITIVOS Y NEGATIVOS -->
+  <section class="aspectos-carousel-section">
+    <div class="carousel-container">
+      <h2 class="carousel-title" data-aos="fade-down" data-aos-duration="1000">
+        Aspectos de la Gestión de RAEE
+      </h2>
+      
+      <div class="aspectos-carousel" data-aos="zoom-in" data-aos-delay="300">
+        <div class="carousel-track" [style.transform]="'translateX(-' + currentSlideIndex * 100 + '%)'">
+          <!-- Slide 1: Aspectos Positivos -->
+          <div class="carousel-slide">
+            <div class="slide-content">
+              <h3 style="color: #10b981;">✅ Aspectos Positivos</h3>
+              <ul>
+                <li>17,4% de los RAEE documentados se gestionan adecuadamente a nivel mundial</li>
+                <li>El número de países con políticas sobre RAEE ha aumentado de 61 a 78 desde 2014</li>
+                <li>Creciente conciencia ambiental y programas de reciclaje</li>
+                <li>Desarrollo de tecnologías más eficientes para el procesamiento</li>
+                <li>Creación de empleos verdes en el sector del reciclaje</li>
+              </ul>
             </div>
-
-            <!-- Segunda columna -->
-            <div class="col-md-6">
-                <h2 class="text-center mb-5">Aspectos Negativos</h2>
-                <div class="service-item">
-                    <div class="service-icon">
-                        <div class="icon-circle">
-                            <img src="assets/img/incertidumbre.jpg" alt="Fábrica">
-                        </div>
-                    </div>
-                    <div class="service-text">
-                        <span class="service-number">1</span>
-                        El destino del 82,6% de RAEE restante es incierto.
-                    </div>
-                </div>
-
-                <div class="service-item">
-                    <div class="service-icon">
-                        <div class="icon-circle">
-                            <img src="assets/img/regiones.png" alt="Gráfico">
-                        </div>
-                    </div>
-                    <div class="service-text">
-                        <span class="service-number">2</span>
-                        Los impactos ambientales varían según la región.
-                    </div>
-                </div>
-
-                <div class="service-item">
-                    <div class="service-icon">
-                        <div class="icon-circle">
-                            <img src="assets/img/toxico.png" alt="Planta">
-                        </div>
-                    </div>
-                    <div class="service-text">
-                        <span class="service-number">3</span>
-                        Los residuos electrónicos contienen aditivos tóxicos y sustancias peligrosas.
-                    </div>
-                </div>
+            <div class="slide-image">
+              <img src="assets/img/gestion.jpg" alt="Gestión positiva de RAEE" />
             </div>
+          </div>
+
+          <!-- Slide 2: Aspectos Negativos -->
+          <div class="carousel-slide">
+            <div class="slide-content">
+              <h3 style="color: #dc2626;">❌ Aspectos Negativos</h3>
+              <ul>
+                <li>El destino del 82,6% de RAEE restante es incierto</li>
+                <li>Los impactos ambientales varían según la región</li>
+                <li>Los residuos electrónicos contienen aditivos tóxicos y sustancias peligrosas</li>
+                <li>Falta de infraestructura adecuada en países en desarrollo</li>
+                <li>Exportación ilegal de residuos a países menos desarrollados</li>
+              </ul>
+            </div>
+            <div class="slide-image">
+              <img src="assets/img/incertidumbre.jpg" alt="Problemas en gestión de RAEE" />
+            </div>
+          </div>
+
+          <!-- Slide 3: Soluciones -->
+          <div class="carousel-slide">
+            <div class="slide-content">
+              <h3 style="color: #2563eb;">🔧 Soluciones Implementadas</h3>
+              <ul>
+                <li>Programas de Responsabilidad Extendida del Productor (REP)</li>
+                <li>Centros de acopio especializados y certificados</li>
+                <li>Tecnologías avanzadas de separación y reciclaje</li>
+                <li>Campañas educativas y de sensibilización</li>
+                <li>Legislación específica para el manejo de RAEE</li>
+              </ul>
+            </div>
+            <div class="slide-image">
+              <img src="assets/img/61 a 78.png" alt="Soluciones para RAEE" />
+            </div>
+          </div>
         </div>
+
+        <!-- Controles del carrusel -->
+        <button class="carousel-controls carousel-prev" (click)="previousSlide()" data-aos="fade-right" data-aos-delay="500">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-controls carousel-next" (click)="nextSlide()" data-aos="fade-left" data-aos-delay="500">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Indicadores -->
+        <div class="carousel-indicators">
+          <div 
+            *ngFor="let slide of carouselSlides; let i = index" 
+            class="indicator" 
+            [class.active]="i === currentSlideIndex"
+            (click)="goToSlide(i)">
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
+
+  <!-- CARRUSEL DE MATERIALES EN DISPOSITIVOS -->
+  <section class="materiales-section" style="padding: 80px 20px; background: linear-gradient(135deg, #fef7ff 0%, #f3e8ff 100%);">
+    <div class="container" style="max-width: 1200px; margin: 0 auto;">
+      <h2 style="text-align: center; font-size: 2.8rem; font-weight: 800; color: #7c3aed; margin-bottom: 60px;" data-aos="fade-up">
+        Desglose de Materiales en Dispositivos Electrónicos
+      </h2>
+      
+      <div class="materiales-carousel" data-aos="zoom-in" data-aos-delay="300">
+        <div class="materiales-track" [style.transform]="'translateX(-' + currentMaterialIndex * 100 + '%)'">
+          <!-- Teléfono -->
+          <div class="material-slide">
+            <div class="material-device">
+              <h3>📱 Teléfono Móvil</h3>
+              <img src="assets/img/telefono_sin_fondo.png" alt="Teléfono" class="device-image" />
+              <div class="material-composition">
+                <div class="composition-item" style="background: #f59e0b;">Plástico: 40%</div>
+                <div class="composition-item" style="background: #8b5cf6;">Vidrio y Cerámica: 20%</div>
+                <div class="composition-item" style="background: #10b981;">Cobre: 10%</div>
+                <div class="composition-item" style="background: #3b82f6;">Acero: 10%</div>
+                <div class="composition-item" style="background: #ef4444;">Aluminio: 3-20%</div>
+                <div class="composition-item" style="background: #6b7280;">Otros metales: <5%</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Televisor -->
+          <div class="material-slide">
+            <div class="material-device">
+              <h3>📺 Televisor</h3>
+              <img src="assets/img/telev_personaje.png" alt="Televisor" class="device-image" />
+              <div class="material-composition">
+                <div class="composition-item" style="background: #374151;">Hierro: 30%</div>
+                <div class="composition-item" style="background: #f59e0b;">Plástico: 28%</div>
+                <div class="composition-item" style="background: #ef4444;">Aluminio: 15%</div>
+                <div class="composition-item" style="background: #10b981;">Cobre: 10%</div>
+                <div class="composition-item" style="background: #8b5cf6;">Vidrio: 12%</div>
+                <div class="composition-item" style="background: #6b7280;">Otros: 5%</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Computadora -->
+          <div class="material-slide">
+            <div class="material-device">
+              <h3>💻 Computadora</h3>
+              <img src="assets/img/tele1.png" alt="Computadora" class="device-image" />
+              <div class="material-composition">
+                <div class="composition-item" style="background: #f59e0b;">Plástico: 23%</div>
+                <div class="composition-item" style="background: #10b981;">Cobre: 18%</div>
+                <div class="composition-item" style="background: #374151;">Hierro: 7%</div>
+                <div class="composition-item" style="background: #ef4444;">Aluminio: 5%</div>
+                <div class="composition-item" style="background: #8b5cf6;">Vidrio: 15%</div>
+                <div class="composition-item" style="background: #6b7280;">Metales preciosos: 2%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controles del carrusel de materiales -->
+        <div class="carousel-controls-bottom">
+          <button class="material-control prev" (click)="previousMaterial()">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="material-indicators">
+            <div 
+              *ngFor="let device of materialDevices; let i = index" 
+              class="material-indicator" 
+              [class.active]="i === currentMaterialIndex"
+              (click)="goToMaterial(i)">
+            </div>
+          </div>
+          <button class="material-control next" (click)="nextMaterial()">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE CONSECUENCIAS Y ACCIONES -->
+  <section style="padding: 80px 20px; background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);">
+    <div class="container" style="max-width: 1200px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
+        <div data-aos="fade-right" data-aos-delay="200">
+          <img src="assets/img/telefono.png" alt="Teléfono feliz" style="width: 200px; height: 200px; margin: 0 auto 30px; display: block;" />
+          <h3 style="font-size: 2rem; color: #c2410c; text-align: center; margin-bottom: 20px;">
+            ¡La gestión responsable es clave!
+          </h3>
+          <p style="font-size: 1.2rem; color: #7c2d12; text-align: center; line-height: 1.6;">
+            Gestionar correctamente estos residuos no solo protege nuestra salud y el ambiente, 
+            sino que también nos permite aprovechar mejor los recursos que la naturaleza nos ofrece.
+          </p>
+        </div>
+
+        <div data-aos="fade-left" data-aos-delay="400">
+          <div style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 15px 35px rgba(194, 65, 12, 0.1); margin-bottom: 20px;">
+            <h4 style="color: #dc2626; font-size: 1.5rem; margin-bottom: 15px; display: flex; align-items: center;">
+              <i class="fas fa-exclamation-triangle" style="margin-right: 10px;"></i>
+              Consecuencias del Mal Manejo
+            </h4>
+            <ul style="list-style: none; padding: 0;">
+              <li style="padding: 8px 0; color: #7c2d12;"><i class="fas fa-times" style="color: #dc2626; margin-right: 10px;"></i>Contaminación ambiental del aire, agua y suelo</li>
+              <li style="padding: 8px 0; color: #7c2d12;"><i class="fas fa-times" style="color: #dc2626; margin-right: 10px;"></i>Emisión de gases de efecto invernadero</li>
+              <li style="padding: 8px 0; color: #7c2d12;"><i class="fas fa-times" style="color: #dc2626; margin-right: 10px;"></i>Pérdida de recursos valiosos</li>
+              <li style="padding: 8px 0; color: #7c2d12;"><i class="fas fa-times" style="color: #dc2626; margin-right: 10px;"></i>Riesgos graves para la salud humana</li>
+            </ul>
+          </div>
+
+          <div style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 15px 35px rgba(16, 185, 129, 0.1);">
+            <h4 style="color: #059669; font-size: 1.5rem; margin-bottom: 15px; display: flex; align-items: center;">
+              <i class="fas fa-leaf" style="margin-right: 10px;"></i>
+              Acciones para el Manejo Adecuado
+            </h4>
+            <ul style="list-style: none; padding: 0;">
+              <li style="padding: 8px 0; color: #065f46;"><i class="fas fa-check" style="color: #059669; margin-right: 10px;"></i>Educación y concienciación ciudadana</li>
+              <li style="padding: 8px 0; color: #065f46;"><i class="fas fa-check" style="color: #059669; margin-right: 10px;"></i>Implementación de normativas claras</li>
+              <li style="padding: 8px 0; color: #065f46;"><i class="fas fa-check" style="color: #059669; margin-right: 10px;"></i>Responsabilidad extendida del productor</li>
+              <li style="padding: 8px 0; color: #065f46;"><i class="fas fa-check" style="color: #059669; margin-right: 10px;"></i>Infraestructura de reciclaje especializada</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN NORMATIVAS ECUADOR -->
+  <section class="normativas-section">
+    <div class="normativas-container">
+      <h2 class="normativas-title" data-aos="fade-up" data-aos-duration="1000">
+        Normativa para la Gestión de RAEE en Ecuador
+      </h2>
+      
+      <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 50px;" data-aos="zoom-in" data-aos-delay="200">
+        <img src="assets/img/justicia.jpeg" alt="Justicia" style="width: 150px; height: 150px; border-radius: 50%; margin-right: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);" />
+        <p style="font-size: 1.3rem; color: #166534; max-width: 600px; line-height: 1.6;">
+          Ecuador cuenta con un marco normativo sólido que regula el manejo adecuado de estos residuos, 
+          promoviendo la responsabilidad compartida entre todos los actores.
+        </p>
+      </div>
+
+      <div class="normativas-grid">
+        <div class="normativa-card" data-aos="slide-up" data-aos-delay="100">
+          <div class="normativa-icon">
+            <i class="fas fa-book-open"></i>
+          </div>
+          <h3>Código Orgánico Ambiental (COA)</h3>
+          <p>Establece las bases fundamentales para la gestión integral de RAEE y asigna responsabilidades 
+          claras a todos los actores involucrados en la cadena de valor.</p>
+        </div>
+
+        <div class="normativa-card" data-aos="slide-up" data-aos-delay="200">
+          <div class="normativa-icon">
+            <i class="fas fa-file-contract"></i>
+          </div>
+          <h3>Acuerdo Ministerial 067</h3>
+          <p>Establece la responsabilidad de los productores para gestionar los RAEE generados por sus productos, 
+          implementando el principio de Responsabilidad Extendida del Productor.</p>
+        </div>
+
+        <div class="normativa-card" data-aos="slide-up" data-aos-delay="300">
+          <div class="normativa-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3>Acuerdo Ministerial 097</h3>
+          <p>Regula específicamente la disposición adecuada de lámparas LED y de descarga, 
+          promoviendo la economía circular y el manejo responsable de estos dispositivos.</p>
+        </div>
+
+        <div class="normativa-card" data-aos="slide-up" data-aos-delay="400">
+          <div class="normativa-icon">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <h3>Reglamento al COA (RCOA)</h3>
+          <p>Especifica procesos detallados y criterios técnicos para asegurar el cumplimiento efectivo 
+          de todas las disposiciones ambientales relacionadas con RAEE.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN GESTIÓN RESPONSABLE -->
+  <section style="padding: 80px 20px; background: linear-gradient(135deg, #f0f9ff 0%, #dbeafe 100%);">
+    <div class="container" style="max-width: 1200px; margin: 0 auto;">
+      <h2 style="text-align: center; font-size: 2.8rem; font-weight: 800; color: #1e40af; margin-bottom: 60px;" data-aos="fade-up">
+        Gestión Responsable de RAEE
+      </h2>
+
+      <div class="gestion-grid" style="display: grid; gap: 40px;">
+        <!-- ¿Qué implica gestionar los RAEE? -->
+        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: center; background: white; border-radius: 25px; padding: 40px; box-shadow: 0 15px 35px rgba(30, 64, 175, 0.1);" data-aos="fade-right" data-aos-delay="100">
+          <img src="assets/img/implica.webp" alt="Gestión RAEE" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);" />
+          <div>
+            <h3 style="color: #1e40af; font-size: 1.8rem; margin-bottom: 20px;">¿Qué implica gestionar los RAEE?</h3>
+            <p style="color: #64748b; font-size: 1.1rem; line-height: 1.6;">
+              Se trata de recuperar materiales valiosos, minimizar el daño ambiental y fomentar una 
+              economía circular mediante la correcta disposición de dispositivos electrónicos, 
+              transformando residuos en recursos útiles.
+            </p>
+          </div>
+        </div>
+
+        <!-- Acciones Clave -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px; align-items: center; background: white; border-radius: 25px; padding: 40px; box-shadow: 0 15px 35px rgba(30, 64, 175, 0.1);" data-aos="fade-left" data-aos-delay="200">
+          <div>
+            <h3 style="color: #1e40af; font-size: 1.8rem; margin-bottom: 20px;">Acciones Clave para el Éxito</h3>
+            <div style="display: grid; gap: 15px;">
+              <div style="background: #f0f9ff; padding: 15px; border-radius: 10px; border-left: 4px solid #3b82f6;">
+                <strong style="color: #1e40af;">Recolección selectiva:</strong> 
+                <span style="color: #64748b;">Depositar dispositivos en puntos especializados</span>
+              </div>
+              <div style="background: #f0f9ff; padding: 15px; border-radius: 10px; border-left: 4px solid #10b981;">
+                <strong style="color: #059669;">Reparación:</strong> 
+                <span style="color: #64748b;">Extender la vida útil mediante soluciones técnicas</span>
+              </div>
+              <div style="background: #f0f9ff; padding: 15px; border-radius: 10px; border-left: 4px solid #f59e0b;">
+                <strong style="color: #d97706;">Reutilización:</strong> 
+                <span style="color: #64748b;">Dar segunda vida a componentes funcionales</span>
+              </div>
+              <div style="background: #f0f9ff; padding: 15px; border-radius: 10px; border-left: 4px solid #8b5cf6;">
+                <strong style="color: #7c3aed;">Reciclaje:</strong> 
+                <span style="color: #64748b;">Colaborar con iniciativas especializadas</span>
+              </div>
+            </div>
+          </div>
+          <img src="assets/img/clave.avif" alt="Acciones clave" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);" />
+        </div>
+
+        <!-- ¿Dónde entregar RAEE? -->
+        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: center; background: white; border-radius: 25px; padding: 40px; box-shadow: 0 15px 35px rgba(30, 64, 175, 0.1);" data-aos="fade-right" data-aos-delay="300">
+          <img src="assets/img/entrega.png" alt="Entrega de RAEE" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);" />
+          <div>
+            <h3 style="color: #1e40af; font-size: 1.8rem; margin-bottom: 20px;">¿Dónde entregar tus RAEE?</h3>
+            <div style="display: grid; gap: 12px;">
+              <div style="display: flex; align-items: center; padding: 10px; background: #f0f9ff; border-radius: 8px;">
+                <i class="fas fa-building" style="color: #3b82f6; margin-right: 15px; font-size: 1.2rem;"></i>
+                <span style="color: #64748b;">Centros autorizados en municipios y universidades</span>
+              </div>
+              <div style="display: flex; align-items: center; padding: 10px; background: #f0f9ff; border-radius: 8px;">
+                <i class="fas fa-store" style="color: #10b981; margin-right: 15px; font-size: 1.2rem;"></i>
+                <span style="color: #64748b;">Tiendas con programas de reciclaje y beneficios</span>
+              </div>
+              <div style="display: flex; align-items: center; padding: 10px; background: #f0f9ff; border-radius: 8px;">
+                <i class="fas fa-users" style="color: #f59e0b; margin-right: 15px; font-size: 1.2rem;"></i>
+                <span style="color: #64748b;">Campañas comunitarias organizadas</span>
+              </div>
+              <div style="display: flex; align-items: center; padding: 10px; background: #f0f9ff; border-radius: 8px;">
+                <i class="fas fa-map-marker-alt" style="color: #8b5cf6; margin-right: 15px; font-size: 1.2rem;"></i>
+                <span style="color: #64748b;">Puntos de acopio en centros comerciales</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cómo involucrarte -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px; align-items: center; background: white; border-radius: 25px; padding: 40px; box-shadow: 0 15px 35px rgba(30, 64, 175, 0.1);" data-aos="fade-left" data-aos-delay="400">
+          <div>
+            <h3 style="color: #1e40af; font-size: 1.8rem; margin-bottom: 20px;">Cómo Involucrarte Activamente</h3>
+            <div style="display: grid; gap: 15px;">
+              <div style="display: flex; align-items: flex-start; padding: 15px; background: #f0f9ff; border-radius: 10px;">
+                <i class="fas fa-graduation-cap" style="color: #3b82f6; margin-right: 15px; font-size: 1.3rem; margin-top: 2px;"></i>
+                <span style="color: #64748b;">Apoya campañas educativas que promuevan el reciclaje responsable</span>
+              </div>
+              <div style="display: flex; align-items: flex-start; padding: 15px; background: #f0f9ff; border-radius: 10px;">
+                <i class="fas fa-balance-scale" style="color: #10b981; margin-right: 15px; font-size: 1.3rem; margin-top: 2px;"></i>
+                <span style="color: #64748b;">Aprende sobre la Responsabilidad Extendida del Productor (REP)</span>
+              </div>
+              <div style="display: flex; align-items: flex-start; padding: 15px; background: #f0f9ff; border-radius: 10px;">
+                <i class="fas fa-hands-helping" style="color: #f59e0b; margin-right: 15px; font-size: 1.3rem; margin-top: 2px;"></i>
+                <span style="color: #64748b;">Participa reparando, reutilizando o entregando dispositivos</span>
+              </div>
+            </div>
+          </div>
+          <img src="assets/img/involucrarte.jpg" alt="Involucrarse" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);" />
+        </div>
+
+        <!-- Por qué reciclar -->
+        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: center; background: white; border-radius: 25px; padding: 40px; box-shadow: 0 15px 35px rgba(30, 64, 175, 0.1);" data-aos="fade-right" data-aos-delay="500">
+          <img src="assets/img/reciclar.jpg" alt="Reciclaje" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);" />
+          <div>
+            <h3 style="color: #1e40af; font-size: 1.8rem; margin-bottom: 20px;">¿Por qué reciclar dispositivos electrónicos?</h3>
+            <p style="color: #64748b; font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">
+              Estos dispositivos contienen metales valiosos y otros materiales que pueden reutilizarse 
+              en nuevos productos, reduciendo significativamente la extracción de recursos naturales 
+              y protegiendo nuestro medio ambiente.
+            </p>
+            <div style="background: #f0f9ff; padding: 20px; border-radius: 15px; border-left: 5px solid #3b82f6;">
+              <p style="color: #1e40af; font-weight: 600; margin: 0;">
+                <i class="fas fa-lightbulb" style="margin-right: 10px;"></i>
+                ¡Cada dispositivo reciclado contribuye a un planeta más sostenible y a una economía circular más eficiente!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
 
-<div class="main-container">
-    <!-- Header -->
-    <div class="header-materiales text-center mb-4">
-      Desglose de los Materiales en Dispositivos Electrónicos
-    </div>
+<!-- Estilos adicionales para los carruseles -->
+<style>
+.materiales-carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 25px;
+  box-shadow: 0 20px 40px rgba(124, 58, 237, 0.15);
+  background: white;
+}
+
+.materiales-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.material-slide {
+  min-width: 100%;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.material-device {
+  text-align: center;
+  max-width: 500px;
+}
+
+.material-device h3 {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  color: #7c3aed;
+}
+
+.device-image {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.material-composition {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.composition-item {
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.composition-item:hover {
+  transform: translateY(-3px) scale(1.05);
+}
+
+.carousel-controls-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 30px;
+  background: #f8fafc;
+}
+
+.material-control {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #7c3aed, #6d28d9);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.material-control:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
+}
+
+.material-indicators {
+  display: flex;
+  gap: 15px;
+}
+
+.material-indicator {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.material-indicator.active {
+  background: #7c3aed;
+  transform: scale(1.3);
+}
+
+@media (max-width: 768px) {
+  .gestion-grid > div {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
   
-    <!-- Contenedor principal -->
-    <div class="container d-flex justify-content-center align-items-center vh-100">
-      <div class="row pyramid-container justify-content-center align-items-center text-center">
-        <!-- Teléfono -->
-        <div class="col-12 col-md-4 animated-container phone mb-4 mb-md-0">
-          <div class="title-pyramide">Teléfono</div>
-          <img src="assets/img/telefono_sin_fondo.png" alt="Teléfono" class="animated-image" style="background-color: #ededed;" />
-          <div class="info-circle" style="--angle: 0deg;">Plástico: 40%</div>
-          <div class="info-circle" style="--angle: 36deg;">Vidrio y Cerámica: 20%</div>
-          <div class="info-circle" style="--angle: 72deg;">Cobre: 10%</div>
-          <div class="info-circle" style="--angle: 108deg;">Níquel: 2% - 10%</div>
-          <div class="info-circle" style="--angle: 144deg;">Cobalto: 1% - 5%</div>
-          <div class="info-circle" style="--angle: 180deg;">Carbono: &lt; 5%</div>
-          <div class="info-circle" style="--angle: 216deg;">Estaño: 1%</div>
-          <div class="info-circle" style="--angle: 252deg;">Aluminio: 3% - 20%</div>
-          <div class="info-circle" style="--angle: 288deg;">KOH: &lt; 5%</div>
-          <div class="info-circle" style="--angle: 324deg;">Acero: 10%</div>
-        </div>
+  .material-device h3 {
+    font-size: 1.8rem;
+  }
   
-        <!-- Televisor -->
-        <div class="col-12 col-md-4 animated-container tv mb-4 mb-md-0">
-          <div class="title-pyramide">Televisor</div>
-          <img src="assets/img/telev_personaje.png" alt="Televisor" class="animated-image" style="background-color: #ededed;"/>
-          <div class="info-circle" style="--angle: 36deg;">Hierro: 30%</div>
-          <div class="info-circle" style="--angle: 144deg;">Aluminio: 15%</div>
-          <div class="info-circle" style="--angle: 216deg;">Cobre: 10%</div>
-          <div class="info-circle" style="--angle: 324deg;">Plástico: 28%</div>
-        </div>
+  .device-image {
+    width: 150px;
+    height: 150px;
+  }
   
-        <!-- Computadora -->
-        <div class="col-12 col-md-4 animated-container computer mb-4 mb-md-0">
-          <div class="title-pyramide">Computadora</div>
-          <img src="assets/img/tele1.png" alt="Computadora" class="animated-image" style="background-color: #ededed;" />
-          <div class="info-circle" style="--angle: 36deg;">Hierro: 7%</div>
-          <div class="info-circle" style="--angle: 144deg;">Aluminio: 5%</div>
-          <div class="info-circle" style="--angle: 216deg;">Cobre: 18%</div>
-          <div class="info-circle" style="--angle: 324deg;">Plástico: 23%</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-<div class="container mt-4">
-    <div class="row">
-        <div class="col-12 text-center d-flex align-items-center">
-            <!-- Imagen más grande y alineada a la izquierda -->
-            <img alt="Cartoon image of a happy mobile phone" class="phone-image" height="200" src="assets/img/telefono.png" width="200" />
-            <div class="header-text">
-                Gestionar correctamente estos residuos no solo protege nuestra salud y el ambiente, sino que también nos
-                permite aprovechar mejor los recursos que la naturaleza nos ofrece.
-            </div>
-        </div>
-    </div>
-    <div class="row content-section">
-        <!-- Primer contenedor con imagen y título -->
-        <div class="col-md-6 text-center">
-            <div class="bordered-container-text">
-                <img alt="Person in protective gear inspecting waste in a landfill" class="section-image" height="150"
-                    src="assets/img/residuos.jpg" width="300" />
-                <div class="section-title mt-2">
-                    Consecuencias del mal manejo de residuos electrónicos
-                </div>
-                <div class="section-text">
-                    <ul class="text-start">
-                        <li>Contaminación ambiental: Los desechos electrónicos mal gestionados contaminan el aire, el
-                            agua y el suelo.</li>
-                        <li>Gases de efecto invernadero: Los procesos de eliminación inadecuados liberan gases que
-                            intensifican el cambio climático.</li>
-                        <li>Pérdida de recursos: Al desechar RAEE en vertederos o incinerarlos, se desperdician
-                            materiales y energía valiosos.</li>
-                        <li>Riesgos para la salud: La exposición a estos residuos puede causar enfermedades y otros
-                            problemas de salud.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- Segundo contenedor con imagen y título -->
-        <div class="col-md-6 text-center">
-            <div class="bordered-container-text">
-                <img alt="Hands holding a small plant in soil" class="section-image" height="150" src="planta.jpeg"
-                    width="300" />
-                <div class="section-title mt-2">
-                    Acciones necesarias para su manejo adecuado
-                </div>
-                <div class="section-text">
-                    <ul class="text-start">
-                        <li>Concienciación: Educar a la población sobre los riesgos y las soluciones.</li>
-                        <li>Normativas: Implementar políticas claras para regular la gestión de RAEE.</li>
-                        <li>Responsabilidad del productor: Asegurar que los fabricantes gestionen los residuos generados
-                            por sus productos.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="header">
-    Normativa para la gestión de RAEE en Ecuador
-</div>
-<div class="content container">
-    <div class="row">
-        <div class="col-12 text-center d-flex align-items-center">
-            <!-- Imagen más grande y alineada a la izquierda -->
-            <img alt="justice" class="justice-image" height="200" src="justicia.jpeg" width="200" />
-            <div class="header-text">
-                Ecuador cuenta con un marco normativo que regula el manejo adecuado de estos residuos:
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="section-title">
-                <h2>
-                    Código Orgánico Ambiental (COA)
-                </h2>
-            </div>
-            <div class="bordered-container">
-                <p>
-                    Establece las bases para la gestión integral de RAEE y asigna responsabilidades a los actores
-                    involucrados.
-                </p>
-            </div>
-            <div class="section-title mt-4">
-                <h2>
-                    Acuerdos Ministeriales 067 y 097
-                </h2>
-            </div>
-            <div class="bordered-container">
-                <p>
-                    <strong>
-                        067:
-                    </strong>
-                    Establece la responsabilidad de los productores para gestionar los RAEE generados por sus productos.
-                </p>
-                <p>
-                    <strong>
-                        097:
-                    </strong>
-                    Regula la disposición adecuada de lámparas LED y de descarga, promoviendo la economía circular.
-                </p>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="section-title">
-                <h2>
-                    Reglamento al COA (RCOA)
-                </h2>
-            </div>
-            <div class="bordered-container">
-                <p>
-                    Especifica procesos y criterios para asegurar el cumplimiento de las disposiciones ambientales.
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="informacion">
-    <h1>Gestión Responsable de Residuos Electrónicos (RAEE)</h1>
-
-    <!-- ¿Qué implica gestionar los RAEE? -->
-    <section class="left-image">
-        <img src="implica.webp" alt="Imagen descriptiva">
-        <div class="content">
-            <div class="title">¿Qué implica gestionar los RAEE?</div>
-            <div class="info">
-                <p>Se trata de recuperar materiales valiosos, minimizar el daño ambiental y fomentar una economía circular mediante la correcta disposición de dispositivos electrónicos.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Acciones Clave -->
-    <section class="right-image">
-        <img src="clave.avif" alt="Imagen descriptiva">
-        <div class="content">
-            <div class="title">Acciones Clave</div>
-            <div class="info">
-                <ul>
-                    <li><strong>Recolección selectiva:</strong> Depositar dispositivos electrónicos obsoletos en puntos de reciclaje especializados.</li>
-                    <li><strong>Reparación:</strong> Extender la vida útil de los aparatos mediante soluciones técnicas.</li>
-                    <li><strong>Reutilización:</strong> Dar un segundo uso a partes o componentes.</li>
-                    <li><strong>Reciclaje:</strong> Colaborar con iniciativas de reciclaje organizadas por fabricantes o distribuidores.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- ¿Dónde se entregan los RAEE? -->
-    <section class="left-image">
-        <img src="assets/img/entrega.png" alt="Entrega de RAEE">
-        <div class="content">
-            <div class="title">¿Dónde se entregan los RAEE?</div>
-            <div class="info">
-                <ul>
-                    <li><strong>Centros autorizados:</strong> Ubicados en municipios, universidades o empresas de reciclaje.</li>
-                    <li><strong>Tiendas:</strong> Muchas ofrecen programas de reciclaje con beneficios, como descuentos.</li>
-                    <li><strong>Campañas comunitarias:</strong> Jornadas organizadas por comunidades o fundaciones.</li>
-                    <li><strong>Puntos de acopio:</strong> En supermercados, centros comerciales o eventos públicos.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Cómo Involucrarte  -->
-    <section class="right-image">
-        <img src="assets/img/involucrarte.jpg" alt="Involucrarse en el reciclaje">
-        <div class="content">
-            <div class="title">Cómo Involucrarte</div>
-            <div class="info">
-                <ul>
-                    <li>Apoya campañas educativas que promuevan el reciclaje.</li>
-                    <li>Aprende sobre la Responsabilidad Extendida del Productor (REP), que responsabiliza a fabricantes de la gestión de sus productos desechados.</li>
-                    <li>Participa activamente reparando, reutilizando o entregando tus dispositivos para reciclaje.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- ¿Por qué reciclar dispositivos electrónicos? -->
-    <section class="left-image">
-        <img src="assets/img/reciclar.jpg" alt="Reciclaje de dispositivos">
-        <div class="content">
-            <div class="title">¿Por qué reciclar dispositivos electrónicos?</div>
-            <div class="info">
-                <p>Estos contienen metales y otros materiales que pueden reutilizarse en nuevos productos, reduciendo la extracción de recursos y protegiendo el medio ambiente.</p>
-            </div>
-        </div>
-    </section>
-</div>
+  .material-composition {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
