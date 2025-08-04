@@ -680,8 +680,203 @@
   color: #4338ca;
 }
 
-/* ================ RESPONSIVE ================ */
-@media (max-width: 768px) {
+/* === ESTILOS PARA DESGLOSE DE LOS MATERIALES EN DISPOSITIVOS ELECTRÓNICOS (CÍRCULOS ANIMADOS) === */
+.materiales-circular-section {
+  background: #fef7ff;
+  padding: 80px 20px;
+}
+
+.header-materiales {
+  display: inline-block;
+  align-items: center;
+  gap: 15px;
+  background-color: #7c3aed;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 2.2rem;
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.pyramid-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+  gap: 40px;
+}
+
+.animated-container {
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  min-width: 220px;
+  min-height: 220px;
+}
+
+.circle-center {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto;
+}
+
+.animated-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: float 2s ease-in-out infinite;
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.info-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  transform: translate(-50%, -50%) rotate(var(--angle)) translate(0px) rotate(calc(-1 * var(--angle)));
+  background-image: linear-gradient(10deg, #03045e, #00b4d8);
+  color: white;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.95rem;
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.5s cubic-bezier(.68,-0.55,.27,1.55), opacity 0.5s;
+  z-index: 1;
+}
+
+.animated-container:hover .info-circle {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(var(--angle)) translate(110px) rotate(calc(-1 * var(--angle)));
+}
+
+.animated-container .info-circle {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(var(--angle)) translate(0px) rotate(calc(-1 * var(--angle)));
+}
+
+.title-pyramide {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #7c3aed;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+@media (max-width: 900px) {
+  .pyramid-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .animated-container {
+    min-width: 180px;
+    min-height: 180px;
+  }
+  .circle-center {
+    width: 180px;
+    height: 180px;
+  }
+  .animated-image {
+    width: 90px;
+    height: 90px;
+  }
+  .info-circle {
+    width: 60px;
+    height: 60px;
+    font-size: 0.8rem;
+  }
+}
+
+/* --- Animación de bolitas por selección/clic --- */
+.materiales-card-content-circular .circle-center {
+  cursor: pointer;
+}
+.materiales-card-content-circular .info-circle {
+  pointer-events: none;
+}
+.materiales-card-content-circular .circle-center.active .info-circle {
+  opacity: 1 !important;
+  transform: translate(-50%, -50%) rotate(var(--angle)) translate(200px) rotate(calc(-1 * var(--angle)));
+  pointer-events: auto;
+}
+.materiales-card-content-circular .circle-center .info-circle {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(var(--angle)) translate(0px) rotate(calc(-1 * var(--angle)));
+  transition: transform 0.5s cubic-bezier(.68,-0.55,.27,1.55), opacity 0.5s;
+}
+
+/* Aumentar tamaño del carrusel y círculos */
+.materiales-carousel-circular {
+  max-width: 700px;
+  min-height: 500px;
+}
+.materiales-card-circular {
+  min-height: 420px;
+}
+.circle-center {
+  width: 320px !important;
+  height: 320px !important;
+}
+.animated-image {
+  width: 160px !important;
+  height: 160px !important;
+  display: block;
+}
+.center-image {
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  left: 00%;
+  top: 22%;
+  transform: translate(-50%, -50%);
+}
+.info-circle {
+  width: 100px !important;
+  height: 100px !important;
+  font-size: 1.1rem !important;
+}
+
+@media (max-width: 900px) {
+  .materiales-carousel-circular {
+  max-width: 950px;
+  min-height: 700px;
+  }
+  .circle-center {
+    width: 180px !important;
+    height: 180px !important;
+  }
+  .animated-image {
+    width: 90px !important;
+    height: 90px !important;
+  }
+  .info-circle {
+    width: 60px !important;
+    height: 60px !important;
+    font-size: 0.8rem !important;
+  }
   .info-hero h1 {
     font-size: 2.6rem;
   }
@@ -754,4 +949,142 @@
   .carousel-controls:hover {
     transform: translateY(-50%) scale(1.05);
   }
+}
+
+/* === CARRUSEL DE MATERIALES CIRCULAR === */
+.materiales-carousel-circular {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  overflow: hidden;
+  min-height: 350px;
+}
+.materiales-carousel-track-circular {
+  display: flex;
+  transition: transform 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+  will-change: transform;
+}
+.materiales-carousel-slide-circular {
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0 40px 0;
+}
+.carousel-controls.materiales-prev,
+.carousel-controls.materiales-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #7c3aed;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s;
+}
+.carousel-controls.materiales-prev:hover,
+.carousel-controls.materiales-next:hover {
+  background: #ede9fe;
+}
+.carousel-controls.materiales-prev {
+  left: 10px;
+}
+.carousel-controls.materiales-next {
+  right: 10px;
+}
+.carousel-indicators.materiales-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+.carousel-indicators.materiales-indicators .indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #d1d5db;
+  transition: background 0.3s;
+  cursor: pointer;
+}
+.carousel-indicators.materiales-indicators .indicator.active {
+  background: #7c3aed;
+}
+
+/* === CARD CIRCULAR PARA CARRUSEL DE MATERIALES === */
+.materiales-card-circular {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(124, 58, 237, 0.08), 0 1.5px 8px rgba(0,0,0,0.07);
+  padding: 40px 30px 30px 30px;
+  max-width: 420px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 350px;
+  position: relative;
+  transition: box-shadow 0.3s;
+}
+.materiales-card-circular:hover {
+  box-shadow: 0 12px 40px rgba(124, 58, 237, 0.13), 0 2px 12px rgba(0,0,0,0.10);
+}
+.materiales-card-title-circular {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 30px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.materiales-card-content-circular {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+}
+.materiales-circular-section {
+  background: linear-gradient(135deg, #fef7ff 0%, #e9d5ff 100%);
+  padding: 80px 20px;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.header-materiales {
+  display: block;
+  background: #fff;
+  color: #7c3aed;
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-align: center;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(124,58,237,0.10);
+  padding: 18px 32px 18px 32px;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #e9d5ff, 0 1px 0 #fff;
+}
+.materiales-carousel-slide-circular:nth-child(1) .materiales-card-circular {
+  background: linear-gradient(135deg, #fef7ff 0%, #e0e7ff 100%);
+}
+.materiales-carousel-slide-circular:nth-child(2) .materiales-card-circular {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dbeafe 100%);
+}
+.materiales-carousel-slide-circular:nth-child(3) .materiales-card-circular {
+  background: linear-gradient(135deg, #fef9c3 0%, #fcd34d 100%);
+}
+.materiales-card-circular {
+  border: none;
 }

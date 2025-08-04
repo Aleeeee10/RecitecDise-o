@@ -1,12 +1,31 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+
+// Interfaz para los residuos
 interface Residuo {
   nombre: string;
   imagen: string;
   caracteristicas: string[];
   descripcion: string;
 }
+
+// Interfaz para los slides del carrusel de Aspectos de la Gestión de RAEE
+interface CarouselSlide {
+  type: 'positive' | 'negative' | 'solutions'; // Solo los tipos que usas en el switch
+  // Si tus slides tienen más propiedades, añádelas aquí (ej. title, description, imageUrl)
+  // title?: string;
+  // description?: string;
+  // imageUrl?: string;
+}
+
+// Interfaz para los slides del carrusel de Desglose de Materiales
+interface MaterialSlide {
+  device: string; // 'Teléfono Móvil', 'Televisor', 'Computadora'
+  image: string; // Ruta de la imagen del dispositivo
+  composition: { type: string; percentage: string; color: string; }[]; // Array de materiales y porcentajes
+}
+
 
 @Component({
   selector: 'app-informacion',
@@ -87,12 +106,59 @@ export class InformacionComponent implements OnInit, OnDestroy {
 
   residuosSeleccionada: Residuo = this.residuos[0];
 
-  carouselSlides = [/* ... */]; // puedes mantener el carrusel existente
-  materialDevices = [/* ... */]; // y también la info de materiales
+  // Datos para el carrusel de Aspectos (tipado con CarouselSlide[])
+  carouselSlides: CarouselSlide[] = [
+    { type: 'positive' },
+    { type: 'negative' },
+    { type: 'solutions' },
+  ];
+
+  // CAMBIO CLAVE: Cambiamos el nombre de 'materialDevices' a 'materialesSlides'
+  // para que coincida con el HTML, y lo tipamos con MaterialSlide[]
+  materialesSlides: MaterialSlide[] = [
+    {
+      device: 'Teléfono Móvil',
+      image: 'assets/img/telefono_sin_fondo.png',
+      composition: [
+        { type: 'Plástico', percentage: '40%', color: '#f59e0b' },
+        { type: 'Vidrio y Cerámica', percentage: '20%', color: '#8b5cf6' },
+        { type: 'Cobre', percentage: '10%', color: '#10b981' },
+        { type: 'Acero', percentage: '10%', color: '#3b82f6' },
+        { type: 'Aluminio', percentage: '3-20%', color: '#ef4444' },
+        { type: 'Otros metales', percentage: '<5%', color: '#6b7280' },
+      ]
+    },
+    {
+      device: 'Televisor',
+      image: 'assets/img/tv.png',
+      composition: [
+        { type: 'Plástico', percentage: '30%', color: '#f59e0b' },
+        { type: 'Vidrio', percentage: '25%', color: '#8b5cf6' },
+        { type: 'Cobre', percentage: '15%', color: '#10b981' },
+        { type: 'Acero', percentage: '10%', color: '#3b82f6' },
+        { type: 'Aluminio', percentage: '10%', color: '#ef4444' },
+        { type: 'Otros metales', percentage: '5%', color: '#6b7280' },
+      ]
+    },
+    {
+      device: 'Computadora',
+      image: 'assets/img/computadora.png',
+      composition: [
+        { type: 'Plástico', percentage: '30%', color: '#f59e0b' },
+        { type: 'Vidrio', percentage: '20%', color: '#8b5cf6' },
+        { type: 'Cobre', percentage: '25%', color: '#10b981' },
+        { type: 'Acero', percentage: '15%', color: '#3b82f6' },
+        { type: 'Aluminio', percentage: '10%', color: '#ef4444' },
+        { type: 'Otros metales', percentage: '5%', color: '#6b7280' },
+      ]
+    }
+  ];
+
   currentSlideIndex = 0;
   carouselInterval: any;
   currentMaterialIndex = 0;
   materialInterval: any;
+  activeMaterialIndex = -1;
 
   ngOnInit(): void {
     this.initAOS();
@@ -135,17 +201,64 @@ export class InformacionComponent implements OnInit, OnDestroy {
     }
   }
 
+  // Métodos de navegación del carrusel principal
   startCarousel(): void {
-    this.carouselInterval = setInterval(() => {
-      this.currentSlideIndex = (this.currentSlideIndex + 1) % this.carouselSlides.length;
-    }, 8000);
+    // Carrusel manual: no iniciar setInterval, solo cambiar con botones
+    // Si quieres volver a activar el auto-slide, descomenta el código abajo
+    // if (this.carouselSlides.length > 0) {
+    //   this.carouselInterval = setInterval(() => {
+    //     this.nextSlide();
+    //   }, 8000);
+    // }
   }
 
-  startMaterialCarousel(): void {
-    this.materialInterval = setInterval(() => {
-      this.currentMaterialIndex = (this.currentMaterialIndex + 1) % this.materialDevices.length;
-    }, 6000);
+  // --- NUEVO: prevSlide() ---
+  prevSlide(): void {
+    this.pauseCarousels(); // Pausar y reiniciar el intervalo al interactuar
+    this.currentSlideIndex = (this.currentSlideIndex - 1 + this.carouselSlides.length) % this.carouselSlides.length;
   }
+
+  // --- NUEVO: nextSlide() ---
+  nextSlide(): void {
+    this.pauseCarousels(); // Pausar y reiniciar el intervalo al interactuar
+    this.currentSlideIndex = (this.currentSlideIndex + 1) % this.carouselSlides.length;
+  }
+
+  // --- NUEVO: goToSlide() ---
+  goToSlide(index: number): void {
+    this.pauseCarousels(); // Pausar y reiniciar el intervalo al interactuar
+    this.currentSlideIndex = index;
+  }
+
+  // Métodos de navegación del carrusel de materiales
+  startMaterialCarousel(): void {
+    // Carrusel manual: no iniciar setInterval, solo cambiar con botones
+    // Si quieres volver a activar el auto-slide, descomenta el código abajo
+    // if (this.materialesSlides.length > 0) {
+    //   this.materialInterval = setInterval(() => {
+    //     this.nextMaterial();
+    //   }, 6000);
+    // }
+  }
+
+  // --- NUEVO: previousMaterial() ---
+  previousMaterial(): void {
+    this.pauseCarousels(); // Pausar y reiniciar el intervalo al interactuar
+    this.currentMaterialIndex = (this.currentMaterialIndex - 1 + this.materialesSlides.length) % this.materialesSlides.length;
+  }
+
+  // --- NUEVO: nextMaterial() ---
+  nextMaterial(): void {
+    this.pauseCarousels(); // Pausar y reiniciar el intervalo al interactuar
+    this.currentMaterialIndex = (this.currentMaterialIndex + 1) % this.materialesSlides.length;
+  }
+
+  // --- NUEVO: goToMaterial() ---
+  goToMaterial(index: number): void {
+    this.pauseCarousels(); // Pausar y reiniciar el intervalo al interactuar
+    this.currentMaterialIndex = index;
+  }
+
 
   pauseCarousels(): void {
     clearInterval(this.carouselInterval);
@@ -166,6 +279,10 @@ export class InformacionComponent implements OnInit, OnDestroy {
 
   getCurrentSlideColor(): string {
     const slide = this.carouselSlides[this.currentSlideIndex];
+    if (!slide) {
+      console.warn('getCurrentSlideColor: El slide actual es undefined. Verifique currentSlideIndex o si carouselSlides está vacío.');
+      return '#6b7280';
+    }
     switch (slide.type) {
       case 'positive': return '#10b981';
       case 'negative': return '#dc2626';

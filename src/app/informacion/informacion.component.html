@@ -182,64 +182,67 @@
     </div>
   </section>
 
-  <!-- CARRUSEL DE MATERIALES EN DISPOSITIVOS -->
-  <section class="materiales-section" style="padding: 80px 20px; background: linear-gradient(135deg, #fef7ff 0%, #f3e8ff 100%);">
-    <div class="container" style="max-width: 1200px; margin: 0 auto;">
-      <h2 style="text-align: center; font-size: 2.8rem; font-weight: 800; color: #7c3aed; margin-bottom: 60px;" data-aos="fade-up">
-        Desglose de Materiales en Dispositivos Electrónicos
-      </h2>
-      
-      <div class="materiales-carousel" data-aos="zoom-in" data-aos-delay="300">
-        <div class="materiales-track" [style.transform]="'translateX(-' + currentMaterialIndex * 100 + '%)'">
-          <!-- Teléfono -->
-          <div class="material-slide">
-            <div class="material-device">
-              <h3>📱 Teléfono Móvil</h3>
-              <img src="assets/img/telefono_sin_fondo.png" alt="Teléfono" class="device-image" />
-              <div class="material-composition">
-                <div class="composition-item" style="background: #f59e0b;">Plástico: 40%</div>
-                <div class="composition-item" style="background: #8b5cf6;">Vidrio y Cerámica: 20%</div>
-                <div class="composition-item" style="background: #10b981;">Cobre: 10%</div>
-                <div class="composition-item" style="background: #3b82f6;">Acero: 10%</div>
-                <div class="composition-item" style="background: #ef4444;">Aluminio: 3-20%</div>
-                <div class="composition-item" style="background: #6b7280;">Otros metales: &lt;5%</div>
+  <!-- DESGLOSE DE LOS MATERIALES EN DISPOSITIVOS ELECTRÓNICOS (CARRUSEL) -->
+  <section class="materiales-circular-section" style="padding: 80px 20px; background: #fef7ff;">
+    <div class="main-container">
+      <div class="header-materiales text-center mb-4" style="font-size:2.2rem; font-weight:800; color:#7c3aed;">Desglose de los Materiales en Dispositivos Electrónicos</div>
+      <div class="materiales-carousel-circular">
+        <div class="materiales-carousel-track-circular" [style.transform]="'translateX(-' + currentMaterialIndex * 100 + '%)'">
+          <!-- Slide Teléfono -->
+          <div class="materiales-carousel-slide-circular">
+            <div class="materiales-card-circular" data-aos="zoom-in" data-aos-duration="1000">
+              <div class="materiales-card-title-circular" style="color:#7c3aed;">Teléfono</div>
+              <div class="materiales-card-content-circular">
+                <div class="circle-center" [class.active]="activeMaterialIndex === 0" (click)="activeMaterialIndex = activeMaterialIndex === 0 ? -1 : 0">
+                  <img src="assets/img/telefono_sin_fondo.png" alt="Teléfono" class="animated-image center-image" />
+                  <div class="info-circle" style="--angle: 0deg;">Plástico: 40%</div>
+                  <div class="info-circle" style="--angle: 36deg;">Vidrio y Cerámica: 20%</div>
+                  <div class="info-circle" style="--angle: 72deg;">Cobre: 10%</div>
+                  <div class="info-circle" style="--angle: 108deg;">Níquel: 2% - 10%</div>
+                  <div class="info-circle" style="--angle: 144deg;">Cobalto: 1% - 5%</div>
+                  <div class="info-circle" style="--angle: 180deg;">Carbono: &lt; 5%</div>
+                  <div class="info-circle" style="--angle: 216deg;">Estaño: 1%</div>
+                  <div class="info-circle" style="--angle: 252deg;">Aluminio: 3% - 20%</div>
+                  <div class="info-circle" style="--angle: 288deg;">KOH: &lt; 5%</div>
+                  <div class="info-circle" style="--angle: 324deg;">Acero: 10%</div>
+                </div>
+                <div class="materiales-card-instruccion">Haz clic en el dispositivo para ver los materiales</div>
               </div>
             </div>
           </div>
-
-          <!-- Televisor -->
-          <div class="material-slide">
-            <div class="material-device">
-              <h3>📺 Televisor</h3>
-              <img src="assets/img/tv.png" alt="Televisor" class="device-image" />
-              <div class="material-composition">
-                <div class="composition-item" style="background: #f59e0b;">Plástico: 30%</div>
-                <div class="composition-item" style="background: #8b5cf6;">Vidrio: 25%</div>
-                <div class="composition-item" style="background: #10b981;">Cobre: 15%</div>
-                <div class="composition-item" style="background: #3b82f6;">Acero: 10%</div>
-                <div class="composition-item" style="background: #ef4444;">Aluminio: 10%</div>
-                <div class="composition-item" style="background: #6b7280;">Otros metales: 5%</div>
+          <!-- Slide Televisor -->
+          <div class="materiales-carousel-slide-circular">
+            <div class="materiales-card-circular" data-aos="zoom-in" data-aos-duration="1000">
+              <div class="materiales-card-title-circular" style="color:#7c3aed;">Televisor</div>
+              <div class="materiales-card-content-circular">
+                <div class="circle-center" [class.active]="activeMaterialIndex === 1" (click)="activeMaterialIndex = activeMaterialIndex === 1 ? -1 : 1">
+                  <img src="assets/img/telev_personaje.png" alt="Televisor" class="animated-image center-image" />
+                  <div class="info-circle" style="--angle: 36deg;">Hierro: 30%</div>
+                  <div class="info-circle" style="--angle: 144deg;">Aluminio: 15%</div>
+                  <div class="info-circle" style="--angle: 216deg;">Cobre: 10%</div>
+                  <div class="info-circle" style="--angle: 324deg;">Plástico: 28%</div>
+                </div>
+                <div class="materiales-card-instruccion">Haz clic en el dispositivo para ver los materiales</div>
               </div>
             </div>
           </div>
-
-          <!-- Computadora -->
-          <div class="material-slide">
-            <div class="material-device">
-              <h3>💻 Computadora</h3>
-              <img src="assets/img/computadora.png" alt="Computadora" class="device-image" />
-              <div class="material-composition">
-                <div class="composition-item" style="background: #f59e0b;">Plástico: 30%</div>
-                <div class="composition-item" style="background: #8b5cf6;">Vidrio: 20%</div>
-                <div class="composition-item" style="background: #10b981;">Cobre: 25%</div>
-                <div class="composition-item" style="background: #3b82f6;">Acero: 15%</div>
-                <div class="composition-item" style="background: #ef4444;">Aluminio: 10%</div>
-                <div class="composition-item" style="background: #6b7280;">Otros metales: 5%</div>
+          <!-- Slide Computadora -->
+          <div class="materiales-carousel-slide-circular">
+            <div class="materiales-card-circular" data-aos="zoom-in" data-aos-duration="1000">
+              <div class="materiales-card-title-circular" style="color:#7c3aed;">Computadora</div>
+              <div class="materiales-card-content-circular">
+                <div class="circle-center" [class.active]="activeMaterialIndex === 2" (click)="activeMaterialIndex = activeMaterialIndex === 2 ? -1 : 2">
+                  <img src="assets/img/tele1.png" alt="Computadora" class="animated-image center-image" />
+                  <div class="info-circle" style="--angle: 36deg;">Hierro: 7%</div>
+                  <div class="info-circle" style="--angle: 144deg;">Aluminio: 5%</div>
+                  <div class="info-circle" style="--angle: 216deg;">Cobre: 18%</div>
+                  <div class="info-circle" style="--angle: 324deg;">Plástico: 23%</div>
+                </div>
+                <div class="materiales-card-instruccion">Haz clic en el dispositivo para ver los materiales</div>
               </div>
             </div>
           </div>
         </div>
-
         <!-- Controles -->
         <button class="carousel-controls materiales-prev" (click)="previousMaterial()" data-aos="fade-right" data-aos-delay="500">
           <i class="fas fa-chevron-left"></i>
@@ -247,7 +250,6 @@
         <button class="carousel-controls materiales-next" (click)="nextMaterial()" data-aos="fade-left" data-aos-delay="500">
           <i class="fas fa-chevron-right"></i>
         </button>
-
         <!-- Indicadores -->
         <div class="carousel-indicators materiales-indicators">
           <div 
