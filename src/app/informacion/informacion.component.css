@@ -1,3 +1,25 @@
+/* Efecto destacado global para todas las cards principales al hacer hover */
+.normativa-modern-card,
+.card-moderna,
+.blog-card,
+.info-card,
+.dato-card {
+  transition: background 0.3s, box-shadow 0.3s, border-color 0.3s;
+  border-radius: 18px;
+}
+
+.normativa-modern-card:hover,
+.card-moderna:hover,
+.blog-card:hover,
+.info-card:hover,
+.dato-card:hover {
+  background: linear-gradient(120deg, #f3e8ff 0%, #e0e7ff 100%);
+  box-shadow: 0 8px 32px 0 rgba(124,58,237,0.15), 0 1.5px 6px 0 rgba(0,0,0,0.07);
+  border-color: #7c3aed;
+  z-index: 2;
+  border-width: 2px;
+  border-style: solid;
+}
 /* ================ ESTILOS GENERALES ================ */
 .informacion-container {
   min-height: 100vh;
@@ -1901,15 +1923,15 @@
   position: absolute;
   top: -10px;
   left: -10px;
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
   background: linear-gradient(135deg, #f06206 0%, #2563eb 100%);
   border-radius: 50%;
   opacity: 0.1;
 }
 
 .card-icon {
-  font-size: 2rem;
+  font-size: 4rem;
   color: #f06206;
   position: relative;
   z-index: 2;

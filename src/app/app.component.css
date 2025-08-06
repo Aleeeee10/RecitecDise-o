@@ -84,10 +84,14 @@
   color: #f0660a;
 }
 
-.navbar-center a.active {
-  background-color: #f0660a;
-  color: white;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+.navbar-center a.active,
+.navbar-center a[routerlink].active {
+  background-color: #f0660a !important;
+  color: #fff !important;
+  font-weight: bold;
+  border-bottom: 2.5px solid #fff3e6;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.13);
+  z-index: 2;
 }
 
 /* ================ NAVBAR RIGHT ================ */
