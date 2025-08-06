@@ -1,6 +1,28 @@
 <div class="informacion-container">
   <!-- HERO SECCIÓN INFORMATIVA MEJORADO -->
   <section class="hero info-hero">
+    <!-- Elementos decorativos para hero -->
+    <div class="hero-floating-decorations">
+      <div class="floating-element hero-cpu" data-aos="float" data-aos-delay="200">
+        <i class="fas fa-microchip"></i>
+      </div>
+      <div class="floating-element hero-smartphone" data-aos="float" data-aos-delay="400">
+        <i class="fas fa-mobile-alt"></i>
+      </div>
+      <div class="floating-element hero-desktop" data-aos="float" data-aos-delay="600">
+        <i class="fas fa-desktop"></i>
+      </div>
+      <div class="floating-element hero-bolt" data-aos="float" data-aos-delay="800">
+        <i class="fas fa-bolt"></i>
+      </div>
+      <div class="floating-element hero-wifi" data-aos="float" data-aos-delay="1000">
+        <i class="fas fa-wifi"></i>
+      </div>
+      <div class="floating-element hero-circle1"></div>
+      <div class="floating-element hero-circle2"></div>
+      <div class="floating-element hero-diamond"></div>
+    </div>
+
     <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
       <h1 data-aos="fade-down" data-aos-delay="200">¿Sabías que estos dispositivos pueden tener una segunda vida?</h1>
       <p data-aos="fade-up" data-aos-delay="400">
@@ -25,46 +47,165 @@
     </div>
   </section>
 
-  <!-- SELECCIÓN DE RESIDUOS RENOVADA -->
-  <section class="residuos-section">
-    <div class="titulo-container" data-aos="fade-down" data-aos-duration="1000">
-      <h2>Conoce los Residuos que Procesamos</h2>
-      <div class="icono-titulo">
-        <i class="fas fa-clipboard-list"></i>
+  <!-- SECCIÓN RESIDUOS ESTILO BLOG MODERNO -->
+  <section class="blog-style-section">
+    <!-- Elementos decorativos para blog -->
+    <div class="blog-floating-decorations">
+      <div class="floating-element blog-laptop" data-aos="float" data-aos-delay="300">
+        <i class="fas fa-laptop"></i>
+      </div>
+      <div class="floating-element blog-mobile" data-aos="float" data-aos-delay="500">
+        <i class="fas fa-mobile-alt"></i>
+      </div>
+      <div class="floating-element blog-tv" data-aos="float" data-aos-delay="700">
+        <i class="fas fa-tv"></i>
+      </div>
+      <div class="floating-element blog-gamepad" data-aos="float" data-aos-delay="900">
+        <i class="fas fa-gamepad"></i>
+      </div>
+      <div class="floating-element blog-headphones" data-aos="float" data-aos-delay="1100">
+        <i class="fas fa-headphones"></i>
+      </div>
+      <div class="floating-element blog-hexagon1"></div>
+      <div class="floating-element blog-hexagon2"></div>
+      <div class="floating-element blog-square"></div>
+    </div>
+
+    <div class="blog-header" data-aos="fade-down" data-aos-duration="1000">
+      <div class="blog-title-container">
+        <h2 class="blog-main-title">Residuos Electrónicos <span class="highlight-text">(RAEE)</span></h2>
+        <p class="blog-subtitle">Descubre cómo transformar residuos en oportunidades con tecnología y responsabilidad</p>
       </div>
     </div>
 
-    <div class="residuos-grid">
-      <div 
-        *ngFor="let residuo of residuos; let i = index" 
-        class="residuo-card" 
-        (click)="seleccionarResiduo(residuo)" 
-        [class.seleccionada]="residuo === residuosSeleccionada"
-        [attr.data-aos]="'fade-up'"
-        [attr.data-aos-delay]="100 + (i * 80)"
-      >
-        <img [src]="residuo.imagen" [alt]="residuo.nombre" class="residuo-img" />
-        <div class="residuo-info">
-          <h3>{{ residuo.nombre }}</h3>
-          <p>{{ residuo.descripcion }}</p>
+    <div class="blog-grid">
+      <!-- Card 1: ¿Qué implica? -->
+      <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="blog-card-image">
+          <img [src]="residuos[0].imagen" alt="RAEE">
+          <div class="blog-card-overlay">
+            <span class="blog-card-category">Impacto Ambiental</span>
+          </div>
         </div>
-      </div>
-    </div>
+        <div class="blog-card-content">
+          <h3 class="blog-card-title">{{ residuos[0].nombre }}</h3>
+          <p class="blog-card-excerpt">
+            Los residuos electrónicos representan una oportunidad única para reducir la contaminación 
+            y recuperar materiales valiosos, protegiendo nuestra salud y conservando recursos naturales.
+          </p>
+          <div class="blog-card-meta">
+            <div class="blog-tags">
+              <span class="blog-tag">Medio Ambiente</span>
+              <span class="blog-tag">Salud</span>
+            </div>
+            <a href="#" class="blog-read-more">
+              Descubrir <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </article>
 
-    <div *ngIf="residuosSeleccionada" class="residuo-detalle-card" data-aos="fade-up" data-aos-delay="400">
-      <h3>{{ residuosSeleccionada.nombre }}</h3>
-      <ul class="residuo-detalle-list">
-        <li *ngFor="let caracteristica of residuosSeleccionada.caracteristicas; let i = index" 
-            [attr.data-aos]="'fade-right'"
-            [attr.data-aos-delay]="600 + (i * 100)">
-          {{ caracteristica }}
-        </li>
-      </ul>
+      <!-- Card 2: Acción Colectiva -->
+      <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="blog-card-image">
+          <img [src]="residuos[1].imagen" alt="Acción Colectiva">
+          <div class="blog-card-overlay">
+            <span class="blog-card-category">Participación</span>
+          </div>
+        </div>
+        <div class="blog-card-content">
+          <h3 class="blog-card-title">{{ residuos[1].nombre }}</h3>
+          <p class="blog-card-excerpt">
+            Únete al movimiento de reciclaje responsable. Aprende los pasos simples para 
+            contribuir al manejo adecuado de residuos electrónicos en tu comunidad.
+          </p>
+          <div class="blog-card-meta">
+            <div class="blog-tags">
+              <span class="blog-tag">Comunidad</span>
+              <span class="blog-tag">Acción</span>
+            </div>
+            <a href="#" class="blog-read-more">
+              Ver pasos <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3: ¿Dónde entregar? -->
+      <article class="blog-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="blog-card-image">
+          <img [src]="residuos[2].imagen" alt="Puntos de Entrega">
+          <div class="blog-card-overlay">
+            <span class="blog-card-category">Ubicaciones</span>
+          </div>
+        </div>
+        <div class="blog-card-content">
+          <h3 class="blog-card-title">{{ residuos[2].nombre }}</h3>
+          <p class="blog-card-excerpt">
+            Encuentra los puntos de recolección más cercanos a ti. Centros comerciales, 
+            oficinas gubernamentales y plantas certificadas esperan tus dispositivos.
+          </p>
+          <div class="blog-card-meta">
+            <div class="blog-tags">
+              <span class="blog-tag">Ubicaciones</span>
+              <span class="blog-tag">Servicios</span>
+            </div>
+            <a href="#" class="blog-read-more">
+              Ver mapa <i class="fas fa-map-marker-alt"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4: Cómo involucrarte -->
+      <article class="blog-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="blog-card-image">
+          <img [src]="residuos[3].imagen" alt="Involúcrate">
+          <div class="blog-card-overlay">
+            <span class="blog-card-category">Únete</span>
+          </div>
+        </div>
+        <div class="blog-card-content">
+          <h3 class="blog-card-title">{{ residuos[3].nombre }}</h3>
+          <p class="blog-card-excerpt">
+            Hay múltiples formas de participar: desde grupos comunitarios hasta 
+            voluntariado en eventos. Tu participación hace la diferencia.
+          </p>
+          <div class="blog-card-meta">
+            <div class="blog-tags">
+              <span class="blog-tag">Voluntariado</span>
+              <span class="blog-tag">Educación</span>
+            </div>
+            <a href="#" class="blog-read-more">
+              Únete <i class="fas fa-users"></i>
+            </a>
+          </div>
+        </div>
+      </article>
     </div>
   </section>
 
   <!-- SECCIÓN DE DATOS GLOBALES -->
   <section class="datos-globales-section">
+    <!-- Elementos decorativos para datos globales -->
+    <div class="datos-floating-decorations">
+      <div class="floating-element datos-chart" data-aos="float" data-aos-delay="300">
+        <i class="fas fa-chart-bar"></i>
+      </div>
+      <div class="floating-element datos-world" data-aos="float" data-aos-delay="500">
+        <i class="fas fa-globe"></i>
+      </div>
+      <div class="floating-element datos-analytics" data-aos="float" data-aos-delay="700">
+        <i class="fas fa-analytics"></i>
+      </div>
+      <div class="floating-element datos-trend" data-aos="float" data-aos-delay="900">
+        <i class="fas fa-trending-up"></i>
+      </div>
+      <div class="floating-element datos-hexagon1"></div>
+      <div class="floating-element datos-hexagon2"></div>
+      <div class="floating-element datos-triangle"></div>
+    </div>
+
     <div class="datos-container">
       <h2 class="datos-title" data-aos="fade-up" data-aos-duration="1000">Datos Globales sobre RAEE</h2>
       
@@ -102,6 +243,25 @@
 
   <!-- CARRUSEL DE ASPECTOS POSITIVOS Y NEGATIVOS -->
   <section class="aspectos-carousel-section">
+    <!-- Elementos decorativos para carrusel -->
+    <div class="carousel-floating-decorations">
+      <div class="floating-element carousel-plus" data-aos="float" data-aos-delay="200">
+        <i class="fas fa-plus-circle"></i>
+      </div>
+      <div class="floating-element carousel-minus" data-aos="float" data-aos-delay="400">
+        <i class="fas fa-minus-circle"></i>
+      </div>
+      <div class="floating-element carousel-solution" data-aos="float" data-aos-delay="600">
+        <i class="fas fa-lightbulb"></i>
+      </div>
+      <div class="floating-element carousel-balance" data-aos="float" data-aos-delay="800">
+        <i class="fas fa-balance-scale-right"></i>
+      </div>
+      <div class="floating-element carousel-circle1"></div>
+      <div class="floating-element carousel-circle2"></div>
+      <div class="floating-element carousel-star"></div>
+    </div>
+
     <div class="carousel-container">
       <h2 class="carousel-title" data-aos="fade-down" data-aos-duration="1000">
         Aspectos de la Gestión de RAEE
@@ -122,7 +282,7 @@
               </ul>
             </div>
             <div class="slide-image">
-              <img src="assets/img/gestion.jpg" alt="Gestión positiva de RAEE" />
+              <img src="/gestion.jpg" alt="Gestión positiva de RAEE" />
             </div>
           </div>
 
@@ -139,7 +299,7 @@
               </ul>
             </div>
             <div class="slide-image">
-              <img src="assets/img/incertidumbre.jpg" alt="Problemas en gestión de RAEE" />
+              <img src="/incertidumbre.jpg" alt="Problemas en gestión de RAEE" />
             </div>
           </div>
 
@@ -156,7 +316,7 @@
               </ul>
             </div>
             <div class="slide-image">
-              <img src="assets/img/61 a 78.png" alt="Soluciones para RAEE" />
+              <img src="/61 a 78.png" alt="Soluciones para RAEE" />
             </div>
           </div>
         </div>
@@ -183,7 +343,26 @@
   </section>
 
   <!-- DESGLOSE DE LOS MATERIALES EN DISPOSITIVOS ELECTRÓNICOS (CARRUSEL) -->
-  <section class="materiales-circular-section" style="padding: 80px 20px; background: #fef7ff;">
+  <section class="materiales-circular-section" style="padding: 80px 20px; background: #fef7ff; position: relative; overflow: hidden;">
+    <!-- Elementos decorativos para materiales -->
+    <div class="materiales-floating-decorations">
+      <div class="floating-element materiales-atom" data-aos="float" data-aos-delay="300">
+        <i class="fas fa-atom"></i>
+      </div>
+      <div class="floating-element materiales-industry" data-aos="float" data-aos-delay="500">
+        <i class="fas fa-industry"></i>
+      </div>
+      <div class="floating-element materiales-cogs" data-aos="float" data-aos-delay="700">
+        <i class="fas fa-cogs"></i>
+      </div>
+      <div class="floating-element materiales-memory" data-aos="float" data-aos-delay="900">
+        <i class="fas fa-memory"></i>
+      </div>
+      <div class="floating-element materiales-circle1"></div>
+      <div class="floating-element materiales-circle2"></div>
+      <div class="floating-element materiales-gear"></div>
+    </div>
+
     <div class="main-container">
       <div class="header-materiales text-center mb-4" style="font-size:2.2rem; font-weight:800; color:#7c3aed;">Desglose de los Materiales en Dispositivos Electrónicos</div>
       <div class="materiales-carousel-circular">
@@ -194,7 +373,7 @@
               <div class="materiales-card-title-circular" style="color:#7c3aed;">Teléfono</div>
               <div class="materiales-card-content-circular">
                 <div class="circle-center" [class.active]="activeMaterialIndex === 0" (click)="activeMaterialIndex = activeMaterialIndex === 0 ? -1 : 0">
-                  <img src="assets/img/telefono_sin_fondo.png" alt="Teléfono" class="animated-image center-image" />
+                  <img src="/telefono_sin_fondo.png" alt="Teléfono" class="animated-image center-image" />
                   <div class="info-circle" style="--angle: 0deg;">Plástico: 40%</div>
                   <div class="info-circle" style="--angle: 36deg;">Vidrio y Cerámica: 20%</div>
                   <div class="info-circle" style="--angle: 72deg;">Cobre: 10%</div>
@@ -216,7 +395,7 @@
               <div class="materiales-card-title-circular" style="color:#7c3aed;">Televisor</div>
               <div class="materiales-card-content-circular">
                 <div class="circle-center" [class.active]="activeMaterialIndex === 1" (click)="activeMaterialIndex = activeMaterialIndex === 1 ? -1 : 1">
-                  <img src="assets/img/telev_personaje.png" alt="Televisor" class="animated-image center-image" />
+                  <img src="/telev_personaje.png" alt="Televisor" class="animated-image center-image" />
                   <div class="info-circle" style="--angle: 36deg;">Hierro: 30%</div>
                   <div class="info-circle" style="--angle: 144deg;">Aluminio: 15%</div>
                   <div class="info-circle" style="--angle: 216deg;">Cobre: 10%</div>
@@ -232,7 +411,7 @@
               <div class="materiales-card-title-circular" style="color:#7c3aed;">Computadora</div>
               <div class="materiales-card-content-circular">
                 <div class="circle-center" [class.active]="activeMaterialIndex === 2" (click)="activeMaterialIndex = activeMaterialIndex === 2 ? -1 : 2">
-                  <img src="assets/img/tele1.png" alt="Computadora" class="animated-image center-image" />
+                  <img src="/tele1.png" alt="Computadora" class="animated-image center-image" />
                   <div class="info-circle" style="--angle: 36deg;">Hierro: 7%</div>
                   <div class="info-circle" style="--angle: 144deg;">Aluminio: 5%</div>
                   <div class="info-circle" style="--angle: 216deg;">Cobre: 18%</div>
@@ -262,4 +441,546 @@
       </div>
     </div>
   </section>
-</div>
+
+  <!-- SECCIÓN CONCLUSIÓN MATERIALES CON HERO MODERNO -->
+  <section class="materiales-conclusion-section modern-section">
+    <div class="conclusion-hero-container">
+      <div class="conclusion-hero-content" data-aos="fade-up" data-aos-duration="1200">
+        <div class="hero-visual-left" data-aos="fade-right" data-aos-delay="200">
+          <div class="floating-elements">
+            <div class="floating-element element-1">
+              <img src="/telefono.png" alt="Teléfono feliz" />
+            </div>
+            <div class="floating-element element-2">
+              <i class="fas fa-recycle"></i>
+            </div>
+            <div class="floating-element element-3">
+              <i class="fas fa-leaf"></i>
+            </div>
+            <div class="floating-element element-4">
+              <i class="fas fa-globe-americas"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="conclusion-content-center" data-aos="zoom-in" data-aos-delay="400">
+          <div class="conclusion-badge">
+            <i class="fas fa-award"></i>
+            <span>Impacto Positivo</span>
+          </div>
+          <h2 class="conclusion-title">
+            <span class="title-part-1">Gestión Responsable</span>
+            <span class="equals-symbol">=</span>
+            <span class="title-part-2 highlight-gradient">Recursos Valiosos</span>
+          </h2>
+          <p class="conclusion-description">
+            Gestionar correctamente estos residuos no solo protege nuestra salud y el ambiente, 
+            sino que también nos permite <strong>aprovechar mejor los recursos</strong> que la naturaleza nos ofrece.
+          </p>
+          
+          <div class="impact-stats" data-aos="fade-up" data-aos-delay="600">
+            <div class="stat-item">
+              <div class="stat-icon">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="stat-content">
+                <h4>Salud</h4>
+                <span>Protegida</span>
+              </div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <div class="stat-icon">
+                <i class="fas fa-seedling"></i>
+              </div>
+              <div class="stat-content">
+                <h4>Ambiente</h4>
+                <span>Preservado</span>
+              </div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <div class="stat-icon">
+                <i class="fas fa-gem"></i>
+              </div>
+              <div class="stat-content">
+                <h4>Recursos</h4>
+                <span>Optimizados</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="call-to-action-buttons" data-aos="fade-up" data-aos-delay="800">
+            <button class="cta-primary">
+              <i class="fas fa-rocket"></i>
+              <span>Únete al cambio</span>
+            </button>
+            <button class="cta-secondary">
+              <i class="fas fa-info-circle"></i>
+              <span>Aprende más</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-visual-right" data-aos="fade-left" data-aos-delay="300">
+          <div class="circular-progress">
+            <div class="progress-ring">
+              <svg class="progress-svg" width="200" height="200">
+                <circle cx="100" cy="100" r="90" stroke="#e5e7eb" stroke-width="10" fill="none"/>
+                <circle cx="100" cy="100" r="90" stroke="url(#progressGradient)" stroke-width="10" fill="none" 
+                        stroke-dasharray="565.48" stroke-dashoffset="113.1" class="progress-circle"/>
+                <defs>
+                  <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#f06206"/>
+                    <stop offset="100%" style="stop-color:#2563eb"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div class="progress-content">
+                <span class="progress-number">80%</span>
+                <span class="progress-label">Eficiencia</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN NORMATIVA ECUATORIANA CON GLASSMORPHISM Y HOVER EFFECTS -->
+  <section class="normativa-section modern-section">
+    <!-- Elementos decorativos para normativa -->
+    <div class="normativa-floating-decorations">
+      <div class="floating-element legal-scale" data-aos="float" data-aos-delay="200">
+        <i class="fas fa-balance-scale"></i>
+      </div>
+      <div class="floating-element legal-book" data-aos="float" data-aos-delay="400">
+        <i class="fas fa-book-open"></i>
+      </div>
+      <div class="floating-element legal-stamp" data-aos="float" data-aos-delay="600">
+        <i class="fas fa-stamp"></i>
+      </div>
+      <div class="floating-element legal-shield" data-aos="float" data-aos-delay="800">
+        <i class="fas fa-shield-alt"></i>
+      </div>
+      <div class="floating-element legal-circle1"></div>
+      <div class="floating-element legal-circle2"></div>
+      <div class="floating-element legal-triangle"></div>
+    </div>
+
+    <div class="normativa-container">
+      <div class="hero-section-mini" data-aos="fade-down" data-aos-duration="1000">
+        <div class="hero-content-normativa">
+          <div class="hero-badge">⚖️ Marco Legal</div>
+          <h2 class="hero-title">
+            Normativa para la Gestión de 
+            <span class="highlight-gradient">RAEE en Ecuador</span>
+          </h2>
+          <p class="hero-description">
+            Ecuador cuenta con un marco normativo robusto que regula el manejo adecuado de estos residuos, 
+            estableciendo responsabilidades claras para todos los actores involucrados.
+          </p>
+          <div class="hero-visual">
+            <div class="floating-icon">
+              <img src="/justicia.jpeg" alt="Justicia" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="normativas-modern-grid">
+        <!-- Card 1: COA -->
+        <div class="normativa-modern-card" data-aos="fade-right" data-aos-delay="200">
+          <div class="card-header">
+            <div class="card-icon-wrapper">
+              <div class="card-icon-bg"></div>
+              <i class="fas fa-book card-icon"></i>
+            </div>
+            <div class="card-badge">Base Legal</div>
+          </div>
+          <div class="card-body">
+            <h3>Código Orgánico Ambiental (COA)</h3>
+            <p>Establece las bases fundamentales para la gestión integral de RAEE y asigna responsabilidades específicas a los actores involucrados en todo el proceso.</p>
+          </div>
+          <div class="card-footer">
+            <div class="tag-container">
+              <span class="modern-tag">Base legal</span>
+              <span class="modern-tag">Responsabilidades</span>
+              <span class="modern-tag">Gestión integral</span>
+            </div>
+            <div class="card-progress">
+              <div class="progress-bar" style="width: 90%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Acuerdos Ministeriales -->
+        <div class="normativa-modern-card featured" data-aos="fade-up" data-aos-delay="400">
+          <div class="card-header">
+            <div class="card-icon-wrapper">
+              <div class="card-icon-bg"></div>
+              <i class="fas fa-file-contract card-icon"></i>
+            </div>
+            <div class="card-badge featured-badge">Destacado</div>
+          </div>
+          <div class="card-body">
+            <h3>Acuerdos Ministeriales 067 y 097</h3>
+            <div class="dual-content">
+              <div class="content-item">
+                <strong>067:</strong> Establece la responsabilidad de los productores para gestionar los RAEE generados por sus productos.
+              </div>
+              <div class="content-item">
+                <strong>097:</strong> Regula la disposición adecuada de lámparas LED y de descarga, promoviendo la economía circular.
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="tag-container">
+              <span class="modern-tag">REP</span>
+              <span class="modern-tag">Economía circular</span>
+              <span class="modern-tag">Lámparas LED</span>
+            </div>
+            <div class="card-progress">
+              <div class="progress-bar" style="width: 85%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: RCOA -->
+        <div class="normativa-modern-card" data-aos="fade-left" data-aos-delay="600">
+          <div class="card-header">
+            <div class="card-icon-wrapper">
+              <div class="card-icon-bg"></div>
+              <i class="fas fa-gavel card-icon"></i>
+            </div>
+            <div class="card-badge">Técnico</div>
+          </div>
+          <div class="card-body">
+            <h3>Reglamento al COA (RCOA)</h3>
+            <p>Especifica procesos detallados y criterios técnicos para asegurar el cumplimiento efectivo de las disposiciones ambientales establecidas.</p>
+          </div>
+          <div class="card-footer">
+            <div class="tag-container">
+              <span class="modern-tag">Procesos técnicos</span>
+              <span class="modern-tag">Cumplimiento</span>
+              <span class="modern-tag">Criterios</span>
+            </div>
+            <div class="card-progress">
+              <div class="progress-bar" style="width: 75%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      
+    </div>
+  </section>
+
+  <!-- SECCIÓN GESTIÓN RESPONSABLE CON DISEÑO MODERNO -->
+  <section class="gestion-moderna-section">
+    <!-- Elementos decorativos flotantes -->
+    <div class="floating-decorations">
+      <div class="floating-element recycle-icon" data-aos="float" data-aos-delay="100">
+        <i class="fas fa-recycle"></i>
+      </div>
+      <div class="floating-element leaf-icon" data-aos="float" data-aos-delay="300">
+        <i class="fas fa-leaf"></i>
+      </div>
+      <div class="floating-element circuit-icon" data-aos="float" data-aos-delay="500">
+        <i class="fas fa-microchip"></i>
+      </div>
+      <div class="floating-element globe-icon" data-aos="float" data-aos-delay="700">
+        <i class="fas fa-globe-americas"></i>
+      </div>
+      <div class="floating-element battery-icon" data-aos="float" data-aos-delay="900">
+        <i class="fas fa-battery-full"></i>
+      </div>
+      <div class="floating-element eco-shape"></div>
+      <div class="floating-element tech-shape"></div>
+      <div class="floating-element recycle-shape"></div>
+    </div>
+
+    <div class="gestion-container">
+      <div class="section-header-modern" data-aos="fade-down" data-aos-duration="1000">
+        <div class="hero-badge-gradient">
+          <i class="fas fa-lightbulb"></i>
+          <span>Gestión Inteligente</span>
+        </div>
+        <h2 class="section-title-modern">
+          Gestión Responsable de 
+          <span class="highlight-text-modern">Residuos Electrónicos</span>
+        </h2>
+        <p class="section-description-modern">
+          Descubre cómo transformar residuos en oportunidades con tecnología y responsabilidad
+        </p>
+      </div>
+
+      <!-- Grid de Cards Modernas -->
+      <div class="cards-grid-modern">
+        <!-- Card 1: ¿Qué implica? -->
+        <div class="card-moderna" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-header-moderna">
+            <div class="card-icon-moderna eco-green">
+              <img src="/implica.webp" alt="¿Qué implica gestionar los RAEE?" class="card-icon-image" />
+            </div>
+            <div class="card-category">Economía Circular</div>
+          </div>
+          <div class="card-body-moderna">
+            <h3>¿Qué implica gestionar los RAEE?</h3>
+            <p class="card-description">
+              La gestión responsable de RAEE implica crear un ciclo virtuoso donde cada residuo 
+              se convierte en una oportunidad para recuperar materiales valiosos.
+            </p>
+            <div class="benefits-list-moderna">
+              <div class="benefit-item-moderna">
+                <i class="fas fa-gem"></i>
+                <span>Recuperar materiales valiosos</span>
+              </div>
+              <div class="benefit-item-moderna">
+                <i class="fas fa-leaf"></i>
+                <span>Minimizar daño ambiental</span>
+              </div>
+              <div class="benefit-item-moderna">
+                <i class="fas fa-sync-alt"></i>
+                <span>Fomentar economía circular</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer-moderna">
+            <button class="btn-card-moderna">
+              <span>Explorar más</span>
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 2: Acciones Clave -->
+        <div class="card-moderna featured" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-header-moderna">
+            <div class="card-icon-moderna tech-blue">
+              <img src="/clave.avif" alt="Acciones Clave" class="card-icon-image" />
+            </div>
+            <div class="card-category">Plan de Acción</div>
+          </div>
+          <div class="card-body-moderna">
+            <h3>Acciones Clave</h3>
+            <p class="card-description">
+              Un proceso estructurado que maximiza el valor de cada dispositivo a través 
+              de estrategias inteligentes de reutilización y reciclaje.
+            </p>
+            <div class="steps-container-moderna">
+              <div class="step-moderna">
+                <div class="step-number-moderna">1</div>
+                <div class="step-content-moderna">
+                  <h4>Recolección Selectiva</h4>
+                  <p>Separación inteligente por categorías</p>
+                </div>
+              </div>
+              <div class="step-moderna">
+                <div class="step-number-moderna">2</div>
+                <div class="step-content-moderna">
+                  <h4>Reparación</h4>
+                  <p>Mantenimiento y restauración</p>
+                </div>
+              </div>
+              <div class="step-moderna">
+                <div class="step-number-moderna">3</div>
+                <div class="step-content-moderna">
+                  <h4>Reutilización</h4>
+                  <p>Segunda vida útil extendida</p>
+                </div>
+              </div>
+              <div class="step-moderna">
+                <div class="step-number-moderna">4</div>
+                <div class="step-content-moderna">
+                  <h4>Reciclaje</h4>
+                  <p>Procesamiento especializado</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer-moderna">
+            <button class="btn-card-moderna primary">
+              <span>Ver proceso</span>
+              <i class="fas fa-play"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 3: ¿Dónde entregar? -->
+        <div class="card-moderna" data-aos="fade-up" data-aos-delay="300">
+          <div class="card-header-moderna">
+            <div class="card-icon-moderna location-orange">
+              <img src="/entrega.png" alt="¿Dónde se entregan los RAEE?" class="card-icon-image" />
+            </div>
+            <div class="card-category">Puntos de Entrega</div>
+          </div>
+          <div class="card-body-moderna">
+            <h3>¿Dónde se entregan los RAEE?</h3>
+            <p class="card-description">
+              Red nacional de puntos de acopio estratégicamente ubicados para facilitar 
+              la entrega responsable de tus dispositivos electrónicos.
+            </p>
+            <div class="locations-grid-moderna">
+              <div class="location-item-moderna">
+                <i class="fas fa-building"></i>
+                <div>
+                  <h4>Centros Autorizados</h4>
+                  <p>Instalaciones certificadas</p>
+                </div>
+              </div>
+              <div class="location-item-moderna">
+                <i class="fas fa-store"></i>
+                <div>
+                  <h4>Tiendas Especializadas</h4>
+                  <p>Puntos de venta aliados</p>
+                </div>
+              </div>
+              <div class="location-item-moderna">
+                <i class="fas fa-users"></i>
+                <div>
+                  <h4>Campañas Comunitarias</h4>
+                  <p>Eventos de recolección</p>
+                </div>
+              </div>
+              <div class="location-item-moderna">
+                <i class="fas fa-truck"></i>
+                <div>
+                  <h4>Recolección Móvil</h4>
+                  <p>Servicio a domicilio</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer-moderna">
+            <button class="btn-card-moderna">
+              <span>Buscar ubicaciones</span>
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 4: Cómo Involucrarte -->
+        <div class="card-moderna horizontal-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="card-header-moderna">
+            <div class="card-icon-moderna community-purple">
+              <img src="/involucrarte.jpg" alt="Cómo Involucrarte" class="card-icon-image" />
+            </div>
+            <div class="card-category">Participación</div>
+          </div>
+          <div class="card-body-moderna">
+            <h3>Cómo Involucrarte</h3>
+            <p class="card-description">
+              Múltiples formas de contribuir al cambio positivo, desde la educación 
+              hasta la participación activa en iniciativas comunitarias.
+            </p>
+            <div class="involvement-horizontal-grid">
+              <div class="involvement-item">
+                <div class="involvement-icon">
+                  <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="involvement-content">
+                  <h4>Educación</h4>
+                  <p>Aprende sobre REP y sostenibilidad</p>
+                </div>
+              </div>
+              <div class="involvement-item">
+                <div class="involvement-icon">
+                  <i class="fas fa-bullhorn"></i>
+                </div>
+                <div class="involvement-content">
+                  <h4>Difusión</h4>
+                  <p>Comparte conocimiento y conciencia</p>
+                </div>
+              </div>
+              <div class="involvement-item">
+                <div class="involvement-icon">
+                  <i class="fas fa-hands-helping"></i>
+                </div>
+                <div class="involvement-content">
+                  <h4>Voluntariado</h4>
+                  <p>Participa en campañas activas</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer-moderna">
+            <button class="btn-card-moderna">
+              <span>Únete ahora</span>
+              <i class="fas fa-user-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección de Estadísticas y Timeline -->
+      <div class="impact-section-moderna" data-aos="fade-up" data-aos-delay="500">
+        <div class="stats-container-moderna">
+          <div class="stat-card-moderna">
+            <div class="stat-icon-moderna">
+              <i class="fas fa-recycle"></i>
+            </div>
+            <div class="stat-content-moderna">
+              <h3>85%</h3>
+              <p>Materiales Recuperables</p>
+            </div>
+          </div>
+          <div class="stat-card-moderna">
+            <div class="stat-icon-moderna">
+              <i class="fas fa-leaf"></i>
+            </div>
+            <div class="stat-content-moderna">
+              <h3>70%</h3>
+              <p>Reducción de Impacto</p>
+            </div>
+          </div>
+          <div class="stat-card-moderna">
+            <div class="stat-icon-moderna">
+              <i class="fas fa-globe"></i>
+            </div>
+            <div class="stat-content-moderna">
+              <h3>+200</h3>
+              <p>Puntos de Acopio</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-moderna" data-aos="fade-up" data-aos-delay="600">
+          <h3 class="timeline-title-moderna">¿Por qué es importante reciclar dispositivos electrónicos?</h3>
+          <div class="timeline-flow-moderna">
+            <div class="timeline-step-moderna">
+              <div class="timeline-icon-moderna">
+                <img src="/reciclar.jpg" alt="Reciclaje" />
+              </div>
+              <div class="timeline-content-moderna">
+                <h4>Recuperación de Materiales</h4>
+                <p>Los dispositivos contienen metales preciosos y materiales valiosos que pueden reutilizarse</p>
+              </div>
+            </div>
+            <div class="timeline-connector-moderna"></div>
+            <div class="timeline-step-moderna">
+              <div class="timeline-icon-moderna">
+                <i class="fas fa-seedling"></i>
+              </div>
+              <div class="timeline-content-moderna">
+                <h4>Protección Ambiental</h4>
+                <p>Reducimos la extracción de recursos naturales y minimizamos el impacto ambiental</p>
+              </div>
+            </div>
+            <div class="timeline-connector-moderna"></div>
+            <div class="timeline-step-moderna">
+              <div class="timeline-icon-moderna">
+                <i class="fas fa-globe-americas"></i>
+              </div>
+              <div class="timeline-content-moderna">
+                <h4>Impacto Global</h4>
+                <p>Contribuimos a un futuro sostenible para las próximas generaciones</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+

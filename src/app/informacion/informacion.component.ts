@@ -38,67 +38,67 @@ export class InformacionComponent implements OnInit, OnDestroy {
   residuos: Residuo[] = [
     {
       nombre: 'Computadoras',
-      imagen: 'assets/img/computadoras.jpg',
+      imagen: '/computadoras.jpg',
       caracteristicas: ['Computadoras de escritorio', 'Servidores', 'Estaciones de trabajo'],
       descripcion: 'De las computadoras como RAEE se extraen metales preciosos, plásticos, circuitos electrónicos, discos duros y otros componentes valiosos para reciclaje.'
     },
     {
       nombre: 'Fotocopiadoras',
-      imagen: 'assets/img/fotocopiadora.jpg',
+      imagen: '/fotocopiadora.jpg',
       caracteristicas: ['Fotocopiadoras multifuncionales', 'Escáneres especializados', 'Impresoras industriales'],
       descripcion: 'De las fotocopiadoras como RAEE se recuperan metales, plásticos, circuitos electrónicos y tóneres, que requieren un reciclaje especializado.'
     },
     {
       nombre: 'Celulares',
-      imagen: 'assets/img/celular.jpg',
+      imagen: '/celular.jpg',
       caracteristicas: ['Smartphones', 'Celulares con teclado', 'Teléfonos básicos', 'Tablets móviles'],
       descripcion: 'De los celulares como RAEE se recuperan metales preciosos, baterías, plásticos y circuitos electrónicos para su reciclaje responsable.'
     },
     {
       nombre: 'Impresoras',
-      imagen: 'assets/img/impresora.jpg',
+      imagen: '/impresora.jpg',
       caracteristicas: ['Impresoras láser', 'Impresoras de inyección', 'Equipos multifuncionales', 'Plotters'],
       descripcion: 'De las impresoras como RAEE se recuperan plásticos, metales, cartuchos de tinta y componentes electrónicos para su reutilización o reciclaje.'
     },
     {
       nombre: 'Pantallas',
-      imagen: 'assets/img/pantallas.jpg',
+      imagen: '/pantallas.jpg',
       caracteristicas: ['Monitores LCD', 'Pantallas OLED', 'Televisores Plasma', 'Monitores CRT'],
       descripcion: 'De las pantallas como RAEE se extraen plásticos, vidrios, metales y componentes electrónicos, incluyendo sustancias como fósforo y mercurio en ciertos modelos.'
     },
     {
       nombre: 'Módems',
-      imagen: 'assets/img/modem.jpg',
+      imagen: '/modem.jpg',
       caracteristicas: ['Routers wifi', 'Switches de red', 'Repetidores', 'Access points'],
       descripcion: 'Los módems como RAEE contienen plásticos, placas de circuitos impresos, metales y componentes electrónicos que pueden ser recuperados para su reciclaje.'
     },
     {
       nombre: 'Tabletas',
-      imagen: 'assets/img/tabletas.jpg',
+      imagen: '/tabletas.jpg',
       caracteristicas: ['Tabletas Android', 'iPads', 'Kindle readers', 'Tabletas industriales'],
       descripcion: 'De las tabletas como RAEE se extraen metales preciosos, plásticos, baterías y circuitos electrónicos para su reciclaje y reutilización.'
     },
     {
       nombre: 'Cables',
-      imagen: 'assets/img/cables.jpg',
+      imagen: '/cables.jpg',
       caracteristicas: ['Cables USB', 'Cables UTP', 'Cables Ethernet', 'Cables de alimentación'],
       descripcion: 'Los cables como RAEE incluyen materiales como cobre, plásticos y metales, que se recuperan y reciclan para su reutilización.'
     },
     {
       nombre: 'Portátiles',
-      imagen: 'assets/img/portatil.jpg',
+      imagen: '/portatil.jpg',
       caracteristicas: ['Laptops empresariales', 'Ultrabooks', 'Netbooks', 'Estaciones móviles'],
       descripcion: 'Los portátiles como RAEE contienen componentes electrónicos, metales y plásticos que se recuperan y reciclan para reducir el impacto ambiental.'
     },
     {
       nombre: 'Periféricos',
-      imagen: 'assets/img/perifericos.jpg',
+      imagen: '/perifericos.jpg',
       caracteristicas: ['Mouses', 'Teclados', 'Cámaras web', 'Parlantes', 'Auriculares', 'Micrófonos'],
       descripcion: 'Los periféricos como RAEE incluyen componentes electrónicos y plásticos, que se extraen y reciclan para minimizar el impacto ambiental.'
     },
     {
       nombre: 'Piezas y partes',
-      imagen: 'assets/img/piezas.jpg',
+      imagen: '/piezas.jpg',
       caracteristicas: ['Discos SSD', 'Memoria RAM', 'Placas madre', 'Tarjetas gráficas', 'Procesadores'],
       descripcion: 'Las piezas y partes de dispositivos electrónicos como RAEE incluyen metales preciosos, plásticos y materiales electrónicos que se extraen y reciclan.'
     }
@@ -118,7 +118,7 @@ export class InformacionComponent implements OnInit, OnDestroy {
   materialesSlides: MaterialSlide[] = [
     {
       device: 'Teléfono Móvil',
-      image: 'assets/img/telefono_sin_fondo.png',
+      image: '/telefono_sin_fondo.png',
       composition: [
         { type: 'Plástico', percentage: '40%', color: '#f59e0b' },
         { type: 'Vidrio y Cerámica', percentage: '20%', color: '#8b5cf6' },
@@ -130,26 +130,24 @@ export class InformacionComponent implements OnInit, OnDestroy {
     },
     {
       device: 'Televisor',
-      image: 'assets/img/tv.png',
+      image: '/telev_personaje.png',
       composition: [
-        { type: 'Plástico', percentage: '30%', color: '#f59e0b' },
-        { type: 'Vidrio', percentage: '25%', color: '#8b5cf6' },
-        { type: 'Cobre', percentage: '15%', color: '#10b981' },
-        { type: 'Acero', percentage: '10%', color: '#3b82f6' },
-        { type: 'Aluminio', percentage: '10%', color: '#ef4444' },
-        { type: 'Otros metales', percentage: '5%', color: '#6b7280' },
+        { type: 'Hierro', percentage: '30%', color: '#f59e0b' },
+        { type: 'Plástico', percentage: '28%', color: '#8b5cf6' },
+        { type: 'Aluminio', percentage: '15%', color: '#10b981' },
+        { type: 'Cobre', percentage: '10%', color: '#3b82f6' },
+        { type: 'Otros materiales', percentage: '17%', color: '#6b7280' },
       ]
     },
     {
       device: 'Computadora',
-      image: 'assets/img/computadora.png',
+      image: '/tele1.png',
       composition: [
-        { type: 'Plástico', percentage: '30%', color: '#f59e0b' },
-        { type: 'Vidrio', percentage: '20%', color: '#8b5cf6' },
-        { type: 'Cobre', percentage: '25%', color: '#10b981' },
-        { type: 'Acero', percentage: '15%', color: '#3b82f6' },
-        { type: 'Aluminio', percentage: '10%', color: '#ef4444' },
-        { type: 'Otros metales', percentage: '5%', color: '#6b7280' },
+        { type: 'Plástico', percentage: '23%', color: '#f59e0b' },
+        { type: 'Cobre', percentage: '18%', color: '#8b5cf6' },
+        { type: 'Hierro', percentage: '7%', color: '#10b981' },
+        { type: 'Aluminio', percentage: '5%', color: '#3b82f6' },
+        { type: 'Otros materiales', percentage: '47%', color: '#6b7280' },
       ]
     }
   ];
@@ -298,5 +296,10 @@ export class InformacionComponent implements OnInit, OnDestroy {
       { icon: 'fas fa-chart-line', title: 'Crecimiento', value: '5%', description: 'anual en la generación de residuos', color: '#f59e0b' },
       { icon: 'fas fa-flag', title: 'Ecuador', value: '8° lugar', description: 'en América Latina por generación per cápita', color: '#ef4444' }
     ];
+  }
+
+  // Función para abrir modal de normativas (se puede implementar más tarde)
+  openNormativaModal(): void {
+    alert('Modal de normativas - Se puede implementar con un componente modal dedicado');
   }
 }
