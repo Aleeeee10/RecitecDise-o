@@ -17,6 +17,77 @@
   </div>
 </section>
 
+<!-- COLLAGE DE IMÁGENES -->
+<section class="collage-section animacion-seccion">
+  <div class="collage-grid collage-grid-mosaic">
+    <div class="elemento-animado oculto">
+      <img src="assets/img/Informa.jpg" class="collage-img imagen" alt="Imagen 1">
+    </div>
+    <div class="elemento-animado oculto">
+      <img src="assets/img/img1.jpeg" class="collage-img imagen" alt="Imagen 2">
+    </div>
+    <div class="elemento-animado oculto">
+      <img src="assets/img/Inicio.png" class="collage-img imagen" alt="Imagen 3">
+    </div>
+    <div class="elemento-animado oculto">
+      <img src="assets/img/reciclador_base.jpg" class="collage-img imagen" alt="Imagen 4">
+    </div>
+    <div class="elemento-animado oculto">
+      <img src="assets/img/img2.jpeg" class="collage-img imagen" alt="Imagen 5">
+    </div>
+    <div class="elemento-animado oculto">
+      <img src="assets/img/involucrarte.jpg" class="collage-img imagen" alt="Imagen 6">
+    </div>
+  </div>
+</section>
+
+<style>
+.animacion-seccion {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+.elemento-animado {
+  opacity: 0;
+  transform: scale(1.2) translateY(50px);
+  transition: all 1s ease-out;
+  will-change: transform, opacity;
+}
+.elemento-animado.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+.imagen {
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const elementos = document.querySelectorAll('.elemento-animado');
+    const mostrarElemento = () => {
+      elementos.forEach(el => {
+        const posicion = el.getBoundingClientRect().top;
+        const alturaPantalla = window.innerHeight;
+        if (posicion < alturaPantalla - 100) {
+          el.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', mostrarElemento);
+    window.addEventListener('load', mostrarElemento);
+    mostrarElemento();
+  });
+</script>
+
+
 <!-- SECCIÓN DE BENEFICIOS -->
 <section class="beneficios">
   <h2 data-aos="fade-down" data-aos-duration="1000">¿Por qué reciclar RAEE?</h2>

@@ -1,3 +1,27 @@
+
+.collage-section {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.collage-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.collage-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
 /* General */
 section {
   padding: 60px 20px;
