@@ -11,6 +11,11 @@ import { CommonModule } from '@angular/common';
 export class SobreNosotrosComponent implements OnInit {
   eventos: any;
 
+  // Propiedades para el zoom de imágenes
+  isImageZoomed = false;
+  zoomedImageSrc = '';
+  zoomedImageAlt = '';
+
   ngOnInit(): void {
     this.initAOS();
   }
@@ -28,6 +33,30 @@ export class SobreNosotrosComponent implements OnInit {
       });
     } catch (error) {
       console.error('Error loading AOS:', error);
+    }
+  }
+
+  // Métodos para el zoom de imágenes
+  zoomImage(imageSrc: string, imageAlt: string = ''): void {
+    this.zoomedImageSrc = imageSrc;
+    this.zoomedImageAlt = imageAlt;
+    this.isImageZoomed = true;
+    // Prevenir scroll del body cuando el zoom está activo
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeZoom(): void {
+    this.isImageZoomed = false;
+    this.zoomedImageSrc = '';
+    this.zoomedImageAlt = '';
+    // Restaurar scroll del body
+    document.body.style.overflow = 'auto';
+  }
+
+  // Método para manejar clicks en el overlay (cerrar al clickear fuera de la imagen)
+  onOverlayClick(event: MouseEvent): void {
+    if (event.target === event.currentTarget) {
+      this.closeZoom();
     }
   }
 }

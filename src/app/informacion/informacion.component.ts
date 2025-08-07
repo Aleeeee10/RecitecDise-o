@@ -38,67 +38,67 @@ export class InformacionComponent implements OnInit, OnDestroy {
   residuos: Residuo[] = [
     {
       nombre: 'Computadoras',
-      imagen: '/computadoras.jpg',
+      imagen: '/assets/img/computadoras.jpg',
       caracteristicas: ['Computadoras de escritorio', 'Servidores', 'Estaciones de trabajo'],
       descripcion: 'De las computadoras como RAEE se extraen metales preciosos, plásticos, circuitos electrónicos, discos duros y otros componentes valiosos para reciclaje.'
     },
     {
       nombre: 'Fotocopiadoras',
-      imagen: '/fotocopiadora.jpg',
+      imagen: '/assets/img/fotocopiadora.jpg',
       caracteristicas: ['Fotocopiadoras multifuncionales', 'Escáneres especializados', 'Impresoras industriales'],
       descripcion: 'De las fotocopiadoras como RAEE se recuperan metales, plásticos, circuitos electrónicos y tóneres, que requieren un reciclaje especializado.'
     },
     {
       nombre: 'Celulares',
-      imagen: '/celular.jpg',
+      imagen: '/assets/img/celular.jpg',
       caracteristicas: ['Smartphones', 'Celulares con teclado', 'Teléfonos básicos', 'Tablets móviles'],
       descripcion: 'De los celulares como RAEE se recuperan metales preciosos, baterías, plásticos y circuitos electrónicos para su reciclaje responsable.'
     },
     {
       nombre: 'Impresoras',
-      imagen: '/impresora.jpg',
+      imagen: '/assets/img/impresora.jpg',
       caracteristicas: ['Impresoras láser', 'Impresoras de inyección', 'Equipos multifuncionales', 'Plotters'],
       descripcion: 'De las impresoras como RAEE se recuperan plásticos, metales, cartuchos de tinta y componentes electrónicos para su reutilización o reciclaje.'
     },
     {
       nombre: 'Pantallas',
-      imagen: '/pantallas.jpg',
+      imagen: '/assets/img/pantallas.jpg',
       caracteristicas: ['Monitores LCD', 'Pantallas OLED', 'Televisores Plasma', 'Monitores CRT'],
       descripcion: 'De las pantallas como RAEE se extraen plásticos, vidrios, metales y componentes electrónicos, incluyendo sustancias como fósforo y mercurio en ciertos modelos.'
     },
     {
       nombre: 'Módems',
-      imagen: '/modem.jpg',
+      imagen: '/assets/img/modem.jpg',
       caracteristicas: ['Routers wifi', 'Switches de red', 'Repetidores', 'Access points'],
       descripcion: 'Los módems como RAEE contienen plásticos, placas de circuitos impresos, metales y componentes electrónicos que pueden ser recuperados para su reciclaje.'
     },
     {
       nombre: 'Tabletas',
-      imagen: '/tabletas.jpg',
+      imagen: '/assets/img/tabletas.jpg',
       caracteristicas: ['Tabletas Android', 'iPads', 'Kindle readers', 'Tabletas industriales'],
       descripcion: 'De las tabletas como RAEE se extraen metales preciosos, plásticos, baterías y circuitos electrónicos para su reciclaje y reutilización.'
     },
     {
       nombre: 'Cables',
-      imagen: '/cables.jpg',
+      imagen: '/assets/img/cables.jpg',
       caracteristicas: ['Cables USB', 'Cables UTP', 'Cables Ethernet', 'Cables de alimentación'],
       descripcion: 'Los cables como RAEE incluyen materiales como cobre, plásticos y metales, que se recuperan y reciclan para su reutilización.'
     },
     {
       nombre: 'Portátiles',
-      imagen: '/portatil.jpg',
+      imagen: '/assets/img/portatil.jpg',
       caracteristicas: ['Laptops empresariales', 'Ultrabooks', 'Netbooks', 'Estaciones móviles'],
       descripcion: 'Los portátiles como RAEE contienen componentes electrónicos, metales y plásticos que se recuperan y reciclan para reducir el impacto ambiental.'
     },
     {
       nombre: 'Periféricos',
-      imagen: '/perifericos.jpg',
+      imagen: '/assets/img/perifericos.jpg',
       caracteristicas: ['Mouses', 'Teclados', 'Cámaras web', 'Parlantes', 'Auriculares', 'Micrófonos'],
       descripcion: 'Los periféricos como RAEE incluyen componentes electrónicos y plásticos, que se extraen y reciclan para minimizar el impacto ambiental.'
     },
     {
       nombre: 'Piezas y partes',
-      imagen: '/piezas.jpg',
+      imagen: '/assets/img/piezas.jpg',
       caracteristicas: ['Discos SSD', 'Memoria RAM', 'Placas madre', 'Tarjetas gráficas', 'Procesadores'],
       descripcion: 'Las piezas y partes de dispositivos electrónicos como RAEE incluyen metales preciosos, plásticos y materiales electrónicos que se extraen y reciclan.'
     }
@@ -118,7 +118,7 @@ export class InformacionComponent implements OnInit, OnDestroy {
   materialesSlides: MaterialSlide[] = [
     {
       device: 'Teléfono Móvil',
-      image: '/telefono_sin_fondo.png',
+      image: '/assets/img/telefono_sin_fondo.png',
       composition: [
         { type: 'Plástico', percentage: '40%', color: '#f59e0b' },
         { type: 'Vidrio y Cerámica', percentage: '20%', color: '#8b5cf6' },
@@ -130,7 +130,7 @@ export class InformacionComponent implements OnInit, OnDestroy {
     },
     {
       device: 'Televisor',
-      image: '/telev_personaje.png',
+      image: '/assets/img/telev_personaje.png',
       composition: [
         { type: 'Hierro', percentage: '30%', color: '#f59e0b' },
         { type: 'Plástico', percentage: '28%', color: '#8b5cf6' },
@@ -141,7 +141,7 @@ export class InformacionComponent implements OnInit, OnDestroy {
     },
     {
       device: 'Computadora',
-      image: '/tele1.png',
+      image: '/assets/img/tele1.png',
       composition: [
         { type: 'Plástico', percentage: '23%', color: '#f59e0b' },
         { type: 'Cobre', percentage: '18%', color: '#8b5cf6' },
@@ -157,6 +157,11 @@ export class InformacionComponent implements OnInit, OnDestroy {
   currentMaterialIndex = 0;
   materialInterval: any;
   activeMaterialIndex = -1;
+
+  // Propiedades para el zoom de imágenes
+  isImageZoomed = false;
+  zoomedImageSrc = '';
+  zoomedImageAlt = '';
 
   ngOnInit(): void {
     this.initAOS();
@@ -301,5 +306,29 @@ export class InformacionComponent implements OnInit, OnDestroy {
   // Función para abrir modal de normativas (se puede implementar más tarde)
   openNormativaModal(): void {
     alert('Modal de normativas - Se puede implementar con un componente modal dedicado');
+  }
+
+  // Métodos para el zoom de imágenes
+  zoomImage(imageSrc: string, imageAlt: string = ''): void {
+    this.zoomedImageSrc = imageSrc;
+    this.zoomedImageAlt = imageAlt;
+    this.isImageZoomed = true;
+    // Prevenir scroll del body cuando el zoom está activo
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeZoom(): void {
+    this.isImageZoomed = false;
+    this.zoomedImageSrc = '';
+    this.zoomedImageAlt = '';
+    // Restaurar scroll del body
+    document.body.style.overflow = 'auto';
+  }
+
+  // Método para manejar clicks en el overlay (cerrar al clickear fuera de la imagen)
+  onOverlayClick(event: MouseEvent): void {
+    if (event.target === event.currentTarget) {
+      this.closeZoom();
+    }
   }
 }

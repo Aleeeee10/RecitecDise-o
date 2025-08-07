@@ -83,7 +83,7 @@
       <!-- Card 1: ¿Qué implica? -->
       <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
         <div class="blog-card-image">
-          <img [src]="residuos[0].imagen" alt="RAEE">
+          <img [src]="residuos[0].imagen" alt="RAEE" (click)="zoomImage(residuos[0].imagen, 'RAEE')">
           <div class="blog-card-overlay">
             <span class="blog-card-category">Impacto Ambiental</span>
           </div>
@@ -109,7 +109,7 @@
       <!-- Card 2: Acción Colectiva -->
       <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
         <div class="blog-card-image">
-          <img [src]="residuos[1].imagen" alt="Acción Colectiva">
+          <img [src]="residuos[1].imagen" alt="Acción Colectiva" (click)="zoomImage(residuos[1].imagen, 'Acción Colectiva')">
           <div class="blog-card-overlay">
             <span class="blog-card-category">Participación</span>
           </div>
@@ -135,7 +135,7 @@
       <!-- Card 3: ¿Dónde entregar? -->
       <article class="blog-card" data-aos="fade-up" data-aos-delay="300">
         <div class="blog-card-image">
-          <img [src]="residuos[2].imagen" alt="Puntos de Entrega">
+          <img [src]="residuos[2].imagen" alt="Puntos de Entrega" (click)="zoomImage(residuos[2].imagen, 'Puntos de Entrega')">
           <div class="blog-card-overlay">
             <span class="blog-card-category">Ubicaciones</span>
           </div>
@@ -161,7 +161,7 @@
       <!-- Card 4: Cómo involucrarte -->
       <article class="blog-card" data-aos="fade-up" data-aos-delay="400">
         <div class="blog-card-image">
-          <img [src]="residuos[3].imagen" alt="Involúcrate">
+          <img [src]="residuos[3].imagen" alt="Involúcrate" (click)="zoomImage(residuos[3].imagen, 'Involúcrate')">
           <div class="blog-card-overlay">
             <span class="blog-card-category">Únete</span>
           </div>
@@ -283,7 +283,7 @@
               </ul>
             </div>
             <div class="slide-image">
-              <img src="/gestion.jpg" alt="Gestión positiva de RAEE" />
+              <img src="/assets/img/gestion.jpg" alt="Gestión positiva de RAEE" (click)="zoomImage('/assets/img/gestion.jpg', 'Gestión positiva de RAEE')" />
             </div>
           </div>
 
@@ -300,7 +300,7 @@
               </ul>
             </div>
             <div class="slide-image">
-              <img src="/incertidumbre.jpg" alt="Problemas en gestión de RAEE" />
+              <img src="/assets/img/incertidumbre.jpg" alt="Problemas en gestión de RAEE" (click)="zoomImage('/assets/img/incertidumbre.jpg', 'Problemas en gestión de RAEE')" />
             </div>
           </div>
 
@@ -317,7 +317,7 @@
               </ul>
             </div>
             <div class="slide-image">
-              <img src="/61 a 78.png" alt="Soluciones para RAEE" />
+              <img src="/assets/img/61 a 78.png" alt="Soluciones para RAEE" (click)="zoomImage('/assets/img/61 a 78.png', 'Soluciones para RAEE')" />
             </div>
           </div>
         </div>
@@ -374,7 +374,7 @@
               <div class="materiales-card-title-circular" style="color:#7c3aed;">Teléfono</div>
               <div class="materiales-card-content-circular">
                 <div class="circle-center" [class.active]="activeMaterialIndex === 0" (click)="activeMaterialIndex = activeMaterialIndex === 0 ? -1 : 0">
-                  <img src="/telefono_sin_fondo.png" alt="Teléfono" class="animated-image center-image" />
+                  <img src="/assets/img/telefono_sin_fondo.png" alt="Teléfono" class="animated-image center-image" (click)="zoomImage('/assets/img/telefono_sin_fondo.png', 'Teléfono'); $event.stopPropagation()" />
                   <div class="info-circle" style="--angle: 0deg;">Plástico: 40%</div>
                   <div class="info-circle" style="--angle: 36deg;">Vidrio y Cerámica: 20%</div>
                   <div class="info-circle" style="--angle: 72deg;">Cobre: 10%</div>
@@ -396,7 +396,7 @@
               <div class="materiales-card-title-circular" style="color:#7c3aed;">Televisor</div>
               <div class="materiales-card-content-circular">
                 <div class="circle-center" [class.active]="activeMaterialIndex === 1" (click)="activeMaterialIndex = activeMaterialIndex === 1 ? -1 : 1">
-                  <img src="/telev_personaje.png" alt="Televisor" class="animated-image center-image" />
+                  <img src="/assets/img/telev_personaje.png" alt="Televisor" class="animated-image center-image" (click)="zoomImage('/assets/img/telev_personaje.png', 'Televisor'); $event.stopPropagation()" />
                   <div class="info-circle" style="--angle: 36deg;">Hierro: 30%</div>
                   <div class="info-circle" style="--angle: 144deg;">Aluminio: 15%</div>
                   <div class="info-circle" style="--angle: 216deg;">Cobre: 10%</div>
@@ -412,7 +412,7 @@
               <div class="materiales-card-title-circular" style="color:#7c3aed;">Computadora</div>
               <div class="materiales-card-content-circular">
                 <div class="circle-center" [class.active]="activeMaterialIndex === 2" (click)="activeMaterialIndex = activeMaterialIndex === 2 ? -1 : 2">
-                  <img src="/tele1.png" alt="Computadora" class="animated-image center-image" />
+                  <img src="/assets/img/tele1.png" alt="Computadora" class="animated-image center-image" (click)="zoomImage('/assets/img/tele1.png', 'Computadora'); $event.stopPropagation()" />
                   <div class="info-circle" style="--angle: 36deg;">Hierro: 7%</div>
                   <div class="info-circle" style="--angle: 144deg;">Aluminio: 5%</div>
                   <div class="info-circle" style="--angle: 216deg;">Cobre: 18%</div>
@@ -450,7 +450,7 @@
         <div class="hero-visual-left" data-aos="fade-right" data-aos-delay="200">
           <div class="floating-elements">
             <div class="floating-element element-1">
-              <img src="/telefono.png" alt="Teléfono feliz" />
+              <img src="/assets/img/telefono.png" alt="Teléfono feliz" (click)="zoomImage('/assets/img/telefono.png', 'Teléfono feliz')" />
             </div>
             <div class="floating-element element-2">
               <i class="fas fa-recycle"></i>
@@ -583,7 +583,7 @@
           </p>
           <div class="hero-visual">
             <div class="floating-icon">
-              <img src="/justicia.jpeg" alt="Justicia" />
+              <img src="/assets/img/justicia.jpeg" alt="Justicia" (click)="zoomImage('/assets/img/justicia.jpeg', 'Justicia')" />
             </div>
           </div>
         </div>
@@ -723,7 +723,7 @@
         <div class="card-moderna" data-aos="fade-up" data-aos-delay="100">
           <div class="card-header-moderna">
             <div class="card-icon-moderna eco-green">
-              <img src="/implica.webp" alt="¿Qué implica gestionar los RAEE?" class="card-icon-image" />
+              <img src="/assets/img/implica.webp" alt="¿Qué implica gestionar los RAEE?" class="card-icon-image" (click)="zoomImage('/assets/img/implica.webp', '¿Qué implica gestionar los RAEE?')" />
             </div>
             <div class="card-category">Economía Circular</div>
           </div>
@@ -760,7 +760,7 @@
         <div class="card-moderna featured" data-aos="fade-up" data-aos-delay="200">
           <div class="card-header-moderna">
             <div class="card-icon-moderna tech-blue">
-              <img src="/clave.avif" alt="Acciones Clave" class="card-icon-image" />
+              <img src="/assets/img/clave.avif" alt="Acciones Clave" class="card-icon-image" (click)="zoomImage('/assets/img/clave.avif', 'Acciones Clave')" />
             </div>
             <div class="card-category">Plan de Acción</div>
           </div>
@@ -813,7 +813,7 @@
         <div class="card-moderna" data-aos="fade-up" data-aos-delay="300">
           <div class="card-header-moderna">
             <div class="card-icon-moderna location-orange">
-              <img src="/entrega.png" alt="¿Dónde se entregan los RAEE?" class="card-icon-image" />
+              <img src="/assets/img/entrega.png" alt="¿Dónde se entregan los RAEE?" class="card-icon-image" (click)="zoomImage('/assets/img/entrega.png', '¿Dónde se entregan los RAEE?')" />
             </div>
             <div class="card-category">Puntos de Entrega</div>
           </div>
@@ -866,7 +866,7 @@
         <div class="card-moderna horizontal-card" data-aos="fade-up" data-aos-delay="400">
           <div class="card-header-moderna">
             <div class="card-icon-moderna community-purple">
-              <img src="/involucrarte.jpg" alt="Cómo Involucrarte" class="card-icon-image" />
+              <img src="/assets/img/involucrarte.jpg" alt="Cómo Involucrarte" class="card-icon-image" (click)="zoomImage('/assets/img/involucrarte.jpg', 'Cómo Involucrarte')" />
             </div>
             <div class="card-category">Participación</div>
           </div>
@@ -952,7 +952,7 @@
           <div class="timeline-flow-moderna">
             <div class="timeline-step-moderna">
               <div class="timeline-icon-moderna">
-                <img src="/reciclar.jpg" alt="Reciclaje" />
+                <img src="/assets/img/reciclar.jpg" alt="Reciclaje" (click)="zoomImage('/assets/img/reciclar.jpg', 'Reciclaje')" />
               </div>
               <div class="timeline-content-moderna">
                 <h4>Recuperación de Materiales</h4>
@@ -984,4 +984,20 @@
       </div>
     </div>
   </section>
+
+  <!-- OVERLAY DE ZOOM PARA IMÁGENES -->
+  <div class="image-zoom-overlay" 
+       [class.active]="isImageZoomed" 
+       (click)="onOverlayClick($event)">
+    <div class="zoom-container">
+      <button class="zoom-close-btn" (click)="closeZoom()">
+        <i class="fas fa-times"></i>
+      </button>
+      <img [src]="zoomedImageSrc" 
+           [alt]="zoomedImageAlt" 
+           class="zoomed-image" />
+    </div>
+  </div>
+
+</div>
 

@@ -255,7 +255,7 @@
           <div class="fase-header-moderna">
             <div class="fase-numero">1</div>
             <div class="fase-icon-moderna generation-green">
-              <img src="/a.png" alt="Generación" class="fase-icon-image" />
+              <img src="/assets/img/a.png" alt="Generación" class="fase-icon-image" (click)="zoomImage('/assets/img/a.png', 'Generación')" />
             </div>
             <div class="fase-category">Inicio del Proceso</div>
           </div>
@@ -283,7 +283,7 @@
           <div class="fase-header-moderna">
             <div class="fase-numero">2</div>
             <div class="fase-icon-moderna collection-blue">
-              <img src="/c.png" alt="Recolección primaria" class="fase-icon-image" />
+              <img src="/assets/img/c.png" alt="Recolección primaria" class="fase-icon-image" (click)="zoomImage('/assets/img/c.png', 'Recolección primaria')" />
             </div>
             <div class="fase-category">Captación</div>
           </div>
@@ -311,7 +311,7 @@
           <div class="fase-header-moderna">
             <div class="fase-numero">3</div>
             <div class="fase-icon-moderna storage-orange">
-              <img src="/b.png" alt="Almacenamiento" class="fase-icon-image" />
+              <img src="/assets/img/b.png" alt="Almacenamiento" class="fase-icon-image" (click)="zoomImage('/assets/img/b.png', 'Almacenamiento')" />
             </div>
             <div class="fase-category">Custodia Segura</div>
           </div>
@@ -339,7 +339,7 @@
           <div class="fase-header-moderna">
             <div class="fase-numero">4</div>
             <div class="fase-icon-moderna transport-purple">
-              <img src="/d.png" alt="Transporte" class="fase-icon-image" />
+              <img src="/assets/img/d.png" alt="Transporte" class="fase-icon-image" (click)="zoomImage('/assets/img/d.png', 'Transporte')" />
             </div>
             <div class="fase-category">Movilización</div>
           </div>
@@ -367,7 +367,7 @@
           <div class="fase-header-moderna">
             <div class="fase-numero">5</div>
             <div class="fase-icon-moderna elimination-red">
-              <img src="/e.png" alt="Eliminación" class="fase-icon-image" />
+              <img src="/assets/img/e.png" alt="Eliminación" class="fase-icon-image" (click)="zoomImage('/assets/img/e.png', 'Eliminación')" />
             </div>
             <div class="fase-category">Tratamiento</div>
           </div>
@@ -395,7 +395,7 @@
           <div class="fase-header-moderna">
             <div class="fase-numero">6</div>
             <div class="fase-icon-moderna disposal-teal">
-              <img src="/f.png" alt="Disposición Final" class="fase-icon-image" />
+              <img src="/assets/img/f.png" alt="Disposición Final" class="fase-icon-image" (click)="zoomImage('/assets/img/f.png', 'Disposición Final')" />
             </div>
             <div class="fase-category">Finalización</div>
           </div>
@@ -494,7 +494,7 @@
         <!-- Card 1: Ciclo de vida -->
         <div class="comprension-card-moderna" data-aos="fade-right" data-aos-delay="200">
           <div class="comprension-image-moderna">
-            <img src="/g.png" alt="Ciclo de vida" class="comprension-img" />
+            <img src="/assets/img/g.png" alt="Ciclo de vida" class="comprension-img" (click)="zoomImage('/assets/img/g.png', 'Ciclo de vida')" />
             <div class="image-overlay">
               <i class="fas fa-sync-alt"></i>
             </div>
@@ -523,7 +523,7 @@
         <!-- Card 2: Instrucciones -->
         <div class="comprension-card-moderna reverse" data-aos="fade-left" data-aos-delay="400">
           <div class="comprension-image-moderna">
-            <img src="/h.png" alt="Instrucciones" class="comprension-img" />
+            <img src="/assets/img/h.png" alt="Instrucciones" class="comprension-img" (click)="zoomImage('/assets/img/h.png', 'Instrucciones')" />
             <div class="image-overlay">
               <i class="fas fa-list-ol"></i>
             </div>
@@ -560,4 +560,19 @@
       </div>
     </div>
   </section>
+
+  <!-- OVERLAY DE ZOOM PARA IMÁGENES -->
+  <div class="image-zoom-overlay" 
+       [class.active]="isImageZoomed" 
+       (click)="onOverlayClick($event)">
+    <div class="zoom-container">
+      <button class="zoom-close-btn" (click)="closeZoom()">
+        <i class="fas fa-times"></i>
+      </button>
+      <img [src]="zoomedImageSrc" 
+           [alt]="zoomedImageAlt" 
+           class="zoomed-image" />
+    </div>
+  </div>
+
 </section>
